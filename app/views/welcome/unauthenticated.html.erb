@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>
+
+      <%= content_for?(:title) ? yield(:title) : "Wautils" %> - Nova Labs
+    </title>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="bg-default">
+    <div id="layoutAuthentication">
+      <div id="layoutAuthentication_content">
+        <main>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-5">
+                <div class="card shadow-lg rounded-lg mt-5">
+                  <div class="card-header">
+                    <h3 class="text-center font-weight-light my-4">
+                      Welcome to Wautils!
+                    </h3>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                    Your friendly Wild Apricot utility and automation app,
+                    wautils. This feisty lil app adds some functionality that
+                    is not available in the default portal.
+                    </p>
+                    <p class="lead">
+                    </p><div class="row">
+                      <div class="col">
+                        <a href="<%= login_path %>" class="btn btn-primary">Sign In</a>
+                      </div>
+                    </div>
+                    <p></p>
+                    <p>Use your portal.nova-labs.org email and password.</p>
+                  </div>
+                  <div class="card-footer text-center py-3">
+                    <div class="small"><a href="<%= wa_url %>">Visit the member Portal</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+              <div class="text-muted">
+                Created by the fine folks at <%= page_title %> &copy; <%= Date.today.year %>
+              </div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

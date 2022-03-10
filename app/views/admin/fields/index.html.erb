@@ -1,0 +1,38 @@
+<% content_for :title, "Fields Admin" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Admin", to: admin_path %>
+  <%= crumb "Fields", active: true %>
+<% end %>
+
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col" class="d-none d-sm-table-cell">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">System Code</th>
+        <th scope="col">System</th>
+        <th scope="col">Editable</th>
+        <th scope="col">Order</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @fields.each do |field| %>
+        <tr>
+          <td class="d-none d-sm-table-cell"><%= field.uid %></td>
+          <td>
+            <a href="<%= admin_field_path(field) %>"><%= field.field_name %></a>
+          </td>
+          <td><%= field.field_type %></td>
+          <td><%= field.system_code %></td>
+          <td><%= field.system %></td>
+          <td><%= field.editable %></td>
+          <td><%= field.order %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+<li value="<%= user.uid %>" class="contact-to-add list-group-item">
+  <a data-value="<%= user.id %>" data-url="<%=contact_batch_update_tool_path%>" data-action="click->batch-update-tool#add">
+    <%= user.first_name %> <%= user.last_name %> &lt;<%= user.email %>&gt;
+  </a>
+</li>
+<% end %>

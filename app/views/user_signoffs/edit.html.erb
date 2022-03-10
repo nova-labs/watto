@@ -1,0 +1,40 @@
+<% content_for :title, "Edit Signoffs for #{@user.first_name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Members", to: users_path %>
+  <%= crumb @user.name, to: user_path(@user) %>
+  <%= crumb "Sign-offs", active: true %>
+<% end %>
+
+<hr>
+
+<%= render "shared/flash" %>
+
+<%= form_for @field, url: user_signoffs_path(@user) do |f| %>
+  <% if @field.field_type == "String" %>
+    <input name="string_value" type="text" value="" maxlength="50" class="typeText">
+  <% elsif @field.field_type == "MultipleChoice" %>
+    <% unless @field.allowed_values.empty? %>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <% @field.allowed_values.each do |v| %>
+              <tr>
+                <td scope="row">
+                  <input type="checkbox" id="field-<%= v.uid %>" name="multiple_choice_values[]id" class="form-check-input" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
+                  <label for="field-<%= v.uid %>">
+                    <%= user_field_value_badge(v) %>
+                    <%= v.name %>
+                  </label>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.submit "Update Sign-offs", class: "btn btn-primary"  %>
+<% end %>
+
+<br>

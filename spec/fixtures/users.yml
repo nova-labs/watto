@@ -1,0 +1,25 @@
+doctor:
+  name: The Doctor
+  first_name: The
+  uid: 59100437
+  email: the_doctor@example.test
+  account_administrator: true
+  admin: false
+amy:
+  name: Amy Pond
+  first_name: Amy
+  last_name: Pond
+  uid: 59308919
+  email: amy_pond@example.test
+  account_administrator: false
+  admin: false
+rory:
+  name: Rory Pond
+  first_name: Rory
+  last_name: Pond
+  uid: 59318549
+  email: rory_pond@example.test
+  account_administrator: false
+  admin: false
+
+

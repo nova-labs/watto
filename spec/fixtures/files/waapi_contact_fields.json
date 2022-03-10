@@ -1,0 +1,1963 @@
+[
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3007",
+      "Id":3007,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Archived",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact record is archived.",
+      "Order":0,
+      "SystemCode":"IsArchived"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3019",
+      "Id":3019,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Donor",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact has made donations at least once.",
+      "Order":0,
+      "SystemCode":"IsDonor"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3020",
+      "Id":3020,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Event registrant",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact attended at least one event.",
+      "Order":0,
+      "SystemCode":"IsEventAttendee"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3021",
+      "Id":3021,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Member",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact is a member.",
+      "Order":0,
+      "SystemCode":"IsMember"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3022",
+      "Id":3022,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Suspended member",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact is a suspended member.",
+      "Order":0,
+      "SystemCode":"IsSuspendedMember"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3013",
+      "Id":3013,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Event announcements",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether event announcements are enabled within the contact's email preferences.",
+      "Order":0,
+      "SystemCode":"ReceiveEventReminders"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3014",
+      "Id":3014,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Member emails and newsletters",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether manually sent emails are enabled within the contact's email preferences.",
+      "Order":0,
+      "SystemCode":"ReceiveNewsletters"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3017",
+      "Id":3017,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Email delivery disabled",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether email delivery is disabled for this contact, either because no email address was specified or the delivery of emails was disabled.",
+      "Order":0,
+      "SystemCode":"EmailDisabled"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3018",
+      "Id":3018,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Receiving emails disabled",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the delivery of all emails was disabled from the contact's email preferences.",
+      "Order":0,
+      "SystemCode":"RecievingEMailsDisabled"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3029",
+      "Id":3029,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Balance",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Balance",
+      "Order":0,
+      "SystemCode":"Balance"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3030",
+      "Id":3030,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Total donated",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The total value of all donations made by this contact.",
+      "Order":0,
+      "SystemCode":"TotalDonated"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3023",
+      "Id":3023,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Registered for specific event",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Registered for specific event",
+      "Order":0,
+      "SystemCode":"RegistredForEvent"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3024",
+      "Id":3024,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Profile last updated",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time the contact record was last updated.",
+      "Order":0,
+      "SystemCode":"LastUpdated"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3025",
+      "Id":3025,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":false,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Profile last updated by",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Identifier of member, who last updated the contact.",
+      "Order":0,
+      "SystemCode":"LastUpdatedBy"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3026",
+      "Id":3026,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Creation date",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time the contact record was created.",
+      "Order":0,
+      "SystemCode":"CreationDate"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3028",
+      "Id":3028,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Last login date",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time the contact last logged in to their account.",
+      "Order":0,
+      "SystemCode":"LastLoginDate"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3032",
+      "Id":3032,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":false,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"MultipleChoice",
+      "FieldName":"Administrator role",
+      "Type":"MultipleChoice",
+      "AllowedValues":[
+         {
+            "Id":0,
+            "Label":null,
+            "Value":"Undefined",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":1,
+            "Label":"Website editor",
+            "Value":"WebSiteEditor",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":2,
+            "Label":"Membership manager",
+            "Value":"MembershipManager",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":4,
+            "Label":"Event manager",
+            "Value":"EventManager",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":8,
+            "Label":"Donations manager",
+            "Value":"DonationManager",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":16,
+            "Label":"Restricted website editor",
+            "Value":"RestrictedWebSiteEditor",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":32,
+            "Label":"Newsletter manager",
+            "Value":"NewsletterManager",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":64,
+            "Label":"Online store manager",
+            "Value":"StoreManager",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":128,
+            "Label":"Account administrator (Read-only access)",
+            "Value":"AccountReadOnlyAdministrator",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":256,
+            "Label":"Account administrator (Full access)",
+            "Value":"AccountAdministrator",
+            "SelectedByDefault":false,
+            "Position":0
+         }
+      ],
+      "IsSystem":true,
+      "Description":"Administrator role",
+      "Order":0,
+      "DisplayType":"CheckboxGroup",
+      "SystemCode":"AdminRole"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3009",
+      "Id":3009,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"MultilineText",
+      "FieldName":"Notes",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Any notes added to the contact's record.",
+      "Order":0,
+      "DisplayType":"MultilineText",
+      "SystemCode":"Notes"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3031",
+      "Id":3031,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":false,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldType":"RulesAndTerms",
+      "FieldName":"Terms of use accepted",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Terms of use accepted",
+      "Order":0,
+      "SystemCode":"SystemRulesAndTermsAccepted",
+      "RulesAndTermsInfo":{
+         "Text":null,
+         "Link":"http://www.wildapricot.com/termsofuse.aspx"
+      }
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3027",
+      "Id":3027,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldType":"MultipleChoice",
+      "FieldName":"Subscription source",
+      "Type":"MultipleChoice",
+      "AllowedValues":[
+         {
+            "Id":339360,
+            "Label":"Subscribe to our Newsletter",
+            "Value":"339360",
+            "SelectedByDefault":false,
+            "Position":0
+         }
+      ],
+      "IsSystem":true,
+      "Description":"Subscription source",
+      "Order":0,
+      "DisplayType":"CheckboxGroup",
+      "SystemCode":"SubscriptionSource"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7003",
+      "Id":7003,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Member role",
+      "Type":"Choice",
+      "AllowedValues":[
+         {
+            "Id":1,
+            "Label":"Bundle administrator",
+            "Value":"1",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":2,
+            "Label":"Bundle member",
+            "Value":"2",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":0,
+            "Label":"Individual",
+            "Value":"0",
+            "SelectedByDefault":false,
+            "Position":0
+         }
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the contact is an individual member, a bundle member, or a bundle administrator.",
+      "Order":0,
+      "SystemCode":"MemberRole"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7005",
+      "Id":7005,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Member since",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time that the contact became a member.",
+      "Order":0,
+      "SystemCode":"MemberSince"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7006",
+      "Id":7006,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Renewal due",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time of the member's next renewal date.",
+      "Order":0,
+      "SystemCode":"RenewalDue"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7010",
+      "Id":7010,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Membership level ID",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The identifier of the membership level assigned to the contact (if any).",
+      "Order":0,
+      "SystemCode":"MembershipLevelId"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7013",
+      "Id":7013,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Access to profile by others",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Indicates whether the Show profile option is enabled in this member's privacy settings.",
+      "Order":0,
+      "SystemCode":"AccessToProfileByOthers"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7020",
+      "Id":7020,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Renewal date last changed",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time the member's renewal date was last changed.",
+      "Order":0,
+      "SystemCode":"RenewalDateLastChanged"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7021",
+      "Id":7021,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Level last changed",
+      "Type":"DateTime",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"The date and time the contact's membership level was last changed",
+      "Order":0,
+      "SystemCode":"LevelLastChanged"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7023",
+      "Id":7023,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":false,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Bundle ID",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Bundle ID which member belongs to",
+      "Order":0,
+      "SystemCode":"BundleId"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7007",
+      "Id":7007,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldName":"Membership status",
+      "Type":"Choice",
+      "AllowedValues":[
+         {
+            "Id":1,
+            "Label":"Active",
+            "Value":"Active",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":2,
+            "Label":"Lapsed",
+            "Value":"Lapsed",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":20,
+            "Label":"Pending - New",
+            "Value":"PendingNew",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":3,
+            "Label":"Pending - Renewal",
+            "Value":"PendingRenewal",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":30,
+            "Label":"Pending - Level change",
+            "Value":"PendingUpgrade",
+            "SelectedByDefault":false,
+            "Position":0
+         }
+      ],
+      "IsSystem":true,
+      "Description":"The status of the contact's membership.",
+      "Order":0,
+      "SystemCode":"Status"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7001",
+      "Id":7001,
+      "Access":"Nobody",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         },
+         {
+            "Id":1291704,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1291704"
+         },
+         {
+            "Id":1328237,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1328237"
+         },
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         },
+         {
+            "Id":1349746,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1349746"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":true,
+      "SupportSearch":false,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"Membership enabled",
+      "Type":"Boolean",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "Description":"Membership enabled",
+      "Order":0,
+      "SystemCode":"MembershipEnabled"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3001",
+      "Id":3001,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":false,
+      "AdminOnly":false,
+      "FieldName":"User ID",
+      "Type":"Number",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a read-only system field used to uniquely identify the member or contact.",
+      "MaxLength":50,
+      "Order":0,
+      "SystemCode":"MemberId"
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3003",
+      "Id":3003,
+      "Access":"Public",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"First name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (first name).   It cannot be deleted.",
+      "MaxLength":50,
+      "Order":1,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"FirstName",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3004",
+      "Id":3004,
+      "Access":"Public",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Last name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (last name).  It cannot be deleted.",
+      "MaxLength":50,
+      "Order":2,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"LastName",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3005",
+      "Id":3005,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":true,
+      "FieldType":"Text",
+      "FieldName":"Organization",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (organization).  It cannot be deleted.",
+      "MaxLength":250,
+      "Order":3,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"Organization",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3002",
+      "Id":3002,
+      "Access":"Public",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Email",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (email).   It is mandatory for online self-service transactions and cannot be deleted.",
+      "MaxLength":100,
+      "Order":4,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"Email",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3006",
+      "Id":3006,
+      "Access":"Public",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Phone",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (phone).  It cannot be deleted.",
+      "MaxLength":50,
+      "Order":5,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"Phone",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/12940164",
+      "Id":12940164,
+      "Access":"Nobody",
+      "MemberOnly":false,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":true,
+      "FieldType":"Text",
+      "FieldName":"Badge Number",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"This is the RFID Badge Number",
+      "MaxLength":250,
+      "Order":6,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-12940164",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7002",
+      "Id":7002,
+      "Access":"Nobody",
+      "MemberAccess":"Nobody",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":true,
+      "FieldName":"Group participation",
+      "Type":"MultipleChoice",
+      "AllowedValues":[
+         {
+            "Id":610657,
+            "Label":"Board Members",
+            "Value":"610657",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":618207,
+            "Label":"Instructors and Hosts",
+            "Value":"618207",
+            "SelectedByDefault":false,
+            "Position":0
+         }
+      ],
+      "IsSystem":true,
+      "FieldInstructions":"",
+      "Description":"This is a system field (groups).   It cannot be deleted.",
+      "Order":0,
+      "SystemCode":"Groups",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316818",
+      "Id":13316818,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "ExistsInLevels":[
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Parent First Name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":1,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316818",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316911",
+      "Id":13316911,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "ExistsInLevels":[
+         {
+            "Id":1256290,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1256290"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Parent Last Name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":2,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316911",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316937",
+      "Id":13316937,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Emergency Contact First Name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":3,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316937",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316938",
+      "Id":13316938,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Emergency Contact Last Name",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":4,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316938",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316939",
+      "Id":13316939,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Emergency Contact Phone",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":5,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316939",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316940",
+      "Id":13316940,
+      "Access":"Nobody",
+      "MemberAccess":"EditInProfileAndInApplicationForm",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Emergency Contact Relation",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":6,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13316940",
+      "IsRequired":true
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13082555",
+      "Id":13082555,
+      "Access":"Nobody",
+      "MemberAccess":"ViewOnly",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"MultipleChoice",
+      "FieldName":"NL Signoff Permissions",
+      "Type":"MultipleChoice",
+      "AllowedValues":[
+         {
+            "Id":14917543,
+            "Label":"3D",
+            "Value":"14917543",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":14917544,
+            "Label":"AC",
+            "Value":"14917544",
+            "SelectedByDefault":false,
+            "Position":1
+         },
+         {
+            "Id":14917545,
+            "Label":"WW",
+            "Value":"14917545",
+            "SelectedByDefault":false,
+            "Position":2
+         },
+         {
+            "Id":14917546,
+            "Label":"MS",
+            "Value":"14917546",
+            "SelectedByDefault":false,
+            "Position":3
+         }
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"Ability to issue sign-offs to others",
+      "Order":8,
+      "DisplayType":"CheckboxGroup",
+      "SystemCode":"custom-13082555",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/12971567",
+      "Id":12971567,
+      "Access":"Nobody",
+      "MemberAccess":"ViewOnly",
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"MultipleChoice",
+      "FieldName":"NL Signoffs and Categories",
+      "Type":"MultipleChoice",
+      "AllowedValues":[
+         {
+            "Id":14759088,
+            "Label":"[equipment] 3D_FDM Printers",
+            "Value":"14759088",
+            "SelectedByDefault":false,
+            "Position":0
+         },
+         {
+            "Id":14759089,
+            "Label":"[equipment] 3D_HP_3D Scanner",
+            "Value":"14759089",
+            "SelectedByDefault":false,
+            "Position":1
+         },
+         {
+            "Id":14759090,
+            "Label":"[equipment] 3d_Phrozen_LCD SLA",
+            "Value":"14759090",
+            "SelectedByDefault":false,
+            "Position":2
+         },
+         {
+            "Id":14759091,
+            "Label":"[equipment] AC_APW_Heat Press",
+            "Value":"14759091",
+            "SelectedByDefault":false,
+            "Position":3
+         },
+         {
+            "Id":14759092,
+            "Label":"[equipment] AC_Consew_Sewing Machine",
+            "Value":"14759092",
+            "SelectedByDefault":false,
+            "Position":4
+         },
+         {
+            "Id":14759093,
+            "Label":"[equipment] AC_Happy_Embroidery Machine",
+            "Value":"14759093",
+            "SelectedByDefault":false,
+            "Position":5
+         },
+         {
+            "Id":14759094,
+            "Label":"[equipment] AC_NA_Embroidery Machine Safety",
+            "Value":"14759094",
+            "SelectedByDefault":false,
+            "Position":6
+         },
+         {
+            "Id":14759095,
+            "Label":"[equipment] AC_PFAFF_Embroidery Machine",
+            "Value":"14759095",
+            "SelectedByDefault":false,
+            "Position":7
+         },
+         {
+            "Id":14759096,
+            "Label":"[equipment] AC_Silhouette_Electronic Cutter",
+            "Value":"14759096",
+            "SelectedByDefault":false,
+            "Position":8
+         },
+         {
+            "Id":14759097,
+            "Label":"[equipment] AC_USCutter_Vinyl Cutter",
+            "Value":"14759097",
+            "SelectedByDefault":false,
+            "Position":9
+         },
+         {
+            "Id":14759098,
+            "Label":"[equipment] AV_various_Studio",
+            "Value":"14759098",
+            "SelectedByDefault":false,
+            "Position":10
+         },
+         {
+            "Id":14759099,
+            "Label":"[equipment] BL_Blacksmithing Safety",
+            "Value":"14759099",
+            "SelectedByDefault":false,
+            "Position":11
+         },
+         {
+            "Id":14759100,
+            "Label":"[equipment] BL_Blacksmithing Setup",
+            "Value":"14759100",
+            "SelectedByDefault":false,
+            "Position":12
+         },
+         {
+            "Id":14759101,
+            "Label":"[equipment] BL_Coal Ironworks_Hydraulic Forging Press*",
+            "Value":"14759101",
+            "SelectedByDefault":false,
+            "Position":13
+         },
+         {
+            "Id":14759102,
+            "Label":"[equipment] BL_Origin Blade Maker_72in Belt Grinder",
+            "Value":"14759102",
+            "SelectedByDefault":false,
+            "Position":14
+         },
+         {
+            "Id":14759103,
+            "Label":"[equipment] CC_ShopSabre Safety",
+            "Value":"14759103",
+            "SelectedByDefault":false,
+            "Position":15
+         },
+         {
+            "Id":14759104,
+            "Label":"[equipment] CS_Kervina_Thermoformer",
+            "Value":"14759104",
+            "SelectedByDefault":false,
+            "Position":16
+         },
+         {
+            "Id":14759105,
+            "Label":"[equipment] EL_Reflow Station Safety",
+            "Value":"14759105",
+            "SelectedByDefault":false,
+            "Position":17
+         },
+         {
+            "Id":14759106,
+            "Label":"[equipment] EL_Yellow Safety",
+            "Value":"14759106",
+            "SelectedByDefault":false,
+            "Position":18
+         },
+         {
+            "Id":14759107,
+            "Label":"[equipment] LC_NA_Roller Rotary tool",
+            "Value":"14759107",
+            "SelectedByDefault":false,
+            "Position":19
+         },
+         {
+            "Id":14759108,
+            "Label":"[equipment] MW_Everlast_TIG Welder",
+            "Value":"14759108",
+            "SelectedByDefault":false,
+            "Position":20
+         },
+         {
+            "Id":14759109,
+            "Label":"[equipment] MW_Everlast_Hand Plasma Cutter",
+            "Value":"14759109",
+            "SelectedByDefault":false,
+            "Position":21
+         },
+         {
+            "Id":14759110,
+            "Label":"[equipment] MW_Matsuura_CNC Mill",
+            "Value":"14759110",
+            "SelectedByDefault":false,
+            "Position":22
+         },
+         {
+            "Id":14759111,
+            "Label":"[equipment] MW_Miller_MIG Welder",
+            "Value":"14759111",
+            "SelectedByDefault":false,
+            "Position":23
+         },
+         {
+            "Id":14759112,
+            "Label":"[equipment] MW_Nice Cut_CNC plasma cutter",
+            "Value":"14759112",
+            "SelectedByDefault":false,
+            "Position":24
+         },
+         {
+            "Id":14759113,
+            "Label":"[equipment] MWS_Central Forge_Throatless Shear",
+            "Value":"14759113",
+            "SelectedByDefault":false,
+            "Position":25
+         },
+         {
+            "Id":14759114,
+            "Label":"[equipment] MWS_Chicago Electric_Spot Welder",
+            "Value":"14759114",
+            "SelectedByDefault":false,
+            "Position":26
+         },
+         {
+            "Id":14759115,
+            "Label":"[equipment] MWS_Woodward Fab_Sheet Metal Brake",
+            "Value":"14759115",
+            "SelectedByDefault":false,
+            "Position":27
+         },
+         {
+            "Id":14759116,
+            "Label":"[equipment] MWS_Woodward Fab_Sheet Metal Shear",
+            "Value":"14759116",
+            "SelectedByDefault":false,
+            "Position":28
+         },
+         {
+            "Id":14759117,
+            "Label":"[equipment] MWY__Yellow Safety",
+            "Value":"14759117",
+            "SelectedByDefault":false,
+            "Position":29
+         },
+         {
+            "Id":14759118,
+            "Label":"[equipment] MWY_Central Forge_Media Blaster",
+            "Value":"14759118",
+            "SelectedByDefault":false,
+            "Position":30
+         },
+         {
+            "Id":14759119,
+            "Label":"[equipment] MWY_Central Machinery_1x30 Belt Sander",
+            "Value":"14759119",
+            "SelectedByDefault":false,
+            "Position":31
+         },
+         {
+            "Id":14759120,
+            "Label":"[equipment] MWY_Delta_Bench Grinder",
+            "Value":"14759120",
+            "SelectedByDefault":false,
+            "Position":32
+         },
+         {
+            "Id":14759121,
+            "Label":"[equipment] MWY_Grizzly_Cold Cut Saw",
+            "Value":"14759121",
+            "SelectedByDefault":false,
+            "Position":33
+         },
+         {
+            "Id":14759122,
+            "Label":"[equipment] MWY_Grizzly_Horizontal Bandsaw",
+            "Value":"14759122",
+            "SelectedByDefault":false,
+            "Position":34
+         },
+         {
+            "Id":14759123,
+            "Label":"[equipment] MWY_MXB_Grizzly_Vertical Bandsaw",
+            "Value":"14759123",
+            "SelectedByDefault":false,
+            "Position":35
+         },
+         {
+            "Id":14759124,
+            "Label":"[equipment] MWY_Milwaukee_Portaband",
+            "Value":"14759124",
+            "SelectedByDefault":false,
+            "Position":36
+         },
+         {
+            "Id":14759125,
+            "Label":"[equipment] MWY_Northern Industrial_Drill Press",
+            "Value":"14759125",
+            "SelectedByDefault":false,
+            "Position":37
+         },
+         {
+            "Id":14759126,
+            "Label":"[equipment] MWY_Rigid_Abrasive Chopsaw",
+            "Value":"14759126",
+            "SelectedByDefault":false,
+            "Position":38
+         },
+         {
+            "Id":14759127,
+            "Label":"[equipment] MWY_Various_Angle Grinders",
+            "Value":"14759127",
+            "SelectedByDefault":false,
+            "Position":39
+         },
+         {
+            "Id":14759128,
+            "Label":"[equipment] TS_various_Jewelry Soldering Equipment Safety",
+            "Value":"14759128",
+            "SelectedByDefault":false,
+            "Position":40
+         },
+         {
+            "Id":14759129,
+            "Label":"[equipment] TS_Various_Stained Glass",
+            "Value":"14759129",
+            "SelectedByDefault":false,
+            "Position":41
+         },
+         {
+            "Id":14759130,
+            "Label":"[equipment] WW_SawStop_Table Saw",
+            "Value":"14759130",
+            "SelectedByDefault":false,
+            "Position":42
+         },
+         {
+            "Id":14759131,
+            "Label":"[equipment] WW_Various_Lathes",
+            "Value":"14759131",
+            "SelectedByDefault":false,
+            "Position":43
+         },
+         {
+            "Id":14759132,
+            "Label":"[equipment] WW_Various_Routers",
+            "Value":"14759132",
+            "SelectedByDefault":false,
+            "Position":44
+         },
+         {
+            "Id":14759133,
+            "Label":"[equipment] WWB_Bandsaw_Safety",
+            "Value":"14759133",
+            "SelectedByDefault":false,
+            "Position":45
+         },
+         {
+            "Id":14759134,
+            "Label":"[equipment] WWB_MXB_General_Bandsaw",
+            "Value":"14759134",
+            "SelectedByDefault":false,
+            "Position":46
+         },
+         {
+            "Id":14759135,
+            "Label":"[equipment] WWB_MXB_Rikon_Bandsaw",
+            "Value":"14759135",
+            "SelectedByDefault":false,
+            "Position":47
+         },
+         {
+            "Id":14759136,
+            "Label":"[equipment] WWM_Jet_Thickness Sander",
+            "Value":"14759136",
+            "SelectedByDefault":false,
+            "Position":48
+         },
+         {
+            "Id":14759137,
+            "Label":"[equipment] WWY_Delta_Spindle/Oscillating Sander",
+            "Value":"14759137",
+            "SelectedByDefault":false,
+            "Position":49
+         },
+         {
+            "Id":14759138,
+            "Label":"[equipment] WWY_Dewalt_Scroll Saw",
+            "Value":"14759138",
+            "SelectedByDefault":false,
+            "Position":50
+         },
+         {
+            "Id":14759139,
+            "Label":"[equipment] WWY_MXB_Grizzly_Bandsaw",
+            "Value":"14759139",
+            "SelectedByDefault":false,
+            "Position":51
+         },
+         {
+            "Id":14759140,
+            "Label":"[equipment] WWY_Powermatic_Hollow Chisel Mortiser",
+            "Value":"14759140",
+            "SelectedByDefault":false,
+            "Position":52
+         },
+         {
+            "Id":14759141,
+            "Label":"[equipment] WWY_Various_Drill Press",
+            "Value":"14759141",
+            "SelectedByDefault":false,
+            "Position":53
+         },
+         {
+            "Id":14759142,
+            "Label":"[nlgroup] accounting",
+            "Value":"14759142",
+            "SelectedByDefault":false,
+            "Position":54
+         },
+         {
+            "Id":14759143,
+            "Label":"[nlgroup] admins",
+            "Value":"14759143",
+            "SelectedByDefault":false,
+            "Position":55
+         },
+         {
+            "Id":14759144,
+            "Label":"[nlgroup] associates",
+            "Value":"14759144",
+            "SelectedByDefault":false,
+            "Position":56
+         },
+         {
+            "Id":14759145,
+            "Label":"[nlgroup] blogadmins",
+            "Value":"14759145",
+            "SelectedByDefault":false,
+            "Position":57
+         },
+         {
+            "Id":14759146,
+            "Label":"[nlgroup] dbadmins",
+            "Value":"14759146",
+            "SelectedByDefault":false,
+            "Position":58
+         },
+         {
+            "Id":14759147,
+            "Label":"[nlgroup] directors",
+            "Value":"14759147",
+            "SelectedByDefault":false,
+            "Position":59
+         },
+         {
+            "Id":14759148,
+            "Label":"[nlgroup] facilities",
+            "Value":"14759148",
+            "SelectedByDefault":false,
+            "Position":60
+         },
+         {
+            "Id":14759149,
+            "Label":"[nlgroup] founders",
+            "Value":"14759149",
+            "SelectedByDefault":false,
+            "Position":61
+         },
+         {
+            "Id":14759150,
+            "Label":"[nlgroup] GO_New Member Orientation",
+            "Value":"14759150",
+            "SelectedByDefault":false,
+            "Position":62
+         },
+         {
+            "Id":14759151,
+            "Label":"[nlgroup] members",
+            "Value":"14759151",
+            "SelectedByDefault":false,
+            "Position":63
+         },
+         {
+            "Id":14759152,
+            "Label":"[nlgroup] Minor Age 11-15",
+            "Value":"14759152",
+            "SelectedByDefault":false,
+            "Position":64
+         },
+         {
+            "Id":14759153,
+            "Label":"[nlgroup] Minor Age 16-17",
+            "Value":"14759153",
+            "SelectedByDefault":false,
+            "Position":65
+         },
+         {
+            "Id":14759154,
+            "Label":"[nlgroup] Minor Age 8-10",
+            "Value":"14759154",
+            "SelectedByDefault":false,
+            "Position":66
+         },
+         {
+            "Id":14759155,
+            "Label":"[nlgroup] officers",
+            "Value":"14759155",
+            "SelectedByDefault":false,
+            "Position":67
+         },
+         {
+            "Id":14759156,
+            "Label":"[nlgroup] operations",
+            "Value":"14759156",
+            "SelectedByDefault":false,
+            "Position":68
+         },
+         {
+            "Id":14759157,
+            "Label":"[nlgroup] waiver",
+            "Value":"14759157",
+            "SelectedByDefault":false,
+            "Position":69
+         },
+         {
+            "Id":14759158,
+            "Label":"[nlgroup] wautils",
+            "Value":"14759158",
+            "SelectedByDefault":false,
+            "Position":70
+         },
+         {
+            "Id":14759159,
+            "Label":"[nlgroup] wikiadmins",
+            "Value":"14759159",
+            "SelectedByDefault":false,
+            "Position":71
+         },
+         {
+            "Id":14759160,
+            "Label":"[novapass] CC_ShopSabre_CNC Router",
+            "Value":"14759160",
+            "SelectedByDefault":false,
+            "Position":72
+         },
+         {
+            "Id":14759161,
+            "Label":"[novapass] LC_Hurricane_Laser Cutter",
+            "Value":"14759161",
+            "SelectedByDefault":false,
+            "Position":73
+         },
+         {
+            "Id":14759162,
+            "Label":"[novapass] LC_Rabbit_Laser Cutter",
+            "Value":"14759162",
+            "SelectedByDefault":false,
+            "Position":74
+         },
+         {
+            "Id":14759163,
+            "Label":"[novapass] MW_Enco_Metal Lathe",
+            "Value":"14759163",
+            "SelectedByDefault":false,
+            "Position":75
+         },
+         {
+            "Id":14759164,
+            "Label":"[novapass] MW_Enco_Vertical Mill",
+            "Value":"14759164",
+            "SelectedByDefault":false,
+            "Position":76
+         },
+         {
+            "Id":14759165,
+            "Label":"[novapass] SL_FormLabs_SLA Printer",
+            "Value":"14759165",
+            "SelectedByDefault":false,
+            "Position":77
+         },
+         {
+            "Id":14759166,
+            "Label":"[novapass] WWM_Delta_Planer",
+            "Value":"14759166",
+            "SelectedByDefault":false,
+            "Position":78
+         },
+         {
+            "Id":14759167,
+            "Label":"[novapass] WWM_Laguna_Jointer",
+            "Value":"14759167",
+            "SelectedByDefault":false,
+            "Position":79
+         },
+         {
+            "Id":14759168,
+            "Label":"[novapass] WWR_Dewalt_Sliding miter saw",
+            "Value":"14759168",
+            "SelectedByDefault":false,
+            "Position":80
+         },
+         {
+            "Id":14759169,
+            "Label":"[novapass] WWR_SawStop_Table Saw",
+            "Value":"14759169",
+            "SelectedByDefault":false,
+            "Position":81
+         }
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "Order":9,
+      "DisplayType":"CheckboxGroup",
+      "SystemCode":"custom-12971567",
+      "IsRequired":false
+   },
+   {
+      "Url":"https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13101588",
+      "Id":13101588,
+      "Access":"Nobody",
+      "MemberAccess":"ViewOnly",
+      "ExistsInLevels":[
+         {
+            "Id":1264966,
+            "Url":"https://api.wildapricot.org/v2.2/accounts/354313/MembershipLevels/1264966"
+         }
+      ],
+      "MemberOnly":true,
+      "IsBuiltIn":false,
+      "SupportSearch":true,
+      "IsEditable":true,
+      "AdminOnly":false,
+      "FieldType":"Text",
+      "FieldName":"Primary Member ID",
+      "Type":"String",
+      "AllowedValues":[
+
+      ],
+      "IsSystem":false,
+      "FieldInstructions":"",
+      "MaxLength":250,
+      "Order":11,
+      "DisplayType":"SingleLineText",
+      "SystemCode":"custom-13101588",
+      "IsRequired":false
+   }
+]

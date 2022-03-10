@@ -1,0 +1,41 @@
+<% content_for :title, "Members" %>
+
+<% content_for :search_area do %>
+  <form method="get" action="<%= users_path %>">
+    <input name="q" value="<%= params[:q] %>" class="form-control" type="text" placeholder="Search by name or email" />
+    <% if params[:q] %>
+      <a class="small" href="<%= events_path %>">Clear Search</a>
+    <% end %>
+  </form>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Members", active: true %>
+<% end %>
+
+
+<div class="row">
+  <div class="col">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Membership</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |member| %>
+          <tr>
+            <td><%= member.uid %></td>
+            <td><%= link_to member.name, user_path(member) %></td>
+            <td><%= member.email %></td>
+            <td><%= member.membership_level_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users, params: {q: params[:q]} %>
+  </div>
+</div>

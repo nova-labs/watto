@@ -1,0 +1,43 @@
+---
+amy_ww:
+  value: '14917545'
+  label: WW
+  system_code: custom-13082555
+  user: amy
+  field: signoff_permissions
+  field_allowed_value_id:
+amy_3d_fdm_printers:
+  value: '14759088'
+  label: '[equipment] 3D_FDM Printers'
+  system_code: custom-12971567
+  user: amy
+  field: signoffs
+  field_allowed_value_id:
+amy_3d_sla_printers:
+  value: '14759090'
+  label: '[equipment] 3d_Phrozen_LCD SLA'
+  system_code: custom-12971567
+  user: amy
+  field: signoffs
+  field_allowed_value_id:
+amy_ww_sawstop:
+  value: '14759130'
+  label: '[equipment] WW_SawStop_Table Saw'
+  system_code: custom-12971567
+  user: amy
+  field: signoffs
+  field_allowed_value_id:
+amy_ww_drillpress:
+  value: '14759141'
+  label: '[equipment] WWY_Various_Drill Press'
+  system_code: custom-12971567
+  user: amy
+  field: signoffs
+  field_allowed_value_id:
+amy_wautils:
+  value: '14759158'
+  label: '[nlgroup] wautils'
+  system_code: custom-12971567
+  user: amy
+  field: signoffs
+  field_allowed_value_id:

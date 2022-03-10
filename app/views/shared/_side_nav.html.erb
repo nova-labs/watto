@@ -1,0 +1,56 @@
+<div id="layoutSidenav_nav">
+  <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+      <div class="nav">
+        <div class="sb-sidenav-menu-heading">Nova Labs</div>
+        <a class="nav-link" href="<%= wa_url %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
+          Member Portal
+        </a>
+        <div class="sb-sidenav-menu-heading">Wautils</div>
+        <a class="nav-link" href="<%= root_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+          Home
+        </a>
+
+        <a class="nav-link" href="<%= events_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+          Events
+        </a>
+
+        <a class="nav-link" href="<%= users_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+          Members
+        </a>
+
+        <a class="nav-link" href="<%= batch_update_tool_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
+          Sign-offs by Tool
+        </a>
+
+        <% if false %>
+          <div class="sb-sidenav-menu-heading">Super Secret Admin</div>
+          <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseadmin" aria-expanded="false" aria-controls="collapseadmin">
+            <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
+            Admin
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <div class="collapse" id="collapseadmin" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionadmin">
+              <a class="nav-link" href="<%= admin_fields_path%>">Fields</a>
+              <a class="nav-link" href="<%= admin_users_path %>">Members</a>
+              <a class="nav-link" href="<%= admin_sync_path %>">Sync</a>
+            </nav>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="sb-sidenav-footer">
+      <% if current_user %>
+        <div class="small">Logged in as:<br>
+        <%= current_user.email %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+</div>

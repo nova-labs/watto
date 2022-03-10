@@ -1,0 +1,47 @@
+<% content_for :title, "Events" %>
+
+<% content_for :search_area do %>
+  <form method="get" action="<%= events_path %>">
+    <input name="q" value="<%= params[:q] %>" class="form-control" type="text" placeholder="Search by name or email" />
+    <input type="checkbox" class="form-field small" name="past" id="past" value="true" >
+    <label for="past" class="small">Past Events</label>
+    <% if params[:q] %>
+      <a class="small" href="<%= events_path %>">Clear Search</a>
+    <% end %>
+  </form>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Events", active: true %>
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col" class="d-none d-sm-table-cell">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Start Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td class="d-none d-sm-table-cell"><%= event.uid %></td>
+              <td>
+                <%= link_to event.name, event %>
+              </td>
+              <td><%= event.location %></td>
+              <td><%= event_date(event) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @events, params: {q: params[:q]} %>
+    </div>
+  </div>
+</div>
+

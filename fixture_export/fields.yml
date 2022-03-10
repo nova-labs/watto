@@ -1,0 +1,1091 @@
+---
+field_1:
+  id: 1
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3007
+  uid: 3007
+  access: Nobody
+  description: Indicates whether the contact record is archived.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Boolean
+  field_name: Archived
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: IsArchived
+  required:
+  created_at: 2022-01-14 15:54:27.796626000 Z
+  updated_at: 2022-01-14 15:54:27.819994000 Z
+field_2:
+  id: 2
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3019
+  uid: 3019
+  access: Nobody
+  description: Indicates whether the contact has made donations at least once.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Donor
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: IsDonor
+  required:
+  created_at: 2022-01-14 15:54:27.822306000 Z
+  updated_at: 2022-01-14 15:54:27.825115000 Z
+field_3:
+  id: 3
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3020
+  uid: 3020
+  access: Nobody
+  description: Indicates whether the contact attended at least one event.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Event registrant
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: IsEventAttendee
+  required:
+  created_at: 2022-01-14 15:54:27.826840000 Z
+  updated_at: 2022-01-14 15:54:27.828899000 Z
+field_4:
+  id: 4
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3021
+  uid: 3021
+  access: Nobody
+  description: Indicates whether the contact is a member.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Member
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: IsMember
+  required:
+  created_at: 2022-01-14 15:54:27.830332000 Z
+  updated_at: 2022-01-14 15:54:27.832942000 Z
+field_5:
+  id: 5
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3022
+  uid: 3022
+  access: Nobody
+  description: Indicates whether the contact is a suspended member.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Suspended member
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: IsSuspendedMember
+  required:
+  created_at: 2022-01-14 15:54:27.834311000 Z
+  updated_at: 2022-01-14 15:54:27.836153000 Z
+field_6:
+  id: 6
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3013
+  uid: 3013
+  access: Nobody
+  description: Indicates whether event announcements are enabled within the contact's
+    email preferences.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Boolean
+  field_name: Event announcements
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: ReceiveEventReminders
+  required:
+  created_at: 2022-01-14 15:54:27.837701000 Z
+  updated_at: 2022-01-14 15:54:27.839745000 Z
+field_7:
+  id: 7
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3014
+  uid: 3014
+  access: Nobody
+  description: Indicates whether manually sent emails are enabled within the contact's
+    email preferences.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Boolean
+  field_name: Member emails and newsletters
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: ReceiveNewsletters
+  required:
+  created_at: 2022-01-14 15:54:27.841210000 Z
+  updated_at: 2022-01-14 15:54:27.843016000 Z
+field_8:
+  id: 8
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3017
+  uid: 3017
+  access: Nobody
+  description: Indicates whether email delivery is disabled for this contact, either
+    because no email address was specified or the delivery of emails was disabled.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Boolean
+  field_name: Email delivery disabled
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: EmailDisabled
+  required:
+  created_at: 2022-01-14 15:54:27.844368000 Z
+  updated_at: 2022-01-14 15:54:27.846152000 Z
+field_9:
+  id: 9
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3018
+  uid: 3018
+  access: Nobody
+  description: Indicates whether the delivery of all emails was disabled from the
+    contact's email preferences.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Receiving emails disabled
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: RecievingEMailsDisabled
+  required:
+  created_at: 2022-01-14 15:54:27.847474000 Z
+  updated_at: 2022-01-14 15:54:27.851369000 Z
+field_10:
+  id: 10
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3029
+  uid: 3029
+  access: Nobody
+  description: Balance
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Number
+  field_name: Balance
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: Balance
+  required:
+  created_at: 2022-01-14 15:54:27.855966000 Z
+  updated_at: 2022-01-14 15:54:27.859257000 Z
+field_11:
+  id: 11
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3030
+  uid: 3030
+  access: Nobody
+  description: The total value of all donations made by this contact.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Number
+  field_name: Total donated
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: TotalDonated
+  required:
+  created_at: 2022-01-14 15:54:27.864087000 Z
+  updated_at: 2022-01-14 15:54:27.866019000 Z
+field_12:
+  id: 12
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3023
+  uid: 3023
+  access: Nobody
+  description: Registered for specific event
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Number
+  field_name: Registered for specific event
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: RegistredForEvent
+  required:
+  created_at: 2022-01-14 15:54:27.867297000 Z
+  updated_at: 2022-01-14 15:54:27.869251000 Z
+field_13:
+  id: 13
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3024
+  uid: 3024
+  access: Nobody
+  description: The date and time the contact record was last updated.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: DateTime
+  field_name: Profile last updated
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: LastUpdated
+  required:
+  created_at: 2022-01-14 15:54:27.870632000 Z
+  updated_at: 2022-01-14 15:54:27.872248000 Z
+field_14:
+  id: 14
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3025
+  uid: 3025
+  access: Nobody
+  description: Identifier of member, who last updated the contact.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: false
+  editable: false
+  admin_only: false
+  field_type: Number
+  field_name: Profile last updated by
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: LastUpdatedBy
+  required:
+  created_at: 2022-01-14 15:54:27.873573000 Z
+  updated_at: 2022-01-14 15:54:27.875662000 Z
+field_15:
+  id: 15
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3026
+  uid: 3026
+  access: Nobody
+  description: The date and time the contact record was created.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: DateTime
+  field_name: Creation date
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: CreationDate
+  required:
+  created_at: 2022-01-14 15:54:27.877221000 Z
+  updated_at: 2022-01-14 15:54:27.879019000 Z
+field_16:
+  id: 16
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3028
+  uid: 3028
+  access: Nobody
+  description: The date and time the contact last logged in to their account.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: DateTime
+  field_name: Last login date
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: LastLoginDate
+  required:
+  created_at: 2022-01-14 15:54:27.880405000 Z
+  updated_at: 2022-01-14 15:54:27.882276000 Z
+field_17:
+  id: 17
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3032
+  uid: 3032
+  access: Nobody
+  description: Administrator role
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: false
+  editable: true
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: Administrator role
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: AdminRole
+  required:
+  created_at: 2022-01-14 15:54:27.883576000 Z
+  updated_at: 2022-01-14 15:54:27.902040000 Z
+field_18:
+  id: 18
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3009
+  uid: 3009
+  access: Nobody
+  description: Any notes added to the contact's record.
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Notes
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: Notes
+  required:
+  created_at: 2022-01-14 15:54:27.903523000 Z
+  updated_at: 2022-01-14 15:54:27.905432000 Z
+field_19:
+  id: 19
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3031
+  uid: 3031
+  access: Nobody
+  description: Terms of use accepted
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: false
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Terms of use accepted
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: SystemRulesAndTermsAccepted
+  required:
+  created_at: 2022-01-14 15:54:27.906956000 Z
+  updated_at: 2022-01-14 15:54:27.909328000 Z
+field_20:
+  id: 20
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3027
+  uid: 3027
+  access: Nobody
+  description: Subscription source
+  member_access:
+  member_only: false
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: Subscription source
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: SubscriptionSource
+  required:
+  created_at: 2022-01-14 15:54:27.910830000 Z
+  updated_at: 2022-01-14 15:54:27.914616000 Z
+field_21:
+  id: 21
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7003
+  uid: 7003
+  access: Nobody
+  description: Indicates whether the contact is an individual member, a bundle member,
+    or a bundle administrator.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Choice
+  field_name: Member role
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: MemberRole
+  required:
+  created_at: 2022-01-14 15:54:27.916086000 Z
+  updated_at: 2022-01-14 15:54:27.921908000 Z
+field_22:
+  id: 22
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7005
+  uid: 7005
+  access: Nobody
+  description: The date and time that the contact became a member.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: DateTime
+  field_name: Member since
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: MemberSince
+  required:
+  created_at: 2022-01-14 15:54:27.923389000 Z
+  updated_at: 2022-01-14 15:54:27.925231000 Z
+field_23:
+  id: 23
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7006
+  uid: 7006
+  access: Nobody
+  description: The date and time of the member's next renewal date.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: DateTime
+  field_name: Renewal due
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: RenewalDue
+  required:
+  created_at: 2022-01-14 15:54:27.926669000 Z
+  updated_at: 2022-01-14 15:54:27.928458000 Z
+field_24:
+  id: 24
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7010
+  uid: 7010
+  access: Nobody
+  description: The identifier of the membership level assigned to the contact (if
+    any).
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Number
+  field_name: Membership level ID
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: MembershipLevelId
+  required:
+  created_at: 2022-01-14 15:54:27.929965000 Z
+  updated_at: 2022-01-14 15:54:27.931765000 Z
+field_25:
+  id: 25
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7013
+  uid: 7013
+  access: Nobody
+  description: Indicates whether the Show profile option is enabled in this member's
+    privacy settings.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Boolean
+  field_name: Access to profile by others
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: AccessToProfileByOthers
+  required:
+  created_at: 2022-01-14 15:54:27.933198000 Z
+  updated_at: 2022-01-14 15:54:27.934952000 Z
+field_26:
+  id: 26
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7020
+  uid: 7020
+  access: Nobody
+  description: The date and time the member's renewal date was last changed.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: DateTime
+  field_name: Renewal date last changed
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: RenewalDateLastChanged
+  required:
+  created_at: 2022-01-14 15:54:27.936282000 Z
+  updated_at: 2022-01-14 15:54:27.938075000 Z
+field_27:
+  id: 27
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7021
+  uid: 7021
+  access: Nobody
+  description: The date and time the contact's membership level was last changed
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: DateTime
+  field_name: Level last changed
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: LevelLastChanged
+  required:
+  created_at: 2022-01-14 15:54:27.939693000 Z
+  updated_at: 2022-01-14 15:54:27.941684000 Z
+field_28:
+  id: 28
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7023
+  uid: 7023
+  access: Nobody
+  description: Bundle ID which member belongs to
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: false
+  editable: true
+  admin_only: false
+  field_type: Number
+  field_name: Bundle ID
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: BundleId
+  required:
+  created_at: 2022-01-14 15:54:27.943543000 Z
+  updated_at: 2022-01-14 15:54:27.945500000 Z
+field_29:
+  id: 29
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7007
+  uid: 7007
+  access: Nobody
+  description: The status of the contact's membership.
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Choice
+  field_name: Membership status
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: Status
+  required:
+  created_at: 2022-01-14 15:54:27.946766000 Z
+  updated_at: 2022-01-14 15:54:27.955511000 Z
+field_30:
+  id: 30
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7001
+  uid: 7001
+  access: Nobody
+  description: Membership enabled
+  member_access:
+  member_only: true
+  built_in: true
+  support_search: false
+  editable: false
+  admin_only: false
+  field_type: Boolean
+  field_name: Membership enabled
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: MembershipEnabled
+  required:
+  created_at: 2022-01-14 15:54:27.957395000 Z
+  updated_at: 2022-01-14 15:54:27.961287000 Z
+field_31:
+  id: 31
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3001
+  uid: 3001
+  access: Nobody
+  description: This is a read-only system field used to uniquely identify the member
+    or contact.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: false
+  admin_only: false
+  field_type: Number
+  field_name: User ID
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: MemberId
+  required:
+  created_at: 2022-01-14 15:54:27.963340000 Z
+  updated_at: 2022-01-14 15:54:27.965049000 Z
+field_32:
+  id: 32
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3003
+  uid: 3003
+  access: Public
+  description: This is a system field (first name).   It cannot be deleted.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: First name
+  system: true
+  field_instructions:
+  max_length:
+  order: 1
+  display_type:
+  system_code: FirstName
+  required:
+  created_at: 2022-01-14 15:54:27.966489000 Z
+  updated_at: 2022-01-14 15:54:27.968011000 Z
+field_33:
+  id: 33
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3004
+  uid: 3004
+  access: Public
+  description: This is a system field (last name).  It cannot be deleted.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Last name
+  system: true
+  field_instructions:
+  max_length:
+  order: 2
+  display_type:
+  system_code: LastName
+  required:
+  created_at: 2022-01-14 15:54:27.969862000 Z
+  updated_at: 2022-01-14 15:54:27.973431000 Z
+field_34:
+  id: 34
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3005
+  uid: 3005
+  access: Nobody
+  description: This is a system field (organization).  It cannot be deleted.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: true
+  field_type: String
+  field_name: Organization
+  system: true
+  field_instructions:
+  max_length:
+  order: 3
+  display_type:
+  system_code: Organization
+  required:
+  created_at: 2022-01-14 15:54:27.974991000 Z
+  updated_at: 2022-01-14 15:54:27.976740000 Z
+field_35:
+  id: 35
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3002
+  uid: 3002
+  access: Public
+  description: This is a system field (email).   It is mandatory for online self-service
+    transactions and cannot be deleted.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Email
+  system: true
+  field_instructions:
+  max_length:
+  order: 4
+  display_type:
+  system_code: Email
+  required:
+  created_at: 2022-01-14 15:54:27.978030000 Z
+  updated_at: 2022-01-14 15:54:27.980392000 Z
+field_36:
+  id: 36
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/3006
+  uid: 3006
+  access: Public
+  description: This is a system field (phone).  It cannot be deleted.
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Phone
+  system: true
+  field_instructions:
+  max_length:
+  order: 5
+  display_type:
+  system_code: Phone
+  required:
+  created_at: 2022-01-14 15:54:27.981967000 Z
+  updated_at: 2022-01-14 15:54:27.983832000 Z
+field_37:
+  id: 37
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/12940164
+  uid: 12940164
+  access: Nobody
+  description:
+  member_access:
+  member_only: false
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: true
+  field_type: String
+  field_name: Badge Number
+  system: false
+  field_instructions:
+  max_length:
+  order: 6
+  display_type:
+  system_code: custom-12940164
+  required:
+  created_at: 2022-01-14 15:54:27.985349000 Z
+  updated_at: 2022-01-14 15:54:27.988061000 Z
+field_38:
+  id: 38
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/7002
+  uid: 7002
+  access: Nobody
+  description: This is a system field (groups).   It cannot be deleted.
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: true
+  field_type: MultipleChoice
+  field_name: Group participation
+  system: true
+  field_instructions:
+  max_length:
+  order: 0
+  display_type:
+  system_code: Groups
+  required:
+  created_at: 2022-01-14 15:54:27.989290000 Z
+  updated_at: 2022-01-14 15:54:27.994772000 Z
+field_39:
+  id: 39
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316818
+  uid: 13316818
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Parent First Name
+  system: false
+  field_instructions:
+  max_length:
+  order: 1
+  display_type:
+  system_code: custom-13316818
+  required:
+  created_at: 2022-01-14 15:54:27.997349000 Z
+  updated_at: 2022-01-14 15:54:27.999035000 Z
+field_40:
+  id: 40
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316911
+  uid: 13316911
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Parent Last Name
+  system: false
+  field_instructions:
+  max_length:
+  order: 2
+  display_type:
+  system_code: custom-13316911
+  required:
+  created_at: 2022-01-14 15:54:28.001033000 Z
+  updated_at: 2022-01-14 15:54:28.002665000 Z
+field_41:
+  id: 41
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316937
+  uid: 13316937
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Emergency Contact First Name
+  system: false
+  field_instructions:
+  max_length:
+  order: 3
+  display_type:
+  system_code: custom-13316937
+  required:
+  created_at: 2022-01-14 15:54:28.004126000 Z
+  updated_at: 2022-01-14 15:54:28.006928000 Z
+field_42:
+  id: 42
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316938
+  uid: 13316938
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Emergency Contact Last Name
+  system: false
+  field_instructions:
+  max_length:
+  order: 4
+  display_type:
+  system_code: custom-13316938
+  required:
+  created_at: 2022-01-14 15:54:28.009083000 Z
+  updated_at: 2022-01-14 15:54:28.011756000 Z
+field_43:
+  id: 43
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316939
+  uid: 13316939
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Emergency Contact Phone
+  system: false
+  field_instructions:
+  max_length:
+  order: 5
+  display_type:
+  system_code: custom-13316939
+  required:
+  created_at: 2022-01-14 15:54:28.013248000 Z
+  updated_at: 2022-01-14 15:54:28.015411000 Z
+field_44:
+  id: 44
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13316940
+  uid: 13316940
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Emergency Contact Relation
+  system: false
+  field_instructions:
+  max_length:
+  order: 6
+  display_type:
+  system_code: custom-13316940
+  required:
+  created_at: 2022-01-14 15:54:28.016700000 Z
+  updated_at: 2022-01-14 15:54:28.018770000 Z
+field_45:
+  id: 45
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13082555
+  uid: 13082555
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: NL Signoff Permissions
+  system: false
+  field_instructions:
+  max_length:
+  order: 8
+  display_type:
+  system_code: custom-13082555
+  required:
+  created_at: 2022-01-14 15:54:28.021263000 Z
+  updated_at: 2022-01-14 15:54:28.030654000 Z
+field_46:
+  id: 46
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/12971567
+  uid: 12971567
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: NL Signoffs and Categories
+  system: false
+  field_instructions:
+  max_length:
+  order: 9
+  display_type:
+  system_code: custom-12971567
+  required:
+  created_at: 2022-01-14 15:54:28.031905000 Z
+  updated_at: 2022-01-14 15:54:28.128324000 Z
+field_47:
+  id: 47
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13101588
+  uid: 13101588
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Primary Member ID
+  system: false
+  field_instructions:
+  max_length:
+  order: 11
+  display_type:
+  system_code: custom-13101588
+  required:
+  created_at: 2022-01-14 15:54:28.130042000 Z
+  updated_at: 2022-01-14 15:54:28.131870000 Z

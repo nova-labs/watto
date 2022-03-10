@@ -1,0 +1,689 @@
+---
+field_allowed_value_17:
+  uid: 14917543
+  label: 3D
+  value: '14917543'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field: signoff_permissions
+field_allowed_value_18:
+  uid: 14917544
+  label: AC
+  value: '14917544'
+  system_code:
+  selected_by_default: false
+  position: 1
+  field: signoff_permissions
+field_allowed_value_19:
+  uid: 14917545
+  label: WW
+  value: '14917545'
+  system_code:
+  selected_by_default: false
+  position: 2
+  field: signoff_permissions
+field_allowed_value_20:
+  uid: 14917546
+  label: MS
+  value: '14917546'
+  system_code:
+  selected_by_default: false
+  position: 3
+  field: signoff_permissions
+field_allowed_value_21:
+  uid: 14759088
+  label: "[equipment] 3D_FDM Printers"
+  value: '14759088'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field: signoffs
+field_allowed_value_22:
+  uid: 14759089
+  label: "[equipment] 3D_HP_3D Scanner"
+  value: '14759089'
+  system_code:
+  selected_by_default: false
+  position: 1
+  field: signoffs
+field_allowed_value_23:
+  uid: 14759090
+  label: "[equipment] 3d_Phrozen_LCD SLA"
+  value: '14759090'
+  system_code:
+  selected_by_default: false
+  position: 2
+  field: signoffs
+field_allowed_value_24:
+  uid: 14759091
+  label: "[equipment] AC_APW_Heat Press"
+  value: '14759091'
+  system_code:
+  selected_by_default: false
+  position: 3
+  field: signoffs
+field_allowed_value_25:
+  uid: 14759092
+  label: "[equipment] AC_Consew_Sewing Machine"
+  value: '14759092'
+  system_code:
+  selected_by_default: false
+  position: 4
+  field: signoffs
+field_allowed_value_26:
+  uid: 14759093
+  label: "[equipment] AC_Happy_Embroidery Machine"
+  value: '14759093'
+  system_code:
+  selected_by_default: false
+  position: 5
+  field: signoffs
+field_allowed_value_27:
+  uid: 14759094
+  label: "[equipment] AC_NA_Embroidery Machine Safety"
+  value: '14759094'
+  system_code:
+  selected_by_default: false
+  position: 6
+  field: signoffs
+field_allowed_value_28:
+  uid: 14759095
+  label: "[equipment] AC_PFAFF_Embroidery Machine"
+  value: '14759095'
+  system_code:
+  selected_by_default: false
+  position: 7
+  field: signoffs
+field_allowed_value_29:
+  uid: 14759096
+  label: "[equipment] AC_Silhouette_Electronic Cutter"
+  value: '14759096'
+  system_code:
+  selected_by_default: false
+  position: 8
+  field: signoffs
+field_allowed_value_30:
+  uid: 14759097
+  label: "[equipment] AC_USCutter_Vinyl Cutter"
+  value: '14759097'
+  system_code:
+  selected_by_default: false
+  position: 9
+  field: signoffs
+field_allowed_value_31:
+  uid: 14759098
+  label: "[equipment] AV_various_Studio"
+  value: '14759098'
+  system_code:
+  selected_by_default: false
+  position: 10
+  field: signoffs
+field_allowed_value_32:
+  uid: 14759099
+  label: "[equipment] BL_Blacksmithing Safety"
+  value: '14759099'
+  system_code:
+  selected_by_default: false
+  position: 11
+  field: signoffs
+field_allowed_value_33:
+  uid: 14759100
+  label: "[equipment] BL_Blacksmithing Setup"
+  value: '14759100'
+  system_code:
+  selected_by_default: false
+  position: 12
+  field: signoffs
+field_allowed_value_34:
+  uid: 14759101
+  label: "[equipment] BL_Coal Ironworks_Hydraulic Forging Press*"
+  value: '14759101'
+  system_code:
+  selected_by_default: false
+  position: 13
+  field: signoffs
+field_allowed_value_35:
+  uid: 14759102
+  label: "[equipment] BL_Origin Blade Maker_72in Belt Grinder"
+  value: '14759102'
+  system_code:
+  selected_by_default: false
+  position: 14
+  field: signoffs
+field_allowed_value_36:
+  uid: 14759103
+  label: "[equipment] CC_ShopSabre Safety"
+  value: '14759103'
+  system_code:
+  selected_by_default: false
+  position: 15
+  field: signoffs
+field_allowed_value_37:
+  uid: 14759104
+  label: "[equipment] CS_Kervina_Thermoformer"
+  value: '14759104'
+  system_code:
+  selected_by_default: false
+  position: 16
+  field: signoffs
+field_allowed_value_38:
+  uid: 14759105
+  label: "[equipment] EL_Reflow Station Safety"
+  value: '14759105'
+  system_code:
+  selected_by_default: false
+  position: 17
+  field: signoffs
+field_allowed_value_39:
+  uid: 14759106
+  label: "[equipment] EL_Yellow Safety"
+  value: '14759106'
+  system_code:
+  selected_by_default: false
+  position: 18
+  field: signoffs
+field_allowed_value_40:
+  uid: 14759107
+  label: "[equipment] LC_NA_Roller Rotary tool"
+  value: '14759107'
+  system_code:
+  selected_by_default: false
+  position: 19
+  field: signoffs
+field_allowed_value_41:
+  uid: 14759108
+  label: "[equipment] MW_Everlast_TIG Welder"
+  value: '14759108'
+  system_code:
+  selected_by_default: false
+  position: 20
+  field: signoffs
+field_allowed_value_42:
+  uid: 14759109
+  label: "[equipment] MW_Everlast_Hand Plasma Cutter"
+  value: '14759109'
+  system_code:
+  selected_by_default: false
+  position: 21
+  field: signoffs
+field_allowed_value_43:
+  uid: 14759110
+  label: "[equipment] MW_Matsuura_CNC Mill"
+  value: '14759110'
+  system_code:
+  selected_by_default: false
+  position: 22
+  field: signoffs
+field_allowed_value_44:
+  uid: 14759111
+  label: "[equipment] MW_Miller_MIG Welder"
+  value: '14759111'
+  system_code:
+  selected_by_default: false
+  position: 23
+  field: signoffs
+field_allowed_value_45:
+  uid: 14759112
+  label: "[equipment] MW_Nice Cut_CNC plasma cutter"
+  value: '14759112'
+  system_code:
+  selected_by_default: false
+  position: 24
+  field: signoffs
+field_allowed_value_46:
+  uid: 14759113
+  label: "[equipment] MWS_Central Forge_Throatless Shear"
+  value: '14759113'
+  system_code:
+  selected_by_default: false
+  position: 25
+  field: signoffs
+field_allowed_value_47:
+  uid: 14759114
+  label: "[equipment] MWS_Chicago Electric_Spot Welder"
+  value: '14759114'
+  system_code:
+  selected_by_default: false
+  position: 26
+  field: signoffs
+field_allowed_value_48:
+  uid: 14759115
+  label: "[equipment] MWS_Woodward Fab_Sheet Metal Brake"
+  value: '14759115'
+  system_code:
+  selected_by_default: false
+  position: 27
+  field: signoffs
+field_allowed_value_49:
+  uid: 14759116
+  label: "[equipment] MWS_Woodward Fab_Sheet Metal Shear"
+  value: '14759116'
+  system_code:
+  selected_by_default: false
+  position: 28
+  field: signoffs
+field_allowed_value_50:
+  uid: 14759117
+  label: "[equipment] MWY__Yellow Safety"
+  value: '14759117'
+  system_code:
+  selected_by_default: false
+  position: 29
+  field: signoffs
+field_allowed_value_51:
+  uid: 14759118
+  label: "[equipment] MWY_Central Forge_Media Blaster"
+  value: '14759118'
+  system_code:
+  selected_by_default: false
+  position: 30
+  field: signoffs
+field_allowed_value_52:
+  uid: 14759119
+  label: "[equipment] MWY_Central Machinery_1x30 Belt Sander"
+  value: '14759119'
+  system_code:
+  selected_by_default: false
+  position: 31
+  field: signoffs
+field_allowed_value_53:
+  uid: 14759120
+  label: "[equipment] MWY_Delta_Bench Grinder"
+  value: '14759120'
+  system_code:
+  selected_by_default: false
+  position: 32
+  field: signoffs
+field_allowed_value_54:
+  uid: 14759121
+  label: "[equipment] MWY_Grizzly_Cold Cut Saw"
+  value: '14759121'
+  system_code:
+  selected_by_default: false
+  position: 33
+  field: signoffs
+field_allowed_value_55:
+  uid: 14759122
+  label: "[equipment] MWY_Grizzly_Horizontal Bandsaw"
+  value: '14759122'
+  system_code:
+  selected_by_default: false
+  position: 34
+  field: signoffs
+field_allowed_value_56:
+  uid: 14759123
+  label: "[equipment] MWY_MXB_Grizzly_Vertical Bandsaw"
+  value: '14759123'
+  system_code:
+  selected_by_default: false
+  position: 35
+  field: signoffs
+field_allowed_value_57:
+  uid: 14759124
+  label: "[equipment] MWY_Milwaukee_Portaband"
+  value: '14759124'
+  system_code:
+  selected_by_default: false
+  position: 36
+  field: signoffs
+field_allowed_value_58:
+  uid: 14759125
+  label: "[equipment] MWY_Northern Industrial_Drill Press"
+  value: '14759125'
+  system_code:
+  selected_by_default: false
+  position: 37
+  field: signoffs
+field_allowed_value_59:
+  uid: 14759126
+  label: "[equipment] MWY_Rigid_Abrasive Chopsaw"
+  value: '14759126'
+  system_code:
+  selected_by_default: false
+  position: 38
+  field: signoffs
+field_allowed_value_60:
+  uid: 14759127
+  label: "[equipment] MWY_Various_Angle Grinders"
+  value: '14759127'
+  system_code:
+  selected_by_default: false
+  position: 39
+  field: signoffs
+field_allowed_value_61:
+  uid: 14759128
+  label: "[equipment] TS_various_Jewelry Soldering Equipment Safety"
+  value: '14759128'
+  system_code:
+  selected_by_default: false
+  position: 40
+  field: signoffs
+field_allowed_value_62:
+  uid: 14759129
+  label: "[equipment] TS_Various_Stained Glass"
+  value: '14759129'
+  system_code:
+  selected_by_default: false
+  position: 41
+  field: signoffs
+field_allowed_value_63:
+  uid: 14759130
+  label: "[equipment] WW_SawStop_Table Saw"
+  value: '14759130'
+  system_code:
+  selected_by_default: false
+  position: 42
+  field: signoffs
+field_allowed_value_64:
+  uid: 14759131
+  label: "[equipment] WW_Various_Lathes"
+  value: '14759131'
+  system_code:
+  selected_by_default: false
+  position: 43
+  field: signoffs
+field_allowed_value_65:
+  uid: 14759132
+  label: "[equipment] WW_Various_Routers"
+  value: '14759132'
+  system_code:
+  selected_by_default: false
+  position: 44
+  field: signoffs
+field_allowed_value_66:
+  uid: 14759133
+  label: "[equipment] WWB_Bandsaw_Safety"
+  value: '14759133'
+  system_code:
+  selected_by_default: false
+  position: 45
+  field: signoffs
+field_allowed_value_67:
+  uid: 14759134
+  label: "[equipment] WWB_MXB_General_Bandsaw"
+  value: '14759134'
+  system_code:
+  selected_by_default: false
+  position: 46
+  field: signoffs
+field_allowed_value_68:
+  uid: 14759135
+  label: "[equipment] WWB_MXB_Rikon_Bandsaw"
+  value: '14759135'
+  system_code:
+  selected_by_default: false
+  position: 47
+  field: signoffs
+field_allowed_value_69:
+  uid: 14759136
+  label: "[equipment] WWM_Jet_Thickness Sander"
+  value: '14759136'
+  system_code:
+  selected_by_default: false
+  position: 48
+  field: signoffs
+field_allowed_value_70:
+  uid: 14759137
+  label: "[equipment] WWY_Delta_Spindle/Oscillating Sander"
+  value: '14759137'
+  system_code:
+  selected_by_default: false
+  position: 49
+  field: signoffs
+field_allowed_value_71:
+  uid: 14759138
+  label: "[equipment] WWY_Dewalt_Scroll Saw"
+  value: '14759138'
+  system_code:
+  selected_by_default: false
+  position: 50
+  field: signoffs
+field_allowed_value_72:
+  uid: 14759139
+  label: "[equipment] WWY_MXB_Grizzly_Bandsaw"
+  value: '14759139'
+  system_code:
+  selected_by_default: false
+  position: 51
+  field: signoffs
+field_allowed_value_73:
+  uid: 14759140
+  label: "[equipment] WWY_Powermatic_Hollow Chisel Mortiser"
+  value: '14759140'
+  system_code:
+  selected_by_default: false
+  position: 52
+  field: signoffs
+field_allowed_value_74:
+  uid: 14759141
+  label: "[equipment] WWY_Various_Drill Press"
+  value: '14759141'
+  system_code:
+  selected_by_default: false
+  position: 53
+  field: signoffs
+field_allowed_value_75:
+  uid: 14759142
+  label: "[nlgroup] accounting"
+  value: '14759142'
+  system_code:
+  selected_by_default: false
+  position: 54
+  field: signoffs
+field_allowed_value_76:
+  uid: 14759143
+  label: "[nlgroup] admins"
+  value: '14759143'
+  system_code:
+  selected_by_default: false
+  position: 55
+  field: signoffs
+field_allowed_value_77:
+  uid: 14759144
+  label: "[nlgroup] associates"
+  value: '14759144'
+  system_code:
+  selected_by_default: false
+  position: 56
+  field: signoffs
+field_allowed_value_78:
+  uid: 14759145
+  label: "[nlgroup] blogadmins"
+  value: '14759145'
+  system_code:
+  selected_by_default: false
+  position: 57
+  field: signoffs
+field_allowed_value_79:
+  uid: 14759146
+  label: "[nlgroup] dbadmins"
+  value: '14759146'
+  system_code:
+  selected_by_default: false
+  position: 58
+  field: signoffs
+field_allowed_value_80:
+  uid: 14759147
+  label: "[nlgroup] directors"
+  value: '14759147'
+  system_code:
+  selected_by_default: false
+  position: 59
+  field: signoffs
+field_allowed_value_81:
+  uid: 14759148
+  label: "[nlgroup] facilities"
+  value: '14759148'
+  system_code:
+  selected_by_default: false
+  position: 60
+  field: signoffs
+field_allowed_value_82:
+  uid: 14759149
+  label: "[nlgroup] founders"
+  value: '14759149'
+  system_code:
+  selected_by_default: false
+  position: 61
+  field: signoffs
+field_allowed_value_83:
+  uid: 14759150
+  label: "[nlgroup] GO_New Member Orientation"
+  value: '14759150'
+  system_code:
+  selected_by_default: false
+  position: 62
+  field: signoffs
+field_allowed_value_84:
+  uid: 14759151
+  label: "[nlgroup] members"
+  value: '14759151'
+  system_code:
+  selected_by_default: false
+  position: 63
+  field: signoffs
+field_allowed_value_85:
+  uid: 14759152
+  label: "[nlgroup] Minor Age 11-15"
+  value: '14759152'
+  system_code:
+  selected_by_default: false
+  position: 64
+  field: signoffs
+field_allowed_value_86:
+  uid: 14759153
+  label: "[nlgroup] Minor Age 16-17"
+  value: '14759153'
+  system_code:
+  selected_by_default: false
+  position: 65
+  field: signoffs
+field_allowed_value_87:
+  uid: 14759154
+  label: "[nlgroup] Minor Age 8-10"
+  value: '14759154'
+  system_code:
+  selected_by_default: false
+  position: 66
+  field: signoffs
+field_allowed_value_88:
+  uid: 14759155
+  label: "[nlgroup] officers"
+  value: '14759155'
+  system_code:
+  selected_by_default: false
+  position: 67
+  field: signoffs
+field_allowed_value_89:
+  uid: 14759156
+  label: "[nlgroup] operations"
+  value: '14759156'
+  system_code:
+  selected_by_default: false
+  position: 68
+  field: signoffs
+field_allowed_value_90:
+  uid: 14759157
+  label: "[nlgroup] waiver"
+  value: '14759157'
+  system_code:
+  selected_by_default: false
+  position: 69
+  field: signoffs
+field_allowed_value_91:
+  uid: 14759158
+  label: "[nlgroup] wautils"
+  value: '14759158'
+  system_code:
+  selected_by_default: false
+  position: 70
+  field: signoffs
+field_allowed_value_92:
+  uid: 14759159
+  label: "[nlgroup] wikiadmins"
+  value: '14759159'
+  system_code:
+  selected_by_default: false
+  position: 71
+  field: signoffs
+field_allowed_value_93:
+  uid: 14759160
+  label: "[novapass] CC_ShopSabre_CNC Router"
+  value: '14759160'
+  system_code:
+  selected_by_default: false
+  position: 72
+  field: signoffs
+field_allowed_value_94:
+  uid: 14759161
+  label: "[novapass] LC_Hurricane_Laser Cutter"
+  value: '14759161'
+  system_code:
+  selected_by_default: false
+  position: 73
+  field: signoffs
+field_allowed_value_95:
+  uid: 14759162
+  label: "[novapass] LC_Rabbit_Laser Cutter"
+  value: '14759162'
+  system_code:
+  selected_by_default: false
+  position: 74
+  field: signoffs
+field_allowed_value_96:
+  uid: 14759163
+  label: "[novapass] MW_Enco_Metal Lathe"
+  value: '14759163'
+  system_code:
+  selected_by_default: false
+  position: 75
+  field: signoffs
+field_allowed_value_97:
+  uid: 14759164
+  label: "[novapass] MW_Enco_Vertical Mill"
+  value: '14759164'
+  system_code:
+  selected_by_default: false
+  position: 76
+  field: signoffs
+field_allowed_value_98:
+  uid: 14759165
+  label: "[novapass] SL_FormLabs_SLA Printer"
+  value: '14759165'
+  system_code:
+  selected_by_default: false
+  position: 77
+  field: signoffs
+field_allowed_value_99:
+  uid: 14759166
+  label: "[novapass] WWM_Delta_Planer"
+  value: '14759166'
+  system_code:
+  selected_by_default: false
+  position: 78
+  field: signoffs
+field_allowed_value_100:
+  uid: 14759167
+  label: "[novapass] WWM_Laguna_Jointer"
+  value: '14759167'
+  system_code:
+  selected_by_default: false
+  position: 79
+  field: signoffs
+field_allowed_value_101:
+  uid: 14759168
+  label: "[novapass] WWR_Dewalt_Sliding miter saw"
+  value: '14759168'
+  system_code:
+  selected_by_default: false
+  position: 80
+  field: signoffs
+field_allowed_value_102:
+  uid: 14759169
+  label: "[novapass] WWR_SawStop_Table Saw"
+  value: '14759169'
+  system_code:
+  selected_by_default: false
+  position: 81
+  field: signoffs
