@@ -1,0 +1,68 @@
+<% content_for :title, "Welcome to Wautils" %>
+<hr>
+
+<div class="row g-5">
+  <div class="col">
+    <div class="card">
+      <div class="card-header py-3 d-flex align-items-center">
+        <img src="<%= gravatar_url(current_user) %>" class="rounded-circle align-self-start me-3" style="height:60px;width:60px;background-color:grey;">
+        <div>
+          <h5 class="card-title mb-0">
+            <%= [
+              "Howdy,",
+              "Hello,",
+              "Hi,",
+              "How do,",
+              "Greetings,",
+              "Look everybody! It's"
+            ].sample %>
+          <%= current_user.first_name %>
+          </h5>
+          <h6 class="card-subtitle text-muted"><%= current_user.email %></h6>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+        Wild Apricot Automations is a lil web interface for maker
+        space tool sign-offs and membership managements. Data is
+        pulled from the Wild Apricot Member portal.
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% if current_user.account_administrator? %>
+          <li class="list-group-item">
+            😱 You are an account administrator. Be careful.
+          </li>
+        <% end %>
+        <% if current_user.admin? %>
+          <li class="list-group-item">
+            🎉 You are an admin, congrats!
+          </li>
+        <% end %>
+        <% if current_user.signoffer? %>
+          <li class="list-group-item">
+            💪 You have the super powers for signing people off.
+          </li>
+        <% end %>
+      </ul>
+      <div class="card-body">
+        <a href="/events" class="card-link">View Events</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md">
+    <h3>Your Sign-offs and Categories</h3>
+    <table class="table">
+      <tbody>
+        <% current_user.field_values.where(field:  Field.signoffs).each do |field_value| %>
+          <tr>
+            <td scope="row">
+              <%= user_field_value_badge(field_value) %>
+            </td>
+            <td class="w-100"><%= field_value.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+

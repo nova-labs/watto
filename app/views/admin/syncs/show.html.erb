@@ -1,0 +1,43 @@
+<% content_for :title, "Wild Apricot Sync" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Admin", to: admin_path %>
+  <%= crumb "Sync", active: true %>
+<% end %>
+
+<script>
+  async function postData(url = '', data = {}) {
+      const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      return response.json();
+    }
+
+    function syncButtonClick() {
+        document.getElementById("sync_button").disabled = true;
+        document.getElementById("sync_output").innerText = "Syncing now...";
+        postData('./sync', { answer: 42 })
+          .then(data => {
+              document.getElementById("sync_button").disabled = false;
+              document.getElementById("sync_output").innerText = data.log
+            });
+      }
+</script>
+
+<p>
+  Force a sync WildApricot data with the local database cache. This should find
+  and update any records that already exist locally, as well as add any custom
+  fields or new users that were edited in Wild Apricot directly.
+</p>
+
+<p>
+  <button id="sync_button" class="btn btn-primary" onclick="syncButtonClick()">Sync Now</button>
+</p>
+
+<p>
+  <code>
+    <pre id="sync_output"></pre>
+  </code>
+</p>

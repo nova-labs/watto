@@ -1,0 +1,1123 @@
+---
+field_allowed_value_4:
+  id: 4
+  uid: 4
+  label: Event manager
+  value: EventManager
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.896987000 Z
+  updated_at: 2022-01-14 15:54:27.896987000 Z
+field_allowed_value_5:
+  id: 5
+  uid: 8
+  label: Donations manager
+  value: DonationManager
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.897511000 Z
+  updated_at: 2022-01-14 15:54:27.897511000 Z
+field_allowed_value_6:
+  id: 6
+  uid: 16
+  label: Restricted website editor
+  value: RestrictedWebSiteEditor
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.898033000 Z
+  updated_at: 2022-01-14 15:54:27.898033000 Z
+field_allowed_value_7:
+  id: 7
+  uid: 32
+  label: Newsletter manager
+  value: NewsletterManager
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.898616000 Z
+  updated_at: 2022-01-14 15:54:27.898616000 Z
+field_allowed_value_8:
+  id: 8
+  uid: 64
+  label: Online store manager
+  value: StoreManager
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.899293000 Z
+  updated_at: 2022-01-14 15:54:27.899293000 Z
+field_allowed_value_9:
+  id: 9
+  uid: 128
+  label: Account administrator (Read-only access)
+  value: AccountReadOnlyAdministrator
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.899983000 Z
+  updated_at: 2022-01-14 15:54:27.899983000 Z
+field_allowed_value_10:
+  id: 10
+  uid: 256
+  label: Account administrator (Full access)
+  value: AccountAdministrator
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 17
+  created_at: 2022-01-14 15:54:27.900622000 Z
+  updated_at: 2022-01-14 15:54:27.900622000 Z
+field_allowed_value_11:
+  id: 11
+  uid: 339360
+  label: Subscribe to our Newsletter
+  value: '339360'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 20
+  created_at: 2022-01-14 15:54:27.913215000 Z
+  updated_at: 2022-01-14 15:54:27.913215000 Z
+field_allowed_value_12:
+  id: 12
+  uid: 20
+  label: Pending - New
+  value: PendingNew
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 29
+  created_at: 2022-01-14 15:54:27.951761000 Z
+  updated_at: 2022-01-14 15:54:27.951761000 Z
+field_allowed_value_13:
+  id: 13
+  uid: 3
+  label: Pending - Renewal
+  value: PendingRenewal
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 29
+  created_at: 2022-01-14 15:54:27.952493000 Z
+  updated_at: 2022-01-14 15:54:27.952493000 Z
+field_allowed_value_14:
+  id: 14
+  uid: 30
+  label: Pending - Level change
+  value: PendingUpgrade
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 29
+  created_at: 2022-01-14 15:54:27.953121000 Z
+  updated_at: 2022-01-14 15:54:27.953121000 Z
+field_allowed_value_15:
+  id: 15
+  uid: 610657
+  label: Board Members
+  value: '610657'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 38
+  created_at: 2022-01-14 15:54:27.992612000 Z
+  updated_at: 2022-01-14 15:54:27.992612000 Z
+field_allowed_value_16:
+  id: 16
+  uid: 618207
+  label: Instructors and Hosts
+  value: '618207'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 38
+  created_at: 2022-01-14 15:54:27.993667000 Z
+  updated_at: 2022-01-14 15:54:27.993667000 Z
+field_allowed_value_17:
+  id: 17
+  uid: 14917543
+  label: 3D
+  value: '14917543'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 45
+  created_at: 2022-01-14 15:54:28.025713000 Z
+  updated_at: 2022-01-14 15:54:28.025713000 Z
+field_allowed_value_18:
+  id: 18
+  uid: 14917544
+  label: AC
+  value: '14917544'
+  system_code:
+  selected_by_default: false
+  position: 1
+  field_id: 45
+  created_at: 2022-01-14 15:54:28.027036000 Z
+  updated_at: 2022-01-14 15:54:28.027036000 Z
+field_allowed_value_19:
+  id: 19
+  uid: 14917545
+  label: WW
+  value: '14917545'
+  system_code:
+  selected_by_default: false
+  position: 2
+  field_id: 45
+  created_at: 2022-01-14 15:54:28.028174000 Z
+  updated_at: 2022-01-14 15:54:28.028174000 Z
+field_allowed_value_20:
+  id: 20
+  uid: 14917546
+  label: MS
+  value: '14917546'
+  system_code:
+  selected_by_default: false
+  position: 3
+  field_id: 45
+  created_at: 2022-01-14 15:54:28.029224000 Z
+  updated_at: 2022-01-14 15:54:28.029224000 Z
+field_allowed_value_21:
+  id: 21
+  uid: 14759088
+  label: "[equipment] 3D_FDM Printers"
+  value: '14759088'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.070389000 Z
+  updated_at: 2022-01-14 15:54:28.070389000 Z
+field_allowed_value_22:
+  id: 22
+  uid: 14759089
+  label: "[equipment] 3D_HP_3D Scanner"
+  value: '14759089'
+  system_code:
+  selected_by_default: false
+  position: 1
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.071922000 Z
+  updated_at: 2022-01-14 15:54:28.071922000 Z
+field_allowed_value_23:
+  id: 23
+  uid: 14759090
+  label: "[equipment] 3d_Phrozen_LCD SLA"
+  value: '14759090'
+  system_code:
+  selected_by_default: false
+  position: 2
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.073355000 Z
+  updated_at: 2022-01-14 15:54:28.073355000 Z
+field_allowed_value_24:
+  id: 24
+  uid: 14759091
+  label: "[equipment] AC_APW_Heat Press"
+  value: '14759091'
+  system_code:
+  selected_by_default: false
+  position: 3
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.074148000 Z
+  updated_at: 2022-01-14 15:54:28.074148000 Z
+field_allowed_value_25:
+  id: 25
+  uid: 14759092
+  label: "[equipment] AC_Consew_Sewing Machine"
+  value: '14759092'
+  system_code:
+  selected_by_default: false
+  position: 4
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.074707000 Z
+  updated_at: 2022-01-14 15:54:28.074707000 Z
+field_allowed_value_26:
+  id: 26
+  uid: 14759093
+  label: "[equipment] AC_Happy_Embroidery Machine"
+  value: '14759093'
+  system_code:
+  selected_by_default: false
+  position: 5
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.075338000 Z
+  updated_at: 2022-01-14 15:54:28.075338000 Z
+field_allowed_value_27:
+  id: 27
+  uid: 14759094
+  label: "[equipment] AC_NA_Embroidery Machine Safety"
+  value: '14759094'
+  system_code:
+  selected_by_default: false
+  position: 6
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.075866000 Z
+  updated_at: 2022-01-14 15:54:28.075866000 Z
+field_allowed_value_28:
+  id: 28
+  uid: 14759095
+  label: "[equipment] AC_PFAFF_Embroidery Machine"
+  value: '14759095'
+  system_code:
+  selected_by_default: false
+  position: 7
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.076462000 Z
+  updated_at: 2022-01-14 15:54:28.076462000 Z
+field_allowed_value_29:
+  id: 29
+  uid: 14759096
+  label: "[equipment] AC_Silhouette_Electronic Cutter"
+  value: '14759096'
+  system_code:
+  selected_by_default: false
+  position: 8
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.077243000 Z
+  updated_at: 2022-01-14 15:54:28.077243000 Z
+field_allowed_value_30:
+  id: 30
+  uid: 14759097
+  label: "[equipment] AC_USCutter_Vinyl Cutter"
+  value: '14759097'
+  system_code:
+  selected_by_default: false
+  position: 9
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.077857000 Z
+  updated_at: 2022-01-14 15:54:28.077857000 Z
+field_allowed_value_31:
+  id: 31
+  uid: 14759098
+  label: "[equipment] AV_various_Studio"
+  value: '14759098'
+  system_code:
+  selected_by_default: false
+  position: 10
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.078485000 Z
+  updated_at: 2022-01-14 15:54:28.078485000 Z
+field_allowed_value_32:
+  id: 32
+  uid: 14759099
+  label: "[equipment] BL_Blacksmithing Safety"
+  value: '14759099'
+  system_code:
+  selected_by_default: false
+  position: 11
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.079111000 Z
+  updated_at: 2022-01-14 15:54:28.079111000 Z
+field_allowed_value_33:
+  id: 33
+  uid: 14759100
+  label: "[equipment] BL_Blacksmithing Setup"
+  value: '14759100'
+  system_code:
+  selected_by_default: false
+  position: 12
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.080020000 Z
+  updated_at: 2022-01-14 15:54:28.080020000 Z
+field_allowed_value_34:
+  id: 34
+  uid: 14759101
+  label: "[equipment] BL_Coal Ironworks_Hydraulic Forging Press*"
+  value: '14759101'
+  system_code:
+  selected_by_default: false
+  position: 13
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.080912000 Z
+  updated_at: 2022-01-14 15:54:28.080912000 Z
+field_allowed_value_35:
+  id: 35
+  uid: 14759102
+  label: "[equipment] BL_Origin Blade Maker_72in Belt Grinder"
+  value: '14759102'
+  system_code:
+  selected_by_default: false
+  position: 14
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.081466000 Z
+  updated_at: 2022-01-14 15:54:28.081466000 Z
+field_allowed_value_36:
+  id: 36
+  uid: 14759103
+  label: "[equipment] CC_ShopSabre Safety"
+  value: '14759103'
+  system_code:
+  selected_by_default: false
+  position: 15
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.082108000 Z
+  updated_at: 2022-01-14 15:54:28.082108000 Z
+field_allowed_value_37:
+  id: 37
+  uid: 14759104
+  label: "[equipment] CS_Kervina_Thermoformer"
+  value: '14759104'
+  system_code:
+  selected_by_default: false
+  position: 16
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.082626000 Z
+  updated_at: 2022-01-14 15:54:28.082626000 Z
+field_allowed_value_38:
+  id: 38
+  uid: 14759105
+  label: "[equipment] EL_Reflow Station Safety"
+  value: '14759105'
+  system_code:
+  selected_by_default: false
+  position: 17
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.083257000 Z
+  updated_at: 2022-01-14 15:54:28.083257000 Z
+field_allowed_value_39:
+  id: 39
+  uid: 14759106
+  label: "[equipment] EL_Yellow Safety"
+  value: '14759106'
+  system_code:
+  selected_by_default: false
+  position: 18
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.083777000 Z
+  updated_at: 2022-01-14 15:54:28.083777000 Z
+field_allowed_value_40:
+  id: 40
+  uid: 14759107
+  label: "[equipment] LC_NA_Roller Rotary tool"
+  value: '14759107'
+  system_code:
+  selected_by_default: false
+  position: 19
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.084400000 Z
+  updated_at: 2022-01-14 15:54:28.084400000 Z
+field_allowed_value_41:
+  id: 41
+  uid: 14759108
+  label: "[equipment] MW_Everlast_TIG Welder"
+  value: '14759108'
+  system_code:
+  selected_by_default: false
+  position: 20
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.084929000 Z
+  updated_at: 2022-01-14 15:54:28.084929000 Z
+field_allowed_value_42:
+  id: 42
+  uid: 14759109
+  label: "[equipment] MW_Everlast_Hand Plasma Cutter"
+  value: '14759109'
+  system_code:
+  selected_by_default: false
+  position: 21
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.085562000 Z
+  updated_at: 2022-01-14 15:54:28.085562000 Z
+field_allowed_value_43:
+  id: 43
+  uid: 14759110
+  label: "[equipment] MW_Matsuura_CNC Mill"
+  value: '14759110'
+  system_code:
+  selected_by_default: false
+  position: 22
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.086075000 Z
+  updated_at: 2022-01-14 15:54:28.086075000 Z
+field_allowed_value_44:
+  id: 44
+  uid: 14759111
+  label: "[equipment] MW_Miller_MIG Welder"
+  value: '14759111'
+  system_code:
+  selected_by_default: false
+  position: 23
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.086596000 Z
+  updated_at: 2022-01-14 15:54:28.086596000 Z
+field_allowed_value_45:
+  id: 45
+  uid: 14759112
+  label: "[equipment] MW_Nice Cut_CNC plasma cutter"
+  value: '14759112'
+  system_code:
+  selected_by_default: false
+  position: 24
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.087211000 Z
+  updated_at: 2022-01-14 15:54:28.087211000 Z
+field_allowed_value_46:
+  id: 46
+  uid: 14759113
+  label: "[equipment] MWS_Central Forge_Throatless Shear"
+  value: '14759113'
+  system_code:
+  selected_by_default: false
+  position: 25
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.087743000 Z
+  updated_at: 2022-01-14 15:54:28.087743000 Z
+field_allowed_value_47:
+  id: 47
+  uid: 14759114
+  label: "[equipment] MWS_Chicago Electric_Spot Welder"
+  value: '14759114'
+  system_code:
+  selected_by_default: false
+  position: 26
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.088391000 Z
+  updated_at: 2022-01-14 15:54:28.088391000 Z
+field_allowed_value_48:
+  id: 48
+  uid: 14759115
+  label: "[equipment] MWS_Woodward Fab_Sheet Metal Brake"
+  value: '14759115'
+  system_code:
+  selected_by_default: false
+  position: 27
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.089079000 Z
+  updated_at: 2022-01-14 15:54:28.089079000 Z
+field_allowed_value_49:
+  id: 49
+  uid: 14759116
+  label: "[equipment] MWS_Woodward Fab_Sheet Metal Shear"
+  value: '14759116'
+  system_code:
+  selected_by_default: false
+  position: 28
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.089621000 Z
+  updated_at: 2022-01-14 15:54:28.089621000 Z
+field_allowed_value_50:
+  id: 50
+  uid: 14759117
+  label: "[equipment] MWY__Yellow Safety"
+  value: '14759117'
+  system_code:
+  selected_by_default: false
+  position: 29
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.090238000 Z
+  updated_at: 2022-01-14 15:54:28.090238000 Z
+field_allowed_value_51:
+  id: 51
+  uid: 14759118
+  label: "[equipment] MWY_Central Forge_Media Blaster"
+  value: '14759118'
+  system_code:
+  selected_by_default: false
+  position: 30
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.090760000 Z
+  updated_at: 2022-01-14 15:54:28.090760000 Z
+field_allowed_value_52:
+  id: 52
+  uid: 14759119
+  label: "[equipment] MWY_Central Machinery_1x30 Belt Sander"
+  value: '14759119'
+  system_code:
+  selected_by_default: false
+  position: 31
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.091375000 Z
+  updated_at: 2022-01-14 15:54:28.091375000 Z
+field_allowed_value_53:
+  id: 53
+  uid: 14759120
+  label: "[equipment] MWY_Delta_Bench Grinder"
+  value: '14759120'
+  system_code:
+  selected_by_default: false
+  position: 32
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.091885000 Z
+  updated_at: 2022-01-14 15:54:28.091885000 Z
+field_allowed_value_54:
+  id: 54
+  uid: 14759121
+  label: "[equipment] MWY_Grizzly_Cold Cut Saw"
+  value: '14759121'
+  system_code:
+  selected_by_default: false
+  position: 33
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.092416000 Z
+  updated_at: 2022-01-14 15:54:28.092416000 Z
+field_allowed_value_55:
+  id: 55
+  uid: 14759122
+  label: "[equipment] MWY_Grizzly_Horizontal Bandsaw"
+  value: '14759122'
+  system_code:
+  selected_by_default: false
+  position: 34
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.093029000 Z
+  updated_at: 2022-01-14 15:54:28.093029000 Z
+field_allowed_value_56:
+  id: 56
+  uid: 14759123
+  label: "[equipment] MWY_MXB_Grizzly_Vertical Bandsaw"
+  value: '14759123'
+  system_code:
+  selected_by_default: false
+  position: 35
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.093553000 Z
+  updated_at: 2022-01-14 15:54:28.093553000 Z
+field_allowed_value_57:
+  id: 57
+  uid: 14759124
+  label: "[equipment] MWY_Milwaukee_Portaband"
+  value: '14759124'
+  system_code:
+  selected_by_default: false
+  position: 36
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.094185000 Z
+  updated_at: 2022-01-14 15:54:28.094185000 Z
+field_allowed_value_58:
+  id: 58
+  uid: 14759125
+  label: "[equipment] MWY_Northern Industrial_Drill Press"
+  value: '14759125'
+  system_code:
+  selected_by_default: false
+  position: 37
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.094933000 Z
+  updated_at: 2022-01-14 15:54:28.094933000 Z
+field_allowed_value_59:
+  id: 59
+  uid: 14759126
+  label: "[equipment] MWY_Rigid_Abrasive Chopsaw"
+  value: '14759126'
+  system_code:
+  selected_by_default: false
+  position: 38
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.096678000 Z
+  updated_at: 2022-01-14 15:54:28.096678000 Z
+field_allowed_value_60:
+  id: 60
+  uid: 14759127
+  label: "[equipment] MWY_Various_Angle Grinders"
+  value: '14759127'
+  system_code:
+  selected_by_default: false
+  position: 39
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.097300000 Z
+  updated_at: 2022-01-14 15:54:28.097300000 Z
+field_allowed_value_61:
+  id: 61
+  uid: 14759128
+  label: "[equipment] TS_various_Jewelry Soldering Equipment Safety"
+  value: '14759128'
+  system_code:
+  selected_by_default: false
+  position: 40
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.097845000 Z
+  updated_at: 2022-01-14 15:54:28.097845000 Z
+field_allowed_value_62:
+  id: 62
+  uid: 14759129
+  label: "[equipment] TS_Various_Stained Glass"
+  value: '14759129'
+  system_code:
+  selected_by_default: false
+  position: 41
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.098467000 Z
+  updated_at: 2022-01-14 15:54:28.098467000 Z
+field_allowed_value_2:
+  id: 2
+  uid: 1
+  label: Active
+  value: Active
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 29
+  created_at: 2022-01-14 15:54:27.895825000 Z
+  updated_at: 2022-01-20 22:26:49.495191000 Z
+field_allowed_value_3:
+  id: 3
+  uid: 2
+  label: Lapsed
+  value: Lapsed
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 29
+  created_at: 2022-01-14 15:54:27.896392000 Z
+  updated_at: 2022-01-20 22:26:49.496323000 Z
+field_allowed_value_63:
+  id: 63
+  uid: 14759130
+  label: "[equipment] WW_SawStop_Table Saw"
+  value: '14759130'
+  system_code:
+  selected_by_default: false
+  position: 42
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.098995000 Z
+  updated_at: 2022-01-14 15:54:28.098995000 Z
+field_allowed_value_64:
+  id: 64
+  uid: 14759131
+  label: "[equipment] WW_Various_Lathes"
+  value: '14759131'
+  system_code:
+  selected_by_default: false
+  position: 43
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.100172000 Z
+  updated_at: 2022-01-14 15:54:28.100172000 Z
+field_allowed_value_65:
+  id: 65
+  uid: 14759132
+  label: "[equipment] WW_Various_Routers"
+  value: '14759132'
+  system_code:
+  selected_by_default: false
+  position: 44
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.100725000 Z
+  updated_at: 2022-01-14 15:54:28.100725000 Z
+field_allowed_value_66:
+  id: 66
+  uid: 14759133
+  label: "[equipment] WWB_Bandsaw_Safety"
+  value: '14759133'
+  system_code:
+  selected_by_default: false
+  position: 45
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.101255000 Z
+  updated_at: 2022-01-14 15:54:28.101255000 Z
+field_allowed_value_67:
+  id: 67
+  uid: 14759134
+  label: "[equipment] WWB_MXB_General_Bandsaw"
+  value: '14759134'
+  system_code:
+  selected_by_default: false
+  position: 46
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.101876000 Z
+  updated_at: 2022-01-14 15:54:28.101876000 Z
+field_allowed_value_68:
+  id: 68
+  uid: 14759135
+  label: "[equipment] WWB_MXB_Rikon_Bandsaw"
+  value: '14759135'
+  system_code:
+  selected_by_default: false
+  position: 47
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.102405000 Z
+  updated_at: 2022-01-14 15:54:28.102405000 Z
+field_allowed_value_69:
+  id: 69
+  uid: 14759136
+  label: "[equipment] WWM_Jet_Thickness Sander"
+  value: '14759136'
+  system_code:
+  selected_by_default: false
+  position: 48
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.103017000 Z
+  updated_at: 2022-01-14 15:54:28.103017000 Z
+field_allowed_value_70:
+  id: 70
+  uid: 14759137
+  label: "[equipment] WWY_Delta_Spindle/Oscillating Sander"
+  value: '14759137'
+  system_code:
+  selected_by_default: false
+  position: 49
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.103541000 Z
+  updated_at: 2022-01-14 15:54:28.103541000 Z
+field_allowed_value_71:
+  id: 71
+  uid: 14759138
+  label: "[equipment] WWY_Dewalt_Scroll Saw"
+  value: '14759138'
+  system_code:
+  selected_by_default: false
+  position: 50
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.104155000 Z
+  updated_at: 2022-01-14 15:54:28.104155000 Z
+field_allowed_value_72:
+  id: 72
+  uid: 14759139
+  label: "[equipment] WWY_MXB_Grizzly_Bandsaw"
+  value: '14759139'
+  system_code:
+  selected_by_default: false
+  position: 51
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.104788000 Z
+  updated_at: 2022-01-14 15:54:28.104788000 Z
+field_allowed_value_73:
+  id: 73
+  uid: 14759140
+  label: "[equipment] WWY_Powermatic_Hollow Chisel Mortiser"
+  value: '14759140'
+  system_code:
+  selected_by_default: false
+  position: 52
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.105331000 Z
+  updated_at: 2022-01-14 15:54:28.105331000 Z
+field_allowed_value_74:
+  id: 74
+  uid: 14759141
+  label: "[equipment] WWY_Various_Drill Press"
+  value: '14759141'
+  system_code:
+  selected_by_default: false
+  position: 53
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.106062000 Z
+  updated_at: 2022-01-14 15:54:28.106062000 Z
+field_allowed_value_75:
+  id: 75
+  uid: 14759142
+  label: "[nlgroup] accounting"
+  value: '14759142'
+  system_code:
+  selected_by_default: false
+  position: 54
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.106676000 Z
+  updated_at: 2022-01-14 15:54:28.106676000 Z
+field_allowed_value_76:
+  id: 76
+  uid: 14759143
+  label: "[nlgroup] admins"
+  value: '14759143'
+  system_code:
+  selected_by_default: false
+  position: 55
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.107886000 Z
+  updated_at: 2022-01-14 15:54:28.107886000 Z
+field_allowed_value_77:
+  id: 77
+  uid: 14759144
+  label: "[nlgroup] associates"
+  value: '14759144'
+  system_code:
+  selected_by_default: false
+  position: 56
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.110889000 Z
+  updated_at: 2022-01-14 15:54:28.110889000 Z
+field_allowed_value_78:
+  id: 78
+  uid: 14759145
+  label: "[nlgroup] blogadmins"
+  value: '14759145'
+  system_code:
+  selected_by_default: false
+  position: 57
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.111545000 Z
+  updated_at: 2022-01-14 15:54:28.111545000 Z
+field_allowed_value_79:
+  id: 79
+  uid: 14759146
+  label: "[nlgroup] dbadmins"
+  value: '14759146'
+  system_code:
+  selected_by_default: false
+  position: 58
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.112171000 Z
+  updated_at: 2022-01-14 15:54:28.112171000 Z
+field_allowed_value_80:
+  id: 80
+  uid: 14759147
+  label: "[nlgroup] directors"
+  value: '14759147'
+  system_code:
+  selected_by_default: false
+  position: 59
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.112702000 Z
+  updated_at: 2022-01-14 15:54:28.112702000 Z
+field_allowed_value_81:
+  id: 81
+  uid: 14759148
+  label: "[nlgroup] facilities"
+  value: '14759148'
+  system_code:
+  selected_by_default: false
+  position: 60
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.113388000 Z
+  updated_at: 2022-01-14 15:54:28.113388000 Z
+field_allowed_value_82:
+  id: 82
+  uid: 14759149
+  label: "[nlgroup] founders"
+  value: '14759149'
+  system_code:
+  selected_by_default: false
+  position: 61
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.113945000 Z
+  updated_at: 2022-01-14 15:54:28.113945000 Z
+field_allowed_value_83:
+  id: 83
+  uid: 14759150
+  label: "[nlgroup] GO_New Member Orientation"
+  value: '14759150'
+  system_code:
+  selected_by_default: false
+  position: 62
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.114481000 Z
+  updated_at: 2022-01-14 15:54:28.114481000 Z
+field_allowed_value_84:
+  id: 84
+  uid: 14759151
+  label: "[nlgroup] members"
+  value: '14759151'
+  system_code:
+  selected_by_default: false
+  position: 63
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.116394000 Z
+  updated_at: 2022-01-14 15:54:28.116394000 Z
+field_allowed_value_85:
+  id: 85
+  uid: 14759152
+  label: "[nlgroup] Minor Age 11-15"
+  value: '14759152'
+  system_code:
+  selected_by_default: false
+  position: 64
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.116938000 Z
+  updated_at: 2022-01-14 15:54:28.116938000 Z
+field_allowed_value_86:
+  id: 86
+  uid: 14759153
+  label: "[nlgroup] Minor Age 16-17"
+  value: '14759153'
+  system_code:
+  selected_by_default: false
+  position: 65
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.117554000 Z
+  updated_at: 2022-01-14 15:54:28.117554000 Z
+field_allowed_value_87:
+  id: 87
+  uid: 14759154
+  label: "[nlgroup] Minor Age 8-10"
+  value: '14759154'
+  system_code:
+  selected_by_default: false
+  position: 66
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.118083000 Z
+  updated_at: 2022-01-14 15:54:28.118083000 Z
+field_allowed_value_88:
+  id: 88
+  uid: 14759155
+  label: "[nlgroup] officers"
+  value: '14759155'
+  system_code:
+  selected_by_default: false
+  position: 67
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.118688000 Z
+  updated_at: 2022-01-14 15:54:28.118688000 Z
+field_allowed_value_89:
+  id: 89
+  uid: 14759156
+  label: "[nlgroup] operations"
+  value: '14759156'
+  system_code:
+  selected_by_default: false
+  position: 68
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.119219000 Z
+  updated_at: 2022-01-14 15:54:28.119219000 Z
+field_allowed_value_90:
+  id: 90
+  uid: 14759157
+  label: "[nlgroup] waiver"
+  value: '14759157'
+  system_code:
+  selected_by_default: false
+  position: 69
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.119842000 Z
+  updated_at: 2022-01-14 15:54:28.119842000 Z
+field_allowed_value_91:
+  id: 91
+  uid: 14759158
+  label: "[nlgroup] wautils"
+  value: '14759158'
+  system_code:
+  selected_by_default: false
+  position: 70
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.120372000 Z
+  updated_at: 2022-01-14 15:54:28.120372000 Z
+field_allowed_value_92:
+  id: 92
+  uid: 14759159
+  label: "[nlgroup] wikiadmins"
+  value: '14759159'
+  system_code:
+  selected_by_default: false
+  position: 71
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.120909000 Z
+  updated_at: 2022-01-14 15:54:28.120909000 Z
+field_allowed_value_93:
+  id: 93
+  uid: 14759160
+  label: "[novapass] CC_ShopSabre_CNC Router"
+  value: '14759160'
+  system_code:
+  selected_by_default: false
+  position: 72
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.121522000 Z
+  updated_at: 2022-01-14 15:54:28.121522000 Z
+field_allowed_value_94:
+  id: 94
+  uid: 14759161
+  label: "[novapass] LC_Hurricane_Laser Cutter"
+  value: '14759161'
+  system_code:
+  selected_by_default: false
+  position: 73
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.122055000 Z
+  updated_at: 2022-01-14 15:54:28.122055000 Z
+field_allowed_value_95:
+  id: 95
+  uid: 14759162
+  label: "[novapass] LC_Rabbit_Laser Cutter"
+  value: '14759162'
+  system_code:
+  selected_by_default: false
+  position: 74
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.122591000 Z
+  updated_at: 2022-01-14 15:54:28.122591000 Z
+field_allowed_value_96:
+  id: 96
+  uid: 14759163
+  label: "[novapass] MW_Enco_Metal Lathe"
+  value: '14759163'
+  system_code:
+  selected_by_default: false
+  position: 75
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.123185000 Z
+  updated_at: 2022-01-14 15:54:28.123185000 Z
+field_allowed_value_97:
+  id: 97
+  uid: 14759164
+  label: "[novapass] MW_Enco_Vertical Mill"
+  value: '14759164'
+  system_code:
+  selected_by_default: false
+  position: 76
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.123712000 Z
+  updated_at: 2022-01-14 15:54:28.123712000 Z
+field_allowed_value_98:
+  id: 98
+  uid: 14759165
+  label: "[novapass] SL_FormLabs_SLA Printer"
+  value: '14759165'
+  system_code:
+  selected_by_default: false
+  position: 77
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.124334000 Z
+  updated_at: 2022-01-14 15:54:28.124334000 Z
+field_allowed_value_99:
+  id: 99
+  uid: 14759166
+  label: "[novapass] WWM_Delta_Planer"
+  value: '14759166'
+  system_code:
+  selected_by_default: false
+  position: 78
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.124862000 Z
+  updated_at: 2022-01-14 15:54:28.124862000 Z
+field_allowed_value_100:
+  id: 100
+  uid: 14759167
+  label: "[novapass] WWM_Laguna_Jointer"
+  value: '14759167'
+  system_code:
+  selected_by_default: false
+  position: 79
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.125422000 Z
+  updated_at: 2022-01-14 15:54:28.125422000 Z
+field_allowed_value_101:
+  id: 101
+  uid: 14759168
+  label: "[novapass] WWR_Dewalt_Sliding miter saw"
+  value: '14759168'
+  system_code:
+  selected_by_default: false
+  position: 80
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.126050000 Z
+  updated_at: 2022-01-14 15:54:28.126050000 Z
+field_allowed_value_102:
+  id: 102
+  uid: 14759169
+  label: "[novapass] WWR_SawStop_Table Saw"
+  value: '14759169'
+  system_code:
+  selected_by_default: false
+  position: 81
+  field_id: 46
+  created_at: 2022-01-14 15:54:28.126622000 Z
+  updated_at: 2022-01-14 15:54:28.126622000 Z
+field_allowed_value_1:
+  id: 1
+  uid: 0
+  label: Individual
+  value: '0'
+  system_code:
+  selected_by_default: false
+  position: 0
+  field_id: 21
+  created_at: 2022-01-14 15:54:27.894169000 Z
+  updated_at: 2022-01-20 22:26:49.468096000 Z

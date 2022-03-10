@@ -1,0 +1,12 @@
+example_id                                     | status  | run_time        |
+---------------------------------------------- | ------- | --------------- |
+./spec/lib/waapi_spec.rb[1:1:1:1]              | passed  | 0.01134 seconds |
+./spec/models/field_allowed_value_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/field_spec.rb[1:1]               | pending | 0 seconds       |
+./spec/models/field_user_value_spec.rb[1:1]    | pending | 0 seconds       |
+./spec/models/user_spec.rb[1:1]                | passed  | 0.09399 seconds |
+./spec/models/wild_apricot_sync_spec.rb[1:1]   | passed  | 0.49468 seconds |
+./spec/models/wild_apricot_sync_spec.rb[1:2:1] | passed  | 0.05942 seconds |
+./spec/models/wild_apricot_sync_spec.rb[1:2:2] | passed  | 0.36325 seconds |
+./spec/models/wild_apricot_sync_spec.rb[1:2:3] | passed  | 0.36484 seconds |
+./spec/requests/admin/fields_spec.rb[1:1:1]    | failed  | 0.01201 seconds |

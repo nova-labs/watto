@@ -1,0 +1,112 @@
+<% content_for :title, "Event: #{@event.name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Events", to: events_path %>
+  <%= crumb @event.name, active: true %>
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Details
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.location %></span>
+          Location
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.event_type %></span>
+          Event Type
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.start_date %></span>
+          Start Date
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.end_date %></span>
+          End Date
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.confirmed_registrations_count %></span>
+          Registration Limit
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Actions
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to "View on Member Portal", wa_event_url(@event) %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Instructor Formbot", formbot_url %>
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.uid %></span>
+          Event ID
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Registrations
+      </div>
+      <% unless @event.event_registrations.empty? %>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Fee</th>
+                <th scope="col">Waitlist</th>
+                <th scope="col">Registered At</th>
+                <th scope="col">Registration Type</th>
+                <th scope="col">.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @event.event_registrations.each do |reg| %>
+                <tr>
+                  <td><%= reg.id %></td>
+                  <td>
+                    <%= reg.display_name %>
+                  </td>
+                  <td><%= reg.user.email %></td>
+                  <td><%= reg.registration_fee %></td>
+                  <td><%= reg.on_waitlist %></td>
+                  <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
+                  <td><%= reg.registration_type %></td>
+                  <td>
+                    <% if current_user.account_administrator %>
+                      <a href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <div class="card-body">
+          None yet!
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+</div>

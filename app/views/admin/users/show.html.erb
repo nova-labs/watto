@@ -1,0 +1,90 @@
+<% content_for :title, "Members Admin: #{@user.name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Admin", to: admin_path %>
+  <%= crumb "Members", to: admin_users_path %>
+  <%= crumb @user.name, active: true %>
+<% end %>
+
+
+<div class="row">
+  <div class="col col-md-6">
+    <h2>Attributes</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Attribute</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% [ :id,
+               :account_administrator,
+               :admin,
+               :membership_enabled,
+               :membership_level_id,
+               :membership_level_name,
+               :membership_level_url,
+               :email,
+               :first_name,
+               :last_name,
+               :name,
+               :provider,
+               :status,
+               :uid,
+               :url,
+               :created_at,
+               :updated_at,
+          ].each do |n| %>
+          <tr>
+            <td><%= n.to_s %></td>
+            <td scope="col"><%= @user[n] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col col-md-6">
+
+    <h2>Fields</h2>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @user.field_values.group_by(&:system_code).each do |k,v| %>
+            <% field = Field.find_by system_code: k %>
+            <tr>
+              <td>
+                <% if ["String", "MultipleChoice"].include? field.field_type %>
+                  <%= link_to field.field_name, edit_admin_user_field_path(@user, field) %>
+                <% else %>
+                  <%= field.field_name %>
+                <% end %>
+              </td>
+              <td><%= field.field_type%></td>
+              <td>
+                <%= print_field_user_values(v).join(", ") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>
+
+
+

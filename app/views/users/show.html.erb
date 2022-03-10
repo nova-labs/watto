@@ -1,0 +1,82 @@
+<% content_for :title, "Member: #{@user.name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Members", to: users_path %>
+  <%= crumb @user.name, active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header py-3 d-flex align-items-center">
+        <img src="<%= gravatar_url(@user) %>" class="rounded-circle align-self-start me-3" style="height:60px;width:60px;background-color:grey;">
+        <h5 class="card-title mb-0">
+          <%= @user.name %>
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.first_name%></span>
+          First Name
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.last_name%></span>
+          Last Name
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.email%></span>
+          Email
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.membership_level_name %></span>
+          Membership Level
+        </li>
+        <% if current_user.account_administrator? %>
+          <li class="list-group-item">
+            <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
+          </li>
+        <% end %>
+        <% if current_user.signoffer? %>
+          <li class="list-group-item">
+            <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md">
+    <div class="card mb-4">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        Sign-offs and Categories
+        <% if current_user.signoffer? %>
+          <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user), class: "btn btn-sm btn-primary" %>
+        <% end %>
+      </div>
+      <% unless @signoffs.empty? %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <% @signoffs.each do |field_value| %>
+                <tr>
+                  <td scope="row">
+                    <%= user_field_value_badge(field_value) %>
+                  </td>
+                  <td class="w-100"><%= field_value.name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <div class="card-body">
+          None yet!
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,37 @@
+.badge-default {
+  background-color: #6c757d;
+}
+.badge-equipment {
+  background-color: #7952b3;
+}
+
+.badge-novapass {
+  background-color:  #ffc107;
+}
+
+.badge-nlgroup {
+  background-color:  #28a745;
+}
+
+.callout {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+
+.floating-list {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.contact-to-add {
+  cursor: pointer;
+}
+

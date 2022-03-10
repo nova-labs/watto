@@ -1,0 +1,47 @@
+<% content_for :title, "Batch Update Sign-offs" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Sign-offs by tool", active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<div data-controller="batch-update-tool">
+  <%= form_for @field, url: batch_update_tool_path do |f| %>
+    <!-- Prevent implicit submission of the form -->
+    <button type="submit" disabled="" style="display: none" aria-hidden="true"></button>
+
+    <div class="mb-3">
+      <label for="signoff_id">Signoff</label>
+
+      <select required="" name="field_value" class="form-control" id="signoff_list">
+        <option value="" disabled="" selected="">Select a Sign Off</option>
+        <% @values.each do |value| %>
+          <option value="<%= value.uid %>"><%= value.label %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <div id="tool_signoff_list"></div>
+    </div>
+
+    <div class="mb-3">
+      <label for="contact">Members</label>
+      <ul data-batch-update-tool-target="contacts" id="contact_field_list" class="list-group clearfix"></ul>
+    </div>
+
+
+    <div class="mb-3">
+      <input required="" data-batch-update-tool-target="searchInput" data-action="input->batch-update-tool#input" data-url="<%= search_batch_update_tool_path %>" id="contact_search" name="contact_search" class="form-control" placeholder="Search for member to add" type="text">
+      <small class="form-text text-muted">
+        Enter three or more characters from the member's name or email address.
+      </small>
+      <ul data-batch-update-tool-target="search" id="contact_search_list" class="list-group floating-list"></ul>
+    </div>
+
+    <div class="mb-3">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

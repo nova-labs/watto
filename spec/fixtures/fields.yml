@@ -1,0 +1,41 @@
+---
+signoff_permissions:
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/13082555
+  uid: 13082555
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: NL Signoff Permissions
+  system: false
+  field_instructions:
+  max_length:
+  order: 8
+  display_type:
+  system_code: custom-13082555
+  required:
+signoffs:
+  url: https://api.wildapricot.org/v2.2/accounts/354313/ContactFields/12971567
+  uid: 12971567
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: MultipleChoice
+  field_name: NL Signoffs and Categories
+  system: false
+  field_instructions:
+  max_length:
+  order: 9
+  display_type:
+  system_code: custom-12971567
+  required:

@@ -1,0 +1,20 @@
+{
+   "access_token":"REDACTED",
+   "token_type":"Bearer",
+   "expires_in":1800,
+   "refresh_token":"rt_2001-01-01_8DZ-REDACTED",
+   "Permissions":[
+      {
+         "AccountId":354313,
+         "SecurityProfileId":64513594,
+         "AvailableScopes":[
+            "contacts_view",
+            "contacts_edit",
+            "finances_view",
+            "finances_edit",
+            "events_view",
+            "account_view"
+         ]
+      }
+   ]
+}
