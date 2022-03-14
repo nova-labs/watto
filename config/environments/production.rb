@@ -100,4 +100,8 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Do not keep production secrets in the repository,
+  # instead read values from the environment.
+  config.secret_key_base = ENV["RAILS_SECRET_KEY_BASE"]
 end
