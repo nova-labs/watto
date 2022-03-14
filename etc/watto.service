@@ -1,0 +1,19 @@
+[Unit]
+Description=Watto Rails App
+After=network.target
+
+[Service]
+User=wautils
+Group=wautils
+WorkingDirectory=/home/wautils/srv/watto
+EnvironmentFile=/home/wautils/srv/watto/.env
+ExecStart=/home/wautils/srv/watto/bin/bundle exec rails server -p $PORT
+
+Restart=always
+RestartSec=14s
+SyslogIdentifier=%n
+KillMode=mixed
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
