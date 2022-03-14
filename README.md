@@ -69,6 +69,7 @@ To see all the options run:
 ./bin/rails -T
 ```
 
+
 # License
 
 MIT. See [LICENSE](LICENSE).
