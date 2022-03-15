@@ -1,15 +1,22 @@
 # Watto
 
 
-Wautils2. This is a rewrite of https://github.com/nova-labs/wild_apricot_python_flask_utils, but since it is mostly ruby that didn't seem like a very good repo to stash this app.
+Wautils2. This is a rewrite of
+https://github.com/nova-labs/wild_apricot_python_flask_utils, but since it is
+mostly ruby that didn't seem like a very good repo to stash this app.
 
-Watto provides an utility interface to the Nova Labs Wild Apricot account for a few custom tasks that we need in the Maker Space. This is primariliy for class instructors and show stewards to manage sign offs.
+Watto provides an utility interface to the Nova Labs Wild Apricot account for
+a few custom tasks that we need in the Maker Space. This is primariliy for
+class instructors and shop stewards to manage sign offs.
 
 # Development
 
-Recomend using a ruby version manager such as [RVM](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv], but this project doesn't have any preferences.
+Recomend using a ruby version manager such as [RVM](https://rvm.io/) or
+[rbenv](https://github.com/rbenv/rbenv], but this project doesn't have any
+preferences.
 
-Clone the repo, create a `.env` file with the necessary envrionment variables (see `.env-example` for the options).
+Clone the repo, create a `.env` file with the necessary envrionment variables
+(see `.env-example` for the options).
 
 Then to install the dependencies and setup the database:
 
@@ -35,7 +42,8 @@ This app doesn't make much sense without a Wild Aprocot account.
 
 ## Auth
 
-Authentication is done via [OAuth with Wild Apricot](https://gethelp.wildapricot.com/en/articles/200-single-sign-on-service).
+Authentication is done via [OAuth with Wild
+Apricot](https://gethelp.wildapricot.com/en/articles/200-single-sign-on-service).
 
 ## Data Sync
 
