@@ -1,0 +1,134 @@
+
+  {
+    "Id": 34311280,
+    "Url": "https://api.wildapricot.org/v2.2/accounts/354313/EventRegistrations/34311280",
+    "Event": {
+      "Id": 4265914,
+      "Url": "https://api.wildapricot.org/v2.2/accounts/354313/Events/4265914",
+      "Location": "",
+      "StartDate": "2022-04-01T03:00:00-05:00",
+      "EndDate": "2022-04-01T04:00:00-05:00",
+      "Name": "Trenzalore"
+    },
+    "Contact": {
+      "Id": 59100437,
+      "Url": "https://api.wildapricot.org/v2.2/accounts/354313/Contacts/59100437",
+      "Name": "Doctor, The"
+    },
+    "DisplayName": "Doctor, The",
+    "Organization": "",
+    "IsCheckedIn": false,
+    "RegistrationFee": 0.0,
+    "PaidSum": 0.0,
+    "RegistrationTypeId": 6520575,
+    "IsPaid": true,
+    "RegistrationFields": [
+      {
+        "FieldName": "First name",
+        "Value": "The",
+        "SystemCode": "FirstName"
+      },
+      {
+        "FieldName": "Last name",
+        "Value": "Doctor",
+        "SystemCode": "LastName"
+      },
+      {
+        "FieldName": "Organization",
+        "Value": "",
+        "SystemCode": "Organization"
+      },
+      {
+        "FieldName": "Email",
+        "Value": "the_doctor@example.test",
+        "SystemCode": "Email"
+      },
+      {
+        "FieldName": "Phone",
+        "Value": "",
+        "SystemCode": "Phone"
+      },
+      {
+        "FieldName": "Badge Number",
+        "Value": "",
+        "SystemCode": "custom-12940164"
+      }
+    ],
+    "ShowToPublic": false,
+    "RegistrationDate": "2021-04-13T10:18:47-05:00",
+    "Memo": "",
+    "RegistrationType": {
+      "Id": 6520575,
+      "Name": "RSVP"
+    },
+    "IsGuestRegistration": false,
+    "OnWaitlist": false,
+    "Status": "Free"
+  },
+  {
+    "Id": 34311274,
+    "Url": "https://api.wildapricot.org/v2.2/accounts/354313/EventRegistrations/34311274",
+    "Event": {
+      "Id": 4265914,
+      "Url": "https://api.wildapricot.org/v2.2/accounts/354313/Events/4265914",
+      "Location": "",
+      "StartDate": "2022-04-01T03:00:00-05:00",
+      "EndDate": "2022-04-01T04:00:00-05:00",
+      "Name": "Trenzalore"
+    },
+    "Contact": {
+      "Id": 59318549,
+      "Url": "https://api.wildapricot.org/v2.2/accounts/354313/Contacts/59318549",
+      "Name": "Pond, Rory"
+    },
+    "DisplayName": "Pond, Rory",
+    "Organization": "",
+    "IsCheckedIn": false,
+    "RegistrationFee": 0.0,
+    "PaidSum": 0.0,
+    "RegistrationTypeId": 6520576,
+    "IsPaid": true,
+    "RegistrationFields": [
+      {
+        "FieldName": "First name",
+        "Value": "Rory",
+        "SystemCode": "FirstName"
+      },
+      {
+        "FieldName": "Last name",
+        "Value": "Pond",
+        "SystemCode": "LastName"
+      },
+      {
+        "FieldName": "Organization",
+        "Value": "",
+        "SystemCode": "Organization"
+      },
+      {
+        "FieldName": "Email",
+        "Value": "rory_pond@example.test",
+        "SystemCode": "Email"
+      },
+      {
+        "FieldName": "Phone",
+        "Value": "",
+        "SystemCode": "Phone"
+      },
+      {
+        "FieldName": "Badge Number",
+        "Value": "",
+        "SystemCode": "custom-12940164"
+      }
+    ],
+    "ShowToPublic": false,
+    "RegistrationDate": "2021-04-13T10:18:27-05:00",
+    "Memo": "",
+    "RegistrationType": {
+      "Id": 6520576,
+      "Name": "Instructor"
+    },
+    "IsGuestRegistration": false,
+    "OnWaitlist": false,
+    "Status": "Free"
+  }
+]

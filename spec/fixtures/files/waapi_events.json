@@ -1,0 +1,25 @@
+{
+  "Events": [
+    {
+      "Id": 4265914,
+      "Url": "https://api.wildapricot.org/v2.2/accounts/354313/Events/4265914",
+      "EventType": "Regular",
+      "StartDate": "2022-04-01T03:00:00-05:00",
+      "EndDate": "2022-04-01T04:00:00-05:00",
+      "Location": "",
+      "RegistrationEnabled": true,
+      "RegistrationsLimit": 4,
+      "PendingRegistrationsCount": 0,
+      "ConfirmedRegistrationsCount": 2,
+      "CheckedInAttendeesNumber": 0,
+      "Tags": [
+        "this is a tag"
+      ],
+      "AccessLevel": "Public",
+      "StartTimeSpecified": true,
+      "EndTimeSpecified": true,
+      "HasEnabledRegistrationTypes": true,
+      "Name": "Trenzalore"
+    }
+  ]
+}
