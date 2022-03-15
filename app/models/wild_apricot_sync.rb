@@ -25,7 +25,6 @@ class WildApricotSync
 
       field.allowed_values =
         el["AllowedValues"].map do |v|
-          puts "#   #{v.to_json}"
           value = FieldAllowedValue.find_or_initialize_by(uid: v["Id"])
           value.label = v["Label"]
           value.value = v["Value"]
@@ -131,7 +130,6 @@ class WildApricotSync
   end
 
   def event(json)
-    pp json
     e = Event.find_or_initialize_by(uid: json["Id"])
     e.uid = json["Id"]
     e.url = json["Url"] #=>"https://api.wildapricot.org/v2.2/accounts/354313/Events/4255365",
@@ -162,10 +160,6 @@ class WildApricotSync
   end
 
   def event_registration(event, json)
-    puts "*"*80
-    pp json
-    puts "*"*80
-
     r = EventRegistration.find_or_initialize_by(uid: json["Id"])
     r.url = json["Url"]
     r.display_name = json["DisplayName"]

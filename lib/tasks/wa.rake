@@ -1,4 +1,12 @@
 namespace :wa do
+  def write_json_file(name, json)
+    FileUtils.mkdir_p './tmp/wa-sync'
+    #file_name = "./tmp/wa-sync/#{Time.zone.now.strftime('%Y%m%d-%H%M')}-#{name}.json"
+    file_name = "./tmp/wa-sync/#{name}.json"
+    File.write(file_name, JSON.pretty_generate(json))
+    puts "   Saved response to #{file_name}"
+  end
+
   desc "Sync Users from Wild Apricot"
   task :sync => [:environment, "wa:fields", "wa:users", "wa:events"]
 
@@ -6,40 +14,46 @@ namespace :wa do
   task fields: :environment do
     sync = WildApricotSync.new
 
-    puts "Syncing fields..."
+    puts "== Syncing fields =="
     contact_fields = WAAPI.contact_fields.json
+    write_json_file(:contact_fields, contact_fields)
+    puts "   Fields:"
     sync.contact_fields(contact_fields) do |field|
-      puts "   #{field.id} #{field.field_name}"
+      puts "   #{field.id.to_s.rjust(4)} #{field.field_name}"
       unless field.allowed_values.empty?
         field.allowed_values.each do |v|
-          puts "        #{v.label}"
+          puts "        - #{v.label}"
         end
       end
     end
   end
 
-  desc "Sync fields from Wild Apricot"
+  desc "Sync users from Wild Apricot"
   task users: :environment do
     sync = WildApricotSync.new
 
-    puts "Syncing users..."
+    puts "== Syncing users =="
     contacts = WAAPI.contacts.json
+    puts "   Users:"
+    write_json_file(:contact, contacts)
     sync.contacts(contacts) do |contact|
-      puts "   #{contact.id} #{contact.name}"
+      puts "   #{contact.id.to_s.rjust(4)} #{contact.name}"
     end
   end
 
-  desc "Sync Events from Wild Apricot"
+  desc "Sync events from Wild Apricot"
   task events: :environment do
     sync = WildApricotSync.new
 
-    puts "Syncing events..."
+    puts "== Syncing events =="
     events = WAAPI.events.json
+    write_json_file(:events, events)
+    puts "   Events:"
     sync.events(events) do |event|
-      puts "   #{event.id} #{event.name}"
+      puts "   #{event.id.to_s.rjust(4)} #{event.name}"
 
       sync.event_registrations(event, WAAPI.event_registrations(event.uid).json) do |reg|
-        puts "     #{reg.id} #{reg.display_name}"
+        puts "        - #{reg.display_name}"
       end
     end
   end
