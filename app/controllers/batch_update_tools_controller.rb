@@ -1,4 +1,6 @@
 class BatchUpdateToolsController < ApplicationController
+  before_action :require_signoffer
+
   def show
     @field = Field.signoffs
     @values = @field.allowed_values

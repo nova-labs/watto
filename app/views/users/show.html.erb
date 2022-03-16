@@ -18,27 +18,53 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <span class="float-end"><%= @user.first_name%></span>
+          <span class="float-end"><%= @user.first_name %></span>
           First Name
         </li>
         <li class="list-group-item">
-          <span class="float-end"><%= @user.last_name%></span>
+          <span class="float-end"><%= @user.last_name %></span>
           Last Name
         </li>
-        <li class="list-group-item">
-          <span class="float-end"><%= @user.email%></span>
-          Email
-        </li>
+        <% if current_user.signoffer? %>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.email %></span>
+            Email
+          </li>
+        <% end %>
         <li class="list-group-item">
           <span class="float-end"><%= @user.membership_level_name %></span>
           Membership Level
         </li>
-        <% if current_user.account_administrator? %>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.badge_number || "None" %></span>
+          Badge Number
+        </li>
+        <% if @user.archived? %>
+          <li class="list-group-item">
+            💀 Is is archived
+          </li>
+        <% end %>
+        <% if @user.account_administrator? %>
+          <li class="list-group-item">
+            😱 Is an account administrator
+          </li>
+        <% end %>
+        <% if @user.admin? %>
+          <li class="list-group-item">
+            🎉  Is an admin
+          </li>
+        <% end %>
+        <% if @user.signoffer? %>
+          <li class="list-group-item">
+            💪 Is a sign-offer
+          </li>
+        <% end %>
+        <% if @user.account_administrator? %>
           <li class="list-group-item">
             <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
           </li>
         <% end %>
-        <% if current_user.signoffer? %>
+        <% if @user.signoffer? %>
           <li class="list-group-item">
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
           </li>

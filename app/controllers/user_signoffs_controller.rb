@@ -1,4 +1,6 @@
 class UserSignoffsController < ApplicationController
+  before_action :require_signoffer
+
   def edit
     @user = User.find(params[:user_id])
     @field = Field.signoffs
@@ -35,6 +37,7 @@ class UserSignoffsController < ApplicationController
     # Fetch the user again because the one returned above doesn't have changes
     # reflected.
     ret = WAAPI.contact(@user.uid)
+
     WildApricotSync.new.contact(ret.json)
 
     redirect_to user_path(@user), notice: "Updated User"

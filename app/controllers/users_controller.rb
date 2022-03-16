@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User
       .where.not(membership_level_name: [nil, ""])
+      .where(archived: false)
       .page(params[:page])
 
     if params[:q]

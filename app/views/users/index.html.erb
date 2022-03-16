@@ -21,8 +21,13 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
-          <th scope="col">Email</th>
+          <% if current_user.signoffer? %>
+            <th scope="col">Email</th>
+          <% end %>
           <th scope="col">Membership</th>
+          <% if current_user.signoffer? %>
+            <th scope="col">Actions</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -30,8 +35,15 @@
           <tr>
             <td><%= member.uid %></td>
             <td><%= link_to member.name, user_path(member) %></td>
-            <td><%= member.email %></td>
+            <% if current_user.signoffer? %>
+              <td><%= member.email %></td>
+            <% end %>
             <td><%= member.membership_level_name %></td>
+            <% if current_user.signoffer? %>
+              <td>
+                <%= link_to "Edit Sign-offs", edit_user_signoffs_path(member) %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

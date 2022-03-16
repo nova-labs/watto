@@ -32,4 +32,16 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
+
+  def current_user_signoffer?
+    current_user&.signoffer?
+  end
+
+  helper_method :current_user_signoffer?
+
+  def require_signoffer
+    return if current_user_signoffer?
+
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end
