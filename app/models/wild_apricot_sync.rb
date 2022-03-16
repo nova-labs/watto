@@ -108,6 +108,8 @@ class WildApricotSync
 
     user.field_values = field_values
 
+    # Go hunting for field values:
+
     signoffs = el["FieldValues"].find {|field| field["FieldName"] == "NL Signoffs and Categories" }
     if signoffs
       if signoffs["Value"]&.find {|value| value["Label"] == "[nlgroup] wautils"}
@@ -115,6 +117,16 @@ class WildApricotSync
       end
     end
 
+    badge_number = el["FieldValues"].find {|field| field["FieldName"] == "Badge Number" }
+    if badge_number
+      if badge_number["Value"].blank?
+        user.badge_number = nil
+      else
+        user.badge_number = badge_number["Value"]
+      end
+    end
+
+    user.archived = json["FieldValues"].find{|fv| fv["SystemCode"] == "IsArchived"}&.fetch("Value")
 
     user.save
     yield(user) if block_given?
