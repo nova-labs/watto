@@ -2,8 +2,6 @@
 
 require 'rails_helper'
 
-require_relative '../../lib/waapi'
-
 RSpec.describe WAAPI::Client do
 
   describe "with valid oauth request" do

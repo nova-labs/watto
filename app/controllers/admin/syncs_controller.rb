@@ -16,7 +16,7 @@ class Admin::SyncsController < Admin::BaseController
       log << "   [#{field.id}] #{field.field_name}"
       unless field.allowed_values.empty?
         field.allowed_values.each do |v|
-          puts "        #{v.label}"
+          log << "        #{v.label}"
         end
       end
     end

@@ -1,16 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe "Events", type: :request do
-  describe "GET /index" do
+  fixtures :users
+
+  describe "GET /events" do
     it "returns http success" do
-      get "/events/index"
+      sign_in(users :doctor)
+
+      get "/events"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
+  describe "GET /events/:id " do
     it "returns http success" do
-      get "/events/show"
+      sign_in(users :doctor)
+
+      json = json_file_fixture('waapi_events.json')
+      WildApricotSync.new.events(json)
+      event = Event.first
+
+      get events_path(event)
       expect(response).to have_http_status(:success)
     end
   end

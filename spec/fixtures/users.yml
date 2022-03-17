@@ -5,6 +5,7 @@ doctor:
   email: the_doctor@example.test
   account_administrator: true
   admin: false
+  provider: wildapricot
 amy:
   name: Amy Pond
   first_name: Amy
@@ -13,6 +14,7 @@ amy:
   email: amy_pond@example.test
   account_administrator: false
   admin: false
+  provider: wildapricot
 rory:
   name: Rory Pond
   first_name: Rory
@@ -21,5 +23,4 @@ rory:
   email: rory_pond@example.test
   account_administrator: false
   admin: false
-
-
+  provider: wildapricot

@@ -1,16 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "UserSignoffs", type: :request do
+  fixtures :users
+
   describe "GET /edit" do
     it "returns http success" do
-      get "/user_signoffs/edit"
-      expect(response).to have_http_status(:success)
-    end
-  end
+      user = users(:doctor)
+      sign_in(user)
 
-  describe "GET /update" do
-    it "returns http success" do
-      get "/user_signoffs/update"
+      get edit_user_signoffs_path(user)
       expect(response).to have_http_status(:success)
     end
   end
