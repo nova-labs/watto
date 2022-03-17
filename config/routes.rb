@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :wild_apricot do
-    post 'webhook', to: 'wild_apricot/create'
+    post 'webhook', to: "webhook#create"
   end
 
-  resources :events, only: [:index, :show]
-  resources :users, only: [:index, :show] do
+  resources :events, only: [:index, :show, :update]
+  resources :users, only: [:index, :show, :update] do
     resource :signoffs, only: [:edit, :update], controller: "user_signoffs"
   end
   resource :batch_update_tool do

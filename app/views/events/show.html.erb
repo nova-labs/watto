@@ -21,6 +21,10 @@
           Event Type
         </li>
         <li class="list-group-item">
+          <span class="float-end"><%= @event.uid %></span>
+          Event ID
+        </li>
+        <li class="list-group-item">
           <span class="float-end"><%= @event.start_date %></span>
           Start Date
         </li>
@@ -32,6 +36,10 @@
           <span class="float-end"><%= @event.confirmed_registrations_count %></span>
           Registration Limit
         </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.updated_at %></span>
+          Last Updated
+        </li>
       </ul>
     </div>
   </div>
@@ -41,16 +49,21 @@
         Actions
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <%= link_to "View on Member Portal", wa_event_url(@event) %>
-        </li>
+        <% if current_user.account_administrator? %>
+          <li class="list-group-item">
+            <%= link_to "View on Member Portal", wa_event_url(@event) %>
+          </li>
+        <% end %>
         <li class="list-group-item">
           <%= link_to "Instructor Formbot", formbot_url %>
         </li>
-        <li class="list-group-item">
-          <span class="float-end"><%= @event.uid %></span>
-          Event ID
-        </li>
+        <% if current_user.signoffer? %>
+          <li class="list-group-item">
+            <%= form_for @event do |f| %>
+              <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -74,7 +87,7 @@
                 <th scope="col">Waitlist</th>
                 <th scope="col">Registered At</th>
                 <th scope="col">Registration Type</th>
-                <th scope="col">.</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>

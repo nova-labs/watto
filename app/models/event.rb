@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :event_registrations
+  has_many :event_registrations, dependent: :destroy
 
   scope :search, ->(search_term) {
     like_term = "%#{search_term}%"

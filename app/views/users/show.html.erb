@@ -39,6 +39,10 @@
           <span class="float-end"><%= @user.badge_number || "None" %></span>
           Badge Number
         </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.updated_at %></span>
+          Last Updated
+        </li>
         <% if @user.archived? %>
           <li class="list-group-item">
             💀 Is is archived
@@ -59,14 +63,19 @@
             💪 Is a sign-offer
           </li>
         <% end %>
-        <% if @user.account_administrator? %>
+        <% if current_user.account_administrator? %>
           <li class="list-group-item">
             <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
           </li>
         <% end %>
-        <% if @user.signoffer? %>
+        <% if current_user.signoffer? %>
           <li class="list-group-item">
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
+          </li>
+          <li class="list-group-item">
+            <%= form_for @user do |f| %>
+              <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
+          <% end %>
           </li>
         <% end %>
       </ul>

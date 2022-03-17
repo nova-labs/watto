@@ -1,5 +1,5 @@
 class FieldUserValue < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, touch: true
   belongs_to :field
   belongs_to :field_allowed_value, optional: true
 

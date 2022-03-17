@@ -20,4 +20,25 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
+
+
+  def update
+    @event = Event.find(params[:id])
+
+    ret = WAAPI.event(@event.uid)
+
+    if ret.status == 404 # Deleted
+      @event.delete
+      redirect_to events_path, notice: "Successful sync from portal, this event was deleted"
+    else
+      sync = WildApricotSync.new
+      sync.event(ret.json)
+
+      event_registrations = WAAPI.event_registrations(@event.uid).json
+      sync.event_registrations(@event, event_registrations)
+
+      redirect_to event_path(@event), notice: "Successful sync from portal (#{ret.status})"
+    end
+
+  end
 end

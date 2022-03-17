@@ -87,6 +87,10 @@ class WAAPI
     Client.new.get(u "accounts/#{config_account_id}/events/#{event_id}")
   end
 
+  def self.event_registration(event_registration_id)
+    Client.new.get(u "accounts/#{config_account_id}/eventregistrations/#{event_registration_id}")
+  end
+
   def self.event_registrations(event_id)
     Client.new.get(u "accounts/#{config_account_id}/eventregistrations?eventId=#{event_id}")
   end
