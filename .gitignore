@@ -38,3 +38,5 @@
 /.env
 
 /fixture_dump
+
+/spec/examples.txt
