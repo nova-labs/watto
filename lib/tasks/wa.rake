@@ -1,5 +1,7 @@
 namespace :wa do
   def write_json_file(name, json)
+    return unless ENV["WA_WRITE_API_RESPONSE_TO_FILE"] == "true"
+
     FileUtils.mkdir_p './tmp/wa-sync'
     #file_name = "./tmp/wa-sync/#{Time.zone.now.strftime('%Y%m%d-%H%M')}-#{name}.json"
     file_name = "./tmp/wa-sync/#{name}.json"
