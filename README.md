@@ -1,8 +1,7 @@
 # Watto
 
-
 Wautils2. This is a rewrite of
-https://github.com/nova-labs/wild_apricot_python_flask_utils, but since it is
+[`wild_apricot_python_flask_utils`](https://github.com/nova-labs/wild_apricot_python_flask_utils), but since it is
 mostly ruby that didn't seem like a very good repo to stash this app.
 
 Watto provides an utility interface to the Nova Labs Wild Apricot account for
