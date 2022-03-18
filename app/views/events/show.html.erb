@@ -57,7 +57,7 @@
           </li>
         <% end %>
         <li class="list-group-item">
-          <%= link_to "Instructor Formbot", formbot_url %>
+          <%= link_to "Instructor Formbot", formbot_url(@event) %>
         </li>
         <% if current_user.signoffer? %>
           <li class="list-group-item">
