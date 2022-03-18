@@ -26,7 +26,8 @@ class BatchUpdateToolsController < ApplicationController
       WildApricotSync.new.contact(ret.json)
     end
 
-    redirect_to batch_update_tool_path, notice: "Updated some stuffs"
+    count = params["contacts"].count
+    redirect_to batch_update_tool_path, notice: "Updated #{count} #{"member".pluralize(count)}"
   end
 
   def search
