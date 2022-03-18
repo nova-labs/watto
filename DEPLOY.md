@@ -4,7 +4,7 @@
 This describes the deploy process for Nova Labs. It is a bit manual of a deploy
 solution, but wanted to document it for future reference.
 
-## Deploying on Ubuntu
+## Installing on Ubuntu
 
 ##### 1. Create limited user
 
@@ -64,3 +64,49 @@ To see logs:
 sudo journalctl -u watto
 ```
 
+##### 3. Setup deploy repo
+
+1.  Create a bare repo at `~/git/watto`
+2. Configure authroized hosts to use key pair autentication for the user.
+3. Add the `post-receive` hook below
+
+To deploy to this branch you will need to configure the development machine.
+
+1. Add production remote `git remote add production wautils@srv-b.nova-labs.org:git/watto`
+2. Push to the main branch `git push produciton main`
+
+###### Post Recieve Hook for Deploying via Git
+
+```
+#!/bin/bash
+
+set -e
+
+GIT_DIR=/home/wautils/git/watto
+WORK_TREE=/home/wautils/srv/watto
+
+export RAILS_ENV=production
+
+while read oldrev newrev ref
+do
+    if [[ $ref =~ .*/main$ ]];
+    then
+        echo "Main ref received.  Deploying main branch to production..."
+        mkdir -p $WORK_TREE
+        git --work-tree=$WORK_TREE --git-dir=$GIT_DIR checkout -f
+
+        # start deploy tasks
+        cd $WORK_TREE
+	export $(cat .env | sed 's/#.*//g' | xargs)
+
+        ./bin/bundle install
+        ./bin/rails db:prepare
+        ./bin/rails assets:precompile
+        ./bin/rails restart
+        # end deploy tasks
+        echo "Git hooks deploy complete"
+    else
+        echo "Ref $ref successfully received.  Doing nothing: only the main branch may be deployed on this server."
+    fi
+done
+```
