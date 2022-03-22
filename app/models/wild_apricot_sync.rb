@@ -128,7 +128,7 @@ class WildApricotSync
 
     user.archived = json["FieldValues"].find{|fv| fv["SystemCode"] == "IsArchived"}&.fetch("Value")
 
-    user.save
+    user.save!
     yield(user) if block_given?
   end
 
@@ -181,6 +181,7 @@ class WildApricotSync
     r.paid = json["IsPaid"]
     r.registration_type = json.dig("RegistrationType", "Name")
     r.registration_date = json["RegistrationDate"]
+    r.status = json["Status"]
 
     r.event = event
     r.user = User.find_by uid: r.contact_uid

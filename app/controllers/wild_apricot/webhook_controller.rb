@@ -19,8 +19,9 @@ class WildApricot::WebhookController < ActionController::Base
           WildApricotSync.new.event(ret.json)
         end
       when "EventRegistration"
-        ret = WAAPI.event_registrations(params["Registration.Id"].to_i)
-        WildApricotSync.new.event_registration(ret.json)
+        event = Event.find_by uid: params["Parameters"]["EventToRegister.Id"].to_i
+        ret = WAAPI.event_registration(params["Parameters"]["Registration.Id"].to_i)
+        WildApricotSync.new.event_registration(event, ret.json)
       end
 
       render plain: "KTHXBYE"
