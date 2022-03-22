@@ -89,8 +89,10 @@
                 <th scope="col">Waitlist</th>
                 <th scope="col">Registered At</th>
                 <th scope="col">Registration Type</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
+                <% if current_user.account_administrator %>
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+                <% end %>
               </tr>
             </thead>
             <tbody>
@@ -105,12 +107,10 @@
                   <td><%= reg.on_waitlist %></td>
                   <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
                   <td><%= reg.registration_type %></td>
-                  <td><%= reg.status %></td>
-                  <td>
-                    <% if current_user.account_administrator %>
-                      <a href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a>
-                    <% end %>
-                  </td>
+                  <% if current_user.account_administrator %>
+                    <td><%= reg.status %></td>
+                    <td><a href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a></td>
+                  <% end %>
                 </tr>
               <% end %>
             </tbody>
