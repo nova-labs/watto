@@ -35,6 +35,7 @@ class EventsController < ApplicationController
       sync.event(ret.json)
 
       event_registrations = WAAPI.event_registrations(@event.uid).json
+      @event.event_registrations.delete_all
       sync.event_registrations(@event, event_registrations)
 
       redirect_to event_path(@event), notice: "Successful sync from portal (#{ret.status})"
