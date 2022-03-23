@@ -19,9 +19,13 @@ class WildApricot::WebhookController < ActionController::Base
           WildApricotSync.new.event(ret.json)
         end
       when "EventRegistration"
-        event = Event.find_by uid: params["Parameters"]["EventToRegister.Id"].to_i
-        ret = WAAPI.event_registration(params["Parameters"]["Registration.Id"].to_i)
-        WildApricotSync.new.event_registration(event, ret.json)
+        if params["Parameters"]["Action"] == "Deleted"
+          EventRegistration.find_by(uid: params["Parameters"]["Registration.Id"].to_i).delete
+        else
+          event = Event.find_by uid: params["Parameters"]["EventToRegister.Id"].to_i
+          ret = WAAPI.event_registration(params["Parameters"]["Registration.Id"].to_i)
+          WildApricotSync.new.event_registration(event, ret.json)
+        end
       end
 
       render plain: "KTHXBYE"
