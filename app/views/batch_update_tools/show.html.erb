@@ -6,6 +6,7 @@
 
 <%= render "shared/flash" %>
 
+
 <div data-controller="batch-update-tool">
   <%= form_for @field, url: batch_update_tool_path do |f| %>
     <!-- Prevent implicit submission of the form -->
@@ -17,7 +18,7 @@
       <select required="" name="field_value" class="form-control" id="signoff_list">
         <option value="" disabled="" selected="">Select a Sign Off</option>
         <% @values.each do |value| %>
-          <option value="<%= value.uid %>"><%= value.label %></option>
+          <option value="<%= value.uid %>" <%= "selected" if params[:v]&.to_i == value.uid %>><%= value.label %></option>
         <% end %>
       </select>
     </div>
@@ -28,20 +29,27 @@
 
     <div class="mb-3">
       <label for="contact">Members</label>
-      <ul data-batch-update-tool-target="contacts" id="contact_field_list" class="list-group clearfix"></ul>
+      <ul data-batch-update-tool-target="contacts" id="contact_field_list" class="list-group clearfix">
+        <% @contacts.each do |contact| %>
+          <%= render 'contact', user: contact %>
+        <% end %>
+
+      </ul>
     </div>
 
 
     <div class="mb-3">
-      <input required="" data-batch-update-tool-target="searchInput" data-action="input->batch-update-tool#input" data-url="<%= search_batch_update_tool_path %>" id="contact_search" name="contact_search" class="form-control" placeholder="Search for member to add" type="text">
+      <input <%= "required" if @contacts.empty? %> data-batch-update-tool-target="searchInput" data-action="input->batch-update-tool#input" data-url="<%= search_batch_update_tool_path %>" id="contact_search" name="contact_search" class="form-control" placeholder="Search for member to add" type="text">
       <small class="form-text text-muted">
         Enter three or more characters from the member's name or email address.
       </small>
-      <ul data-batch-update-tool-target="search" id="contact_search_list" class="list-group floating-list"></ul>
+      <ul data-batch-update-tool-target="search" id="contact_search_list" class="list-group floating-list">
+      </ul>
     </div>
 
     <div class="mb-3">
       <%= f.submit "Submit", class: "btn btn-primary" %>
+      <a href="<%= batch_update_tool_path %>" class="btn btn-secondary">Reset Form</a>
     </div>
   <% end %>
 </div>

@@ -4,13 +4,15 @@ class BatchUpdateToolsController < ApplicationController
   def show
     @field = Field.signoffs
     @values = @field.allowed_values
+    @contacts = User.where(uid: params["m"]&.split(','))
   end
 
   def update
     @field = Field.signoffs
     @values = @field.allowed_values
 
-    params["contacts"].each do |uid|
+    @contacts = params["contacts"].uniq
+    @contacts.each do |uid|
       user = User.find_by uid: uid
       values = user.signoff_values
       values << params["field_value"]
@@ -26,8 +28,12 @@ class BatchUpdateToolsController < ApplicationController
       WildApricotSync.new.contact(ret.json)
     end
 
-    count = params["contacts"].count
-    redirect_to batch_update_tool_path, notice: "Updated #{count} #{"member".pluralize(count)}"
+    opts = {
+      m: params["contacts"].join(","),
+      v: params["field_value"],
+    }
+    count = @contacts.count
+    redirect_to batch_update_tool_path(opts), notice: "Updated #{count} #{"member".pluralize(count)}"
   end
 
   def search

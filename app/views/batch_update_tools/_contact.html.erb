@@ -1,0 +1,9 @@
+<li class="list-group-item contact-fields">
+  <input class="form-control" name="contacts[]" type="hidden" value="<%= user.uid %>"></input>
+  <%= user.first_name %> <%= user.last_name %> &lt;<%= user.email %>&gt; <code><%= user.badge_number %></code>
+  <span class="float-end">
+    <a href="#"
+     data-action="click->batch-update-tool#remove"
+      class="remove-contact text-danger ">remove</a>
+  </span>
+</li>
