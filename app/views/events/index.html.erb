@@ -37,7 +37,7 @@
                 <%= link_to event.name, event %>
               </td>
               <td><%= event.location %></td>
-              <td><%= event_date(event) %></td>
+              <td><%= display_date(event.start_date) %></td>
             </tr>
           <% end %>
         </tbody>
