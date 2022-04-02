@@ -52,6 +52,7 @@ class WildApricotSync
     el = json
     user = User.create_or_find_by(provider: "wildapricot", uid: el["Id"])
     user.account_administrator = el["IsAccountAdministrator"]
+    user.admin = false # Default to false, overriden by "[nlgroup] wautils" signoff
     user.email = el["Email"]
     user.first_name = el["FirstName"]
     user.last_name = el["LastName"]
