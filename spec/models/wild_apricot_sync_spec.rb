@@ -80,5 +80,22 @@ RSpec.describe WildApricotSync do
 
       sync.contacts(json)
     end
+
+    it "removes admin flag when the [nlgroup] wautils is removed" do
+      json = json_file_fixture('waapi_contact_59100437.json')
+
+      sync = WildApricotSync.new
+      sync.contact(json)
+      user = User.find_by uid: 59100437
+      expect(user.admin).to eq true
+
+      # Remove all signoffs, including the `wautils` one
+      idx = json["FieldValues"].find_index {|field| field["FieldName"] == "NL Signoffs and Categories" }
+      json["FieldValues"].delete_at(43)
+
+      sync.contact(json)
+      user = user.reload
+      expect(user.admin).to eq false
+    end
   end
 end
