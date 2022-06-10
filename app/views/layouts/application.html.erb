@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="icon" type="image/png" href="/favicon.png">
     <title>
-
-      <%= content_for?(:title) ? yield(:title) : "Wautils" %> - Nova Labs
+      <%= content_for?(:title) ? yield(:title) : "Automations" %> - Nova Labs
     </title>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload", as: "style" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -26,7 +26,7 @@
             <div class="row mt-4">
               <div class="col">
                 <h1 class="">
-                  <%= content_for?(:title) ? yield(:title) : "Wautils" %>
+                  <%= content_for?(:title) ? yield(:title) : "Nova Labs Automations" %>
                 </h1>
                 <% if content_for?(:breadcrumbs) %>
                   <ol class="breadcrumb mb-X">
