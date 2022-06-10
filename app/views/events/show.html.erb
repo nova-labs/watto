@@ -15,7 +15,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <span class="float-end"><%= @event.location %></span>
+          <span class="float-end" title="<%= @event.location %>" ><%= display_location @event.location %></span>
           Location
         </li>
         <li class="list-group-item">
