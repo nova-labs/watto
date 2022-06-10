@@ -3,7 +3,7 @@
 <% content_for :search_area do %>
   <form method="get" action="<%= events_path %>">
     <input name="q" value="<%= params[:q] %>" class="form-control" type="text" placeholder="Search by name or email" />
-    <input type="checkbox" class="form-field small" name="past" id="past" value="true" >
+    <input type="checkbox" class="form-field small" name="past" id="past" value="true" <%= "checked" if params[:past] == "true" %> >
     <label for="past" class="small">Past Events</label>
     <% if params[:q] %>
       <a class="small" href="<%= events_path %>">Clear Search</a>
