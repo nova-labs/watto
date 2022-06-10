@@ -9,9 +9,9 @@ class EventsController < ApplicationController
     end
 
     if params[:past] == "true"
-      @events = @events.order(start_date: :desc).where(start_date: ...(Time.now.midnight - 1.day))
+      @events = @events.past
     else
-      @events = @events.order(start_date: :asc).where(start_date: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.year))
+      @events = @events.future
     end
 
     @events = @events.page(params[:page])

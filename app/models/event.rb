@@ -10,4 +10,11 @@ class Event < ApplicationRecord
       like_term, like_term, like_term,
     )
   }
+
+  scope :future, -> {
+    order(start_date: :asc).where(start_date: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.year))
+  }
+  scope :past, -> {
+    order(start_date: :desc).where(start_date: ...(Time.now.midnight - 1.day))
+  }
 end

@@ -45,8 +45,32 @@
           </li>
         <% end %>
       </ul>
-      <div class="card-body">
-        <a href="/events" class="card-link">View Events</a>
+    </div>
+
+    &nbsp;
+
+    <div class="card">
+      <div class="card-header py-3 d-flex align-items-center">
+        Your Events
+      </div>
+      <% if current_user.events.future.count > 0 %>
+        <ul class="list-group list-group-flush">
+          <% current_user.events.future.each do |event| %>
+            <li class="list-group-item">
+              <a href="<%= event_path(event) %>">
+                <%= event.name %>
+              </a>
+              <span class="float-end"><%= display_date event.start_date %></span>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <div class="card-body">
+          You have no upcoming events
+        </div>
+      <% end %>
+      <div class="card-footer">
+        <a href="/events" class="card-link">View All Events</a>
       </div>
     </div>
   </div>

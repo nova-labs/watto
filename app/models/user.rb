@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_one :credentials, dependent: :destroy # OAuth Credentials
   has_many :field_values, class_name: "FieldUserValue", dependent: :destroy
+  has_many :event_registrations
+  has_many :events, through: :event_registrations
 
   scope :search, ->(search_term) {
     like_term = "%#{search_term}%"
