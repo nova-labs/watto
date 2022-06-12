@@ -57,6 +57,7 @@ class WildApricotSync
     user.first_name = el["FirstName"]
     user.last_name = el["LastName"]
     user.name = el["DisplayName"]
+    user.membership_enabled = el["MembershipEnabled"]
     user.url = el["Url"]
     if el["MembershipLevel"]
       user.membership_level_id = el["MembershipLevel"]["Id"]

@@ -32,7 +32,12 @@
           </li>
         <% end %>
         <li class="list-group-item">
-          <span class="float-end"><%= @user.membership_level_name %></span>
+          <span class="float-end">
+            <%= @user.membership_level_name %>
+            <% unless @user.membership_enabled %>
+              <span class="badge badge-danger bg-danger">Disabled</span>
+            <% end %>
+          </span>
           Membership Level
         </li>
         <li class="list-group-item">
