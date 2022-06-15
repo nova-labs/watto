@@ -76,4 +76,8 @@ class User < ApplicationRecord
     signoffs.map {|signoff_truple| signoff_truple.first.value }
   end
 
+  def reason_for_free_access
+    field_values.find_by(field:  Field.reason_for_free_access)&.label
+  end
+
 end

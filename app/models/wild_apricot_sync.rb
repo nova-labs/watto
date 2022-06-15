@@ -63,6 +63,14 @@ class WildApricotSync
       user.membership_level_id = el["MembershipLevel"]["Id"]
       user.membership_level_name = el["MembershipLevel"]["Name"]
       user.membership_level_url = el["MembershipLevel"]["Url"]
+
+      # Display the reason for free access, if their level is free access.
+      if user.membership_level_name == "Free Access"
+        reason = el["FieldValues"].find {|field| field["FieldName"] == "Reason for free access" }&.dig("Value", "Label")
+        if reason
+          user.membership_level_name = reason
+        end
+      end
     end
 
     field_values = []
