@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'search'
     get 'contact'
   end
+  resource :onboarding
 
   # Admin Section
   get 'admin', to: 'admin/welcome#show'
