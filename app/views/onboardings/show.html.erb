@@ -1,0 +1,62 @@
+<% content_for :title, "Member Onboarding" %>
+<p>
+Create a new user in Google Workspace via an Integromat integration.
+</p>
+
+<div class="row">
+  <div class="col-xl-6">
+    <%= form_for :member, url: onboarding_path do |form| %>
+      <%= render "shared/flash" %>
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-user me-1"></i>
+          New Google Workspace User
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="mb-3 col-sm">
+              <label class="form-label" for="fname">First Name</label>
+              <input class="form-control" type="text" id="fname" name="fname" placeholder="First Name" required>
+            </div>
+
+            <div class="mb-3 col-sm">
+              <label class="form-label" for="lname">Last Name</label>
+              <input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-sm">
+              <label class="form-label" for="email">Current Email</label>
+              <input class="form-control" type="email" id="email" name="email" placeholder="user@example.com" required>
+            </div>
+
+            <div class="mb-3 col-sm">
+              <label class="form-label" for="fname">Phone Number</label>
+              <input class="form-control" type="tel" id="tel" name="tel" placeholder="XXX-XXX-XXXX" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm">
+              <label class="form-label" for="gmail">Google Workspace Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="first.last" id="gmail" name="gmail" pattern="^.[^@]*$" title="Letters, numbers, and dots only, no special characters." required>
+                <div class="input-group-text" id="btnGroupAddon">@nova-labs.org</div>
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <label class="form-label" for="fname">Temporary Password</label>
+              <input class="form-control" type="text" id="pw" name="pw" minlength="8" value="<%= rand(36**12).to_s(36) %>" required>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= form.submit "Submit",  class: "btn btn-primary"  %>
+        </div>
+      </div>
+    <% end  %>
+  </div>
+</div>
