@@ -6,11 +6,11 @@ class OnboardingsController < ApplicationController
 
   def create
     body = {
-      fname: params[:fname],
-      lname: params[:lname],
-      gmail: params[:gmail],
-      email: params[:email],
-      tel: params[:tel],
+      fname: params.fetch(:fname),
+      lname: params.fetch(:lname),
+      gmail: params.fetch(:gmail),
+      email: params.fetch(:email),
+      tel: params.fetch(:tel, ""),
       pw: rand(36**12).to_s(36),
     }
 
