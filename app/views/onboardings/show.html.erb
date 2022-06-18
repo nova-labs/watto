@@ -40,17 +40,14 @@ Create a new user in Google Workspace via an Integromat integration.
 
           <div class="row">
             <div class="col-md">
-              <label class="form-label" for="gmail">Google Workspace Email</label>
+              <label class="form-label" for="gmail">New Google Workspace Email</label>
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="first.last" id="gmail" name="gmail" pattern="^.[^@]*$" title="Letters, numbers, and dots only, no special characters." required>
                 <div class="input-group-text" id="btnGroupAddon">@nova-labs.org</div>
               </div>
             </div>
-
             <div class="col-md">
-              <label class="form-label" for="fname">Temporary Password</label>
-              <input class="form-control" type="text" id="pw" name="pw" minlength="8" value="<%= rand(36**12).to_s(36) %>" required>
-            </div>
+          </div>
           </div>
         </div>
         <div class="card-footer">

@@ -11,7 +11,7 @@ class OnboardingsController < ApplicationController
       gmail: params[:gmail],
       email: params[:email],
       tel: params[:tel],
-      pw: params[:pw],
+      pw: rand(36**12).to_s(36),
     }
 
     response = IntegromatWebhook.new.create_google_workspace_user(body)
