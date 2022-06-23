@@ -25,17 +25,13 @@
 
         <% if current_user.signoffer? %>
           <div class="sb-sidenav-menu-heading">Adminstrative</div>
-          <a class="nav-link" href="<%= users_path(signoff:true) %>">
+          <a class="nav-link" href="<%= users_path(a: :signoff) %>">
             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
             Sign-offs by Member
           </a>
           <a class="nav-link" href="<%= batch_update_tool_path %>">
             <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
             Sign-offs by Tool
-          </a>
-          <a class="nav-link" href="<%= onboarding_path %>">
-            <div class="sb-nav-link-icon"><i class="fas fa-ship"></i></div>
-            Onboard Member
           </a>
         <% end %>
 

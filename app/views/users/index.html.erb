@@ -4,13 +4,19 @@
   <form method="get" action="<%= users_path %>">
     <input name="q" value="<%= params[:q] %>" class="form-control" type="text" placeholder="Search by name or email" />
     <% if params[:q] %>
-      <a class="small" href="<%= events_path %>">Clear Search</a>
+      <a class="small" href="<%= users_path %>">Clear Search</a>
     <% end %>
   </form>
 <% end %>
 
 <% content_for :breadcrumbs do %>
   <%= crumb "Members", active: true %>
+<% end %>
+
+<% if params[:a] == "signoff" %>
+  <div class="alert alert-primary" role="alert">
+    To edit a user's signoffs click on the member name then choose "Edit Sign-offs."
+  </div>
 <% end %>
 
 
@@ -21,13 +27,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
-          <% if current_user.signoffer? %>
-            <th scope="col">Email</th>
-          <% end %>
           <th scope="col">Membership</th>
-          <% if current_user.signoffer? %>
-            <th scope="col">Actions</th>
-          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -35,15 +35,7 @@
           <tr>
             <td><%= member.uid %></td>
             <td><%= link_to member.name, user_path(member) %></td>
-            <% if current_user.signoffer? %>
-              <td><%= member.email %></td>
-            <% end %>
             <td><%= member.membership_level_name %></td>
-            <% if current_user.signoffer? %>
-              <td>
-                <%= link_to "Edit Sign-offs", edit_user_signoffs_path(member) %>
-              </td>
-            <% end %>
           </tr>
         <% end %>
       </tbody>

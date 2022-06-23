@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :update]
   resources :users, only: [:index, :show, :update] do
     resource :signoffs, only: [:edit, :update], controller: "user_signoffs"
+    resource :onboarding
   end
   resource :batch_update_tool do
     get 'search'
     get 'contact'
   end
-  resource :onboarding
 
   # Admin Section
   get 'admin', to: 'admin/welcome#show'

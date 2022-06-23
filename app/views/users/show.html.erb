@@ -78,6 +78,9 @@
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
           </li>
           <li class="list-group-item">
+            <%= link_to "Create Google Workspace Account", user_onboarding_path(@user) %>
+          </li>
+          <li class="list-group-item">
             <%= form_for @user do |f| %>
               <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
           <% end %>
