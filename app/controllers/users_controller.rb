@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User
-      .where.not(membership_level_name: [nil, ""])
-      .where(membership_enabled: true)
-      .where(archived: false)
-      .page(params[:page])
+    @users = User.active_n_enabled.page(params[:page])
 
     if params[:q]
       @users = User.search(params[:q]).page(params[:page])

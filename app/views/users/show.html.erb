@@ -30,6 +30,14 @@
             <span class="float-end"><%= @user.email %></span>
             Email
           </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.phone%></span>
+            Phone
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.secondary_email %></span>
+            Secondary Member Email
+          </li>
         <% end %>
         <li class="list-group-item">
           <span class="float-end">
@@ -77,9 +85,11 @@
           <li class="list-group-item">
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
           </li>
-          <li class="list-group-item">
-            <%= link_to "Create Google Workspace Account", user_onboarding_path(@user) %>
-          </li>
+          <% unless @user.has_google_workspace_account? %>
+            <li class="list-group-item">
+              <%= link_to "Create Google Workspace Account", user_onboarding_path(@user) %>
+            </li>
+          <% end %>
           <li class="list-group-item">
             <%= form_for @user do |f| %>
               <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>

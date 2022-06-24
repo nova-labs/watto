@@ -136,6 +136,24 @@ class WildApricotSync
       end
     end
 
+    phone_number = el["FieldValues"].find {|field| field["FieldName"] == "Phone" }
+    if phone_number
+      if phone_number["Value"].blank?
+        user.phone = nil
+      else
+        user.phone = phone_number["Value"].gsub(/\D/, '')
+      end
+    end
+
+    secondary_email = el["FieldValues"].find {|field| field["FieldName"] == "Secondary Member Email" }
+    if secondary_email
+      if secondary_email["Value"].blank?
+        user.secondary_email = nil
+      else
+        user.secondary_email = secondary_email["Value"]
+      end
+    end
+
     user.archived = json["FieldValues"].find{|fv| fv["SystemCode"] == "IsArchived"}&.fetch("Value")
 
     user.save!

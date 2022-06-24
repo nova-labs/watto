@@ -14,6 +14,12 @@ class User < ApplicationRecord
     )
   }
 
+  scope :active_n_enabled, -> {
+    where.not(membership_level_name: [nil, ""])
+    .where(membership_enabled: true)
+    .where(archived: false)
+  }
+
   # {"provider"=>"wildapricot",
   #  "uid"=>"59100437",
   #  "info"=>{"email"=>"chris.sexton@nova-labs.org", "name"=>"Christopher Sexton"},
@@ -78,6 +84,10 @@ class User < ApplicationRecord
 
   def reason_for_free_access
     field_values.find_by(field:  Field.reason_for_free_access)&.label
+  end
+
+  def has_google_workspace_account?
+    !!(email =~ /nova-labs.org$/ || secondary_email =~ /nova-labs.org$/)
   end
 
 end

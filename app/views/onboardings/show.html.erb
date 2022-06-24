@@ -24,10 +24,20 @@ Create a new user in Google Workspace via an Integromat integration.
               <label class="form-label" for="fname">First Name</label>
               <input value="<%= @user&.first_name %>" class="form-control" type="text" id="fname" name="fname" placeholder="First Name" required>
             </div>
-
             <div class="mb-3 col-md">
               <label class="form-label" for="lname">Last Name</label>
               <input value="<%= @user&.last_name %>" class="form-control" type="text" id="lname" name="lname" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-md">
+              <label class="form-label" for="tel">Telephone Number</label>
+              <input value="<%= @user&.phone %>" class="form-control" type="tel" id="tel" name="tel" placeholder="XXX-XXX-XXXX" required>
+            </div>
+            <div class="mb-3 col-md">
+              <label class="form-label" for="wa_id">Wild Apricot ID</label>
+              <input value="<%= @user&.uid %>" class="form-control" type="text" id="wa_id" name="wa_id" placeholder="Member ID" required>
             </div>
           </div>
 
