@@ -2,4 +2,4 @@
 
 cd "$(dirname "$0")/.."
 
-./bin/rails server
+./bin/rails server -p 7000
