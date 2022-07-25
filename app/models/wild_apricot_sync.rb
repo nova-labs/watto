@@ -37,6 +37,11 @@ class WildApricotSync
 
       field.save
       yield(field) if block_given?
+    rescue Exception => e
+      puts "Error saving #{field.field_name}"
+      puts "  #{el}"
+      puts "Exception:"
+      puts "  #{e}"
     end
   end
 
