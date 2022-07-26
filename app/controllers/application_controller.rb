@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
   def fetch_current_user
     begin
       self.current_user = User.find(session[:user_id]) if session[:user_id]
+
+      return nil unless @current_user.uid == session[:user_uid]
+
+      self.current_user
     rescue => e
       Rails.logger.error e
 
