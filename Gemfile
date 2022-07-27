@@ -60,6 +60,7 @@ gem 'omniauth-oauth2'
 
 gem 'faraday'
 gem 'kaminari'
+gem 'rotp'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

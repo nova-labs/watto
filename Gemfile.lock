@@ -228,6 +228,7 @@ GEM
     requestjs-rails (0.0.9)
       rails (>= 6.0.0)
     rexml (3.2.5)
+    rotp (6.2.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -307,6 +308,7 @@ DEPENDENCIES
   rails (~> 7.0.0)
   redis (~> 4.0)
   requestjs-rails
+  rotp
   rspec-rails (~> 5.0.0)
   selenium-webdriver
   sprockets-rails
