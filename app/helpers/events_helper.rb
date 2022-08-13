@@ -9,6 +9,6 @@ module EventsHelper
     # So, for displaying the locaiton just show the room. If we don't find a
     # match show the entire location string.
 
-    location[/\((.*)\)/, 1] || location
+    location[/\((.*)\)/, 1] || location rescue location
   end
 end
