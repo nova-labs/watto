@@ -10,7 +10,7 @@ RSpec.describe "Formbots", type: :request do
 
       expect(response.code).to eq "302"
       expect(response.location).to include "id=#{event.uid}"
-      expect(response.location).to match /token=\d{6}/
+      expect(response.location).to match /tkn=\d{6}/
     end
   end
 

@@ -11,7 +11,7 @@ class FormbotController < ApplicationController
       redirect_to "#{url}?#{Event.find(params[:event]).uid}", allow_other_host: true
     else
       options = {
-        token: ROTP::TOTP.new(ENV["FORMBOT_OTP_SECRET"]).now,
+        tkn: ROTP::TOTP.new(ENV["FORMBOT_OTP_SECRET"]).now,
         id: Event.find(params[:event]).uid,
       }
       redirect_to "#{url}?#{options.to_query}", allow_other_host: true
