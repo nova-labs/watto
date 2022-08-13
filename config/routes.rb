@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get 'contact'
   end
 
+  get 'formbot/:event', to: 'formbot#redirect', as: :formbot
+
   # Admin Section
   get 'admin', to: 'admin/welcome#show'
   namespace :admin do

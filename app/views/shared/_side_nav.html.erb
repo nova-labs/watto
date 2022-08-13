@@ -23,6 +23,11 @@
           Members
         </a>
 
+        <a class="nav-link" href="<%= adhoc_formbot_url %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-asterisk"></i></div>
+          Ad-Hoc Class Form
+        </a>
+
         <% if current_user.signoffer? %>
           <div class="sb-sidenav-menu-heading">Adminstrative</div>
           <a class="nav-link" href="<%= users_path(a: :signoff) %>">

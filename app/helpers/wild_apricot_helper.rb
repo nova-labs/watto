@@ -12,8 +12,4 @@ module WildApricotHelper
   def wa_url
     "#{ENV["WA_SITE_URL"]}"
   end
-
-  def formbot_url(event)
-    "#{ENV["FORMBOT_URL"]}#{event.uid}"
-  end
 end

@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.create_or_update_with_oauth(auth_hash)
     session[:user_id] = user.id
+    session[:user_uid] = user.uid
     session[:oa_credentials_token] = auth_hash.credentials.token
 
     redirect_to :root
