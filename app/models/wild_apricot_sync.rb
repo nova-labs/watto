@@ -82,7 +82,13 @@ class WildApricotSync
 
     el["FieldValues"].each do |v|
 
-      field = Field.find_by! system_code: v["SystemCode"]
+      field = Field.find_by system_code: v["SystemCode"]
+
+      if field.nil?
+        Rails.logger.info "Unknown field: #{v} for #{el}"
+        next
+      end
+
       case field.field_type
       when "MultipleChoice"
         if v["Value"]
