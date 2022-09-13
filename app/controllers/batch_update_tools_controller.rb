@@ -4,7 +4,11 @@ class BatchUpdateToolsController < ApplicationController
   def show
     @field = Field.signoffs
     @values = @field.allowed_values
-    @contacts = User.where(uid: params["m"]&.split(','))
+    @contacts = if params["m"]
+                  User.where(uid: params["m"]&.split(','))
+                else
+                  []
+                end
   end
 
   def update
@@ -45,5 +49,4 @@ class BatchUpdateToolsController < ApplicationController
     @user = User.find(params[:id])
     render layout: false
   end
-
 end
