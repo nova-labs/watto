@@ -2,6 +2,6 @@
 
 module FormbotHelper
   def adhoc_formbot_url
-    "#{ENV["FORMBOT_URL"]}"
+    formbot_url("adhoc")
   end
 end

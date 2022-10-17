@@ -12,8 +12,8 @@ class FormbotController < ApplicationController
     else
       options = {
         tkn: ROTP::TOTP.new(ENV["FORMBOT_OTP_SECRET"]).now,
-        id: Event.find(params[:event]).uid,
       }
+      options[:id] = Event.find(params[:event]).uid unless params[:event] == "adhoc"
       redirect_to "#{url}?#{options.to_query}", allow_other_host: true
     end
   end
