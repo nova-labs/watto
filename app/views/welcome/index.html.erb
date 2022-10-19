@@ -77,7 +77,7 @@
     <h3>Your Sign-offs and Categories</h3>
     <table class="table">
       <tbody>
-        <% current_user.field_values.where(field:  Field.signoffs).each do |field_value| %>
+        <% current_user.field_values.where(field:  Field.signoffs).order('label ASC').each do |field_value| %>
           <tr>
             <td scope="row">
               <%= user_field_value_badge(field_value) %>
