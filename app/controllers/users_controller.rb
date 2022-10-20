@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @signoffs = @user.field_values.where(field:  Field.signoffs)
+    @signoffs = @user.field_values.where(field:  Field.signoffs).order('label ASC')
   end
 
   def update
