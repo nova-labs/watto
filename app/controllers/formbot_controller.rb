@@ -4,17 +4,13 @@ class FormbotController < ApplicationController
   skip_before_action :authenticate_user, only: :redirect
 
   def redirect
-    url = ENV["FORMBOT_URL"]
+    url = ENV.fetch("FORMBOT_URL")
+    secret = ENV.fetch("FORMBOT_OTP_SECRET")
 
-    # TODO: Once formbot is upgraded delete this conditional
-    if ENV["FORMBOT_USE_LEGACY_FORMAT"]
-      redirect_to "#{url}?#{Event.find(params[:event]).uid}", allow_other_host: true
-    else
-      options = {
-        tkn: ROTP::TOTP.new(ENV["FORMBOT_OTP_SECRET"]).now,
-      }
-      options[:id] = Event.find(params[:event]).uid unless params[:event] == "adhoc"
-      redirect_to "#{url}?#{options.to_query}", allow_other_host: true
-    end
+    options = {
+      tkn: ROTP::TOTP.new(secret).now,
+    }
+    options[:id] = Event.find(params[:event]).uid unless params[:event] == "adhoc"
+    redirect_to "#{url}?#{options.to_query}", allow_other_host: true
   end
 end
