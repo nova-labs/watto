@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'classes/show'
+  get 'classes/new'
+  get 'classes/create'
+  get 'classes/update'
+  get 'classes/edit'
+  get 'classes/delete'
 
   namespace :wild_apricot do
     post 'webhook', to: "webhook#create"
