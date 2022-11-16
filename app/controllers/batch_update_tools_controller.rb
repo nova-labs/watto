@@ -1,3 +1,4 @@
+require 'json'
 class BatchUpdateToolsController < ApplicationController
   before_action :require_signoffer
 
@@ -9,6 +10,10 @@ class BatchUpdateToolsController < ApplicationController
                 else
                   []
                 end
+
+    classes_file = File.open("app/assets/data/classes.json")
+    classes_data = classes_file.read
+    @classes = JSON.parse(classes_data)
   end
 
   def update
