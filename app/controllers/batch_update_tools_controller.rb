@@ -19,11 +19,22 @@ class BatchUpdateToolsController < ApplicationController
   def update
     @field = Field.signoffs
     @values = @field.allowed_values
+    classes_file = File.open("app/assets/data/classes.json")
+    classes_data = classes_file.read
+    @classes = JSON.parse(classes_data)
 
     @contacts = params["contacts"].uniq
     @contacts.each do |uid|
       user = User.find_by uid: uid
       values = user.signoff_values
+    # check if the user submitted a class or a single sign off
+    if params["field_value"].match("/^[class]/")
+      
+    else
+
+    end
+
+    
       values << params["field_value"]
 
       ret = WAAPI.update_contact_field(user.uid, @field.system_code, values.map(&:to_i))
