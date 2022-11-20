@@ -29,30 +29,18 @@ class BatchUpdateToolsController < ApplicationController
     @contacts.each do |uid|
       user = User.find_by uid: uid
       values = user.signoff_values
-      puts "user starts with these values"
-      puts values
     # check if the user submitted a class or a single sign off
-      puts params["field_value"]
       if params["field_value"].match(/\[class\]/)
-        puts "class found"
-        puts "class name is " + params["field_value"]
-        puts "searching for class"
         @classes.each do |aClass|
           if aClass["class_name"] == params["field_value"]
-            puts "found class " + aClass["class_name"]
-            puts "with signoffs"
-            puts aClass["signoffs_granted"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
             values.concat(aClass["signoffs_granted"])
           end
         end
       else
-        puts "class not found"    
         values << params["field_value"]
       end
-      puts "will submit these values"
-      puts values
       ret = WAAPI.update_contact_field(user.uid, @field.system_code, values.map(&:to_i))
 
       if ret.status != 200
