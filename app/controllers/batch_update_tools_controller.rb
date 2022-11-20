@@ -28,12 +28,15 @@ class BatchUpdateToolsController < ApplicationController
       user = User.find_by uid: uid
       values = user.signoff_values
     # check if the user submitted a class or a single sign off
-    if params["field_value"].match("/^[class]/")
-      
+    puts params["field_value"]
+    if params["field_value"].match(/\[class\]/)
+      redirect_to "/", notice: "class found"
+      puts "class found"
     else
-
+      puts "class not found"
+      redirect_to batch_update_tool_path
     end
-
+    return
     
       values << params["field_value"]
 
