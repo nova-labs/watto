@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   namespace :wild_apricot do
     post 'webhook', to: "webhook#create"
   end
