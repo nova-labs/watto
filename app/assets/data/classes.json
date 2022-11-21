@@ -1,12 +1,14 @@
 [
 	{
-		"class_name": "[class] Woodshop Yellow",
+		"class_name": "[class] WW_S: Yellow Tools Sign off",
 		"signoffs_granted": [
-			14759137,
-			14759138,
-			14759139,
-			14759140,
-			14759141
+			"[equipment] WWY_Delta_Spindle/Oscillating Sander",
+			"[equipment] WWY_Dewalt_Scroll Saw",
+			"[equipment] WWY_MXB_Grizzly_Bandsaw",
+			"[equipment] WWY_Various_Drill Press",
+			"[equipment] WWB_MXB_Rikon_Bandsaw",
+			"[novapass] WWR_Dewalt_Sliding miter saw",
+			"[equipment]  WWY_Shop Fox_Stationary Sander"
 		]
 	},
 	{
