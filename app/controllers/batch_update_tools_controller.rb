@@ -35,20 +35,33 @@ class BatchUpdateToolsController < ApplicationController
           if aClass["class_name"] == params["field_value"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
-            values.concat(aClass["signoffs_granted"])
+            puts "going with " + aClass["class_name"]
+            temp_values = []
+            aClass["signoffs_granted"].each do |signoff_name|
+              temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
+            end            
+          values.concat(temp_values)
           end
+          puts "found class " + aClass["class_name"]
+          puts "with signoffs " 
+          puts aClass["signoffs_granted"]
+          puts "mapping to "
+          puts temp_values
+          puts "for a final submission of"
+          puts values
         end
       else
         values << params["field_value"]
       end
       ret = WAAPI.update_contact_field(user.uid, @field.system_code, values.map(&:to_i))
-
       if ret.status != 200
+        puts ret.json
         render :show, notice: ret.json.fetch("message")
         raise
         return
       end
       ret = WAAPI.contact(user.uid)
+      puts "ret2 status:" + ret.status.to_s
       WildApricotSync.new.contact(ret.json)
     end
 
@@ -67,6 +80,7 @@ class BatchUpdateToolsController < ApplicationController
 
   def contact
     @user = User.find(params[:id])
+    puts "@user = " + @user.uid
     render layout: false
   end
 end
