@@ -12,19 +12,17 @@
 		]
 	},
 	{
-		"class_name": "[class] Metalshop Yellow",
+		"class_name": "[class] MW_S01: Metal Shop Yellow Tools Sign-off",
 		"signoffs_granted": [
-			14759117,
-			14759118,
-			14759119,
-			14759120,
-			14759121,
-			14759122,
-			14759123,
-			14759124,
-			14759125,
-			14759126,
-			14759127
+			"[equipment] MWY__Yellow Safety",
+			"[equipment] MWY_Central Forge_Media Blaster",
+			"[equipment] MWY_Central Machinery_1x30 Belt Sander",
+			"[equipment] MWY_Delta_Bench Grinder",
+			"[equipment] MWY_Grizzly_Horizontal Bandsaw",
+			"[equipment] MWY_MXB_Grizzly_Vertical Bandsaw",
+			"[equipment] MWY_Milwaukee_Portaband",
+			"[equipment] MWY_Northern Industrial_Drill Press",
+			"[equipment] MWY_Various_Angle Grinders"
 		]
 	}
 ]
