@@ -11,9 +11,7 @@ class BatchUpdateToolsController < ApplicationController
                   []
                 end
 
-    classes_file = File.open("app/assets/data/classes.json")
-    classes_data = classes_file.read
-    @classes = JSON.parse(classes_data)
+    @classes = JSON.parse(File.read("app/assets/data/classes.json"))
   end
 
   def update
@@ -29,7 +27,7 @@ class BatchUpdateToolsController < ApplicationController
       values = user.signoff_values
     # check if the user submitted a class or a single sign off
       if params["field_value"].match(/\[class\]/)
-        @classes.each do |aClass|
+        @classes.each do |a_class|
           if aClass["class_name"] == params["field_value"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
