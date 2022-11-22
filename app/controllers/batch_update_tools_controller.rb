@@ -31,7 +31,6 @@ class BatchUpdateToolsController < ApplicationController
           if aClass["class_name"] == params["field_value"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
-            puts "going with " + aClass["class_name"]
             temp_values = []
             aClass["signoffs_granted"].each do |signoff_name|
               temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
