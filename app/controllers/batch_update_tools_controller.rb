@@ -22,8 +22,6 @@ class BatchUpdateToolsController < ApplicationController
     classes_file = File.open("app/assets/data/classes.json")
     classes_data = classes_file.read
     @classes = JSON.parse(classes_data)
-    puts "found the following classes"
-    puts @classes
 
     @contacts = params["contacts"].uniq
     @contacts.each do |uid|
@@ -42,26 +40,17 @@ class BatchUpdateToolsController < ApplicationController
             end            
           values.concat(temp_values)
           end
-          puts "found class " + aClass["class_name"]
-          puts "with signoffs " 
-          puts aClass["signoffs_granted"]
-          puts "mapping to "
-          puts temp_values
-          puts "for a final submission of"
-          puts values
         end
       else
         values << params["field_value"]
       end
       ret = WAAPI.update_contact_field(user.uid, @field.system_code, values.map(&:to_i))
       if ret.status != 200
-        puts ret.json
         render :show, notice: ret.json.fetch("message")
         raise
         return
       end
       ret = WAAPI.contact(user.uid)
-      puts "ret2 status:" + ret.status.to_s
       WildApricotSync.new.contact(ret.json)
     end
 
@@ -80,7 +69,6 @@ class BatchUpdateToolsController < ApplicationController
 
   def contact
     @user = User.find(params[:id])
-    puts "@user = " + @user.uid
     render layout: false
   end
 end
