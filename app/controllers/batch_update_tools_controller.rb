@@ -11,9 +11,7 @@ class BatchUpdateToolsController < ApplicationController
                   []
                 end
 
-    classes_file = File.open("app/assets/data/classes.json")
-    classes_data = classes_file.read
-    @classes = JSON.parse(classes_data)
+    @classes = JSON.parse(File.read("app/assets/data/classes.json"))
   end
 
   def update
