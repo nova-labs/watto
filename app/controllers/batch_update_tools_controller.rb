@@ -1,4 +1,3 @@
-require 'json'
 class BatchUpdateToolsController < ApplicationController
   before_action :require_signoffer
 
