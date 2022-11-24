@@ -18,7 +18,7 @@
       <select required="" name="field_value" class="form-control" id="signoff_list">
         <option value="" disabled="" selected="">Select a Sign Off</option>
         <% @classes.each do |value| %>
-          <option value = "<%= value["class_name"]%>" signoffs="<%=value["signoffs_granted"]%>"><%= value["class_name"]%></option>
+          <option value = "<%= value["class_name"]%>" isClass = "" signoffs="<%=value["signoffs_granted"]%>"><%= value["class_name"]%></option>
         <% end %>
         <option value="" disabled="">-----------</option>
         <% @values.each do |value| %>
