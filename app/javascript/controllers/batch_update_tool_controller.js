@@ -46,7 +46,7 @@ export default class extends Controller {
     let list_HTML = []
     signoff_list.forEach(element =>{
       let signoff_type = element.match(/\[(.*)\]/)[1]
-      list_HTML.push(`<li class=${signoff_type}>${element.trim()}</li>`)
+      list_HTML.push(`<li class="signoff-list-element ${signoff_type}">${element.trim()}</li>`)
     })
     return list_HTML.join("")
   }
