@@ -16,9 +16,7 @@ class BatchUpdateToolsController < ApplicationController
   def update
     @field = Field.signoffs
     @values = @field.allowed_values
-    classes_file = File.open("app/assets/data/classes.json")
-    classes_data = classes_file.read
-    @classes = JSON.parse(classes_data)
+    @classes = JSON.parse(File.read("app/assets/data/classes.json"))
 
     @contacts = params["contacts"].uniq
     @contacts.each do |uid|
@@ -33,7 +31,7 @@ class BatchUpdateToolsController < ApplicationController
             temp_values = []
             aClass["signoffs_granted"].each do |signoff_name|
               temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
-            end            
+            end
           values.concat(temp_values)
           end
         end
