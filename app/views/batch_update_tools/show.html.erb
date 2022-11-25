@@ -5,7 +5,12 @@
 <% end %>
 
 <%= render "shared/flash" %>
-
+<script type="text/javascript">
+  function logChange(event){
+    console.log("triggered")
+    console.log(event)
+  }
+</script>
 
 <div data-controller="batch-update-tool">
   <%= form_for @field, url: batch_update_tool_path do |f| %>
@@ -15,7 +20,7 @@
     <div class="mb-3">
       <label for="signoff_id">Signoff</label>
 
-      <select required="" name="field_value" class="form-control" id="signoff_list">
+      <select required="" name="field_value" class="form-control" id="signoff_list" data-batch-update-tool-target="signoffSelector" data-action="change->batch-update-tool#select">
         <option value="" disabled="" selected="">Select a Sign Off</option>
         <% @classes.each do |value| %>
           <option value = "<%= value["class_name"]%>" isClass = "" signoffs="<%=value["signoffs_granted"]%>"><%= value["class_name"]%></option>
@@ -28,8 +33,9 @@
     </div>
 
     <div class="mb-3">
-      <div id="tool_signoff_list"></div>
+      <div id="tool_signoff_list" data-batch-update-tool-target="notificationArea"></div>
     </div>
+
 
     <div class="mb-3">
       <label for="contact">Members</label>
