@@ -25,11 +25,11 @@ class BatchUpdateToolsController < ApplicationController
     # check if the user submitted a class or a single sign off
       if params["field_value"].match(/\[class\]/)
         @classes.each do |a_class|
-          if aClass["class_name"] == params["field_value"]
+          if a_class["class_name"] == params["field_value"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
             temp_values = []
-            aClass["signoffs_granted"].each do |signoff_name|
+            a_class["signoffs_granted"].each do |signoff_name|
               temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
             end
           values.concat(temp_values)
