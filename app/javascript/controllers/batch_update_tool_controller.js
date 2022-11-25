@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="batch-update-tool"
 export default class extends Controller {
-  static targets = [ "searchInput", "search", "contacts", "signoffSelector", "notificationArea" ]
+  static targets = [ "searchInput", "search", "contacts", "signoffSelector", "notificationArea", "notificationHeader" ]
 
   input(event) {
     if (event.target.value.length > 2) {
@@ -24,20 +24,39 @@ export default class extends Controller {
   // pull the signoffs value from the selected option
   // put that data in the notificationArea target to display
   select(event) {    
-    console.log("triggered", event)
+    console.log("sweet ouch", event)
     // I can get the selector as a Stimulus target or as the event target. 
     // I'm not sure which is better SWE. 
     // Getting it as the event target makes it easier to extend to other selectors, including accidentally
     const selector = event.target
     const selected_value = selector[selector.selectedIndex]
-    console.log("selected_value", selected_value)
-    console.log("is class", selected_value.hasAttribute("isClass"))
     if (selected_value.hasAttribute("isClass")){
-      const signoff_list = selected_value.getAttribute("signoffs")
-      console.log("signoffs", signoff_list)
-      console.log("sour ouch", this.notificationAreaTarget)
-      this.notificationAreaTarget.innerHTML=signoff_list
+      this.notificationHeaderTarget.style.display="inline"
+      const signoff_list = this._parseSignoffList(selected_value.getAttribute("signoffs"))
+      this.notificationAreaTarget.innerHTML=this._generateNotification(signoff_list)
     }
+    else{
+      this.notificationHeaderTarget.style.display="none"
+      this.notificationAreaTarget.innerHTML = ""
+    }
+  }
+
+  _generateNotification(signoff_list){
+    let notification_HTML = ""
+    let list_HTML = []
+    signoff_list.forEach(element =>{
+      let signoff_type = element.match(/\[(.*)\]/)[1]
+      list_HTML.push(`<li class=${signoff_type}>${element.trim()}</li>`)
+    })
+    return list_HTML.join("")
+  }
+
+  _parseSignoffList(signoff_list_string){
+    let list = signoff_list_string.replaceAll("\"", "") // cut any included quotation marks
+    list = list.replace(/^\[/, "") // strip leading bracket
+    list = list.replace(/\]%/, "") // strip trailing bracket
+    list = list.split(",")
+    return list
   }
 
   add(event) {
