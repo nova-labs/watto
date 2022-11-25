@@ -30,7 +30,7 @@ class BatchUpdateToolsController < ApplicationController
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
             temp_values = []
             a_class["signoffs_granted"].each do |signoff_name|
-              temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
+              temp_values << FieldAllowedValue.find_by!(label: signoff_name).uid
             end
           values.concat(temp_values)
           end
