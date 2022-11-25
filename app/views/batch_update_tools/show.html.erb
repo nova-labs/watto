@@ -5,12 +5,6 @@
 <% end %>
 
 <%= render "shared/flash" %>
-<script type="text/javascript">
-  function logChange(event){
-    console.log("triggered")
-    console.log(event)
-  }
-</script>
 
 <div data-controller="batch-update-tool">
   <%= form_for @field, url: batch_update_tool_path do |f| %>
