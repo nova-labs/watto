@@ -31,8 +31,9 @@ class BatchUpdateToolsController < ApplicationController
             temp_values = []
             a_class["signoffs_granted"].each do |signoff_name|
               temp_values << FieldAllowedValue.find_by(label: signoff_name).uid
-            end
-          values.concat(temp_values)
+            end            
+            values.concat(temp_values)
+
           end
         end
       else
