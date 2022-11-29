@@ -16,11 +16,14 @@
       <label for="signoff_id">Signoff</label>
 
       <select required="" name="field_value" class="form-control" id="signoff_list">
-        <option value="" disabled="" selected="">Select a Sign Off</option>
-        <% @classes.each do |value| %>
-          <option value = "<%= value["class_name"]%>"><%= value["class_name"]%></option>
+        <%- if ENV["SHOW_CLASSES_IN_BATCH_SIGNOFF"] == "true" %>
+          <option value="" disabled="" selected="">Select a Sign Off</option>
+          <% @classes.each do |value| %>
+            <option value = "<%= value["class_name"]%>"><%= value["class_name"]%></option>
+          <% end %>
+          <option value="" disabled="">-----------</option>
         <% end %>
-        <option value="" disabled="">-----------</option>
+
         <% @values.each do |value| %>
           <option value="<%= value.uid %>" <%= "selected" if params[:v]&.to_i == value.uid %>><%= value.label %></option>
         <% end %>
