@@ -12,6 +12,39 @@ namespace :wa do
   desc "Sync Users from Wild Apricot"
   task :sync => [:environment, "wa:fields", "wa:users", "wa:events"]
 
+  desc "Validate Classes"
+  task validate_classes: :environment do
+    classes = JSON.parse(File.read("app/assets/data/classes.json"))
+
+    missing = classes.map {|c| c["signoffs_granted"]}.flatten.uniq.map do |label|
+      label unless FieldAllowedValue.find_by(label: label)
+    end.compact
+
+    if missing.empty?
+      puts "Everything looks good!"
+    else
+      puts "Missing the following Sign offs:"
+      puts
+      missing.each {|l| puts l}
+
+      puts
+      puts <<~END
+        You may need to A) resync fields, B) completly delete it and then
+        sync or C) add the missing signoffs. To add missing fields:
+
+        For A:
+          rake wa:fields
+
+        For B:
+          Remove the sqlite3 file and run `rails db:setup wa:sync`
+
+        For C:
+          In WA admin go to Members->Membership Fields and add the above
+          list to 'NL Signoffs and Categories'
+      END
+    end
+  end
+
   desc "Sync fields from Wild Apricot"
   task fields: :environment do
     sync = WildApricotSync.new
