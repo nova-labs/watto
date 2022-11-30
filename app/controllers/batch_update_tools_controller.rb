@@ -62,7 +62,7 @@ class BatchUpdateToolsController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:q])
+    @users = User.active_n_enabled.search(params[:q])
     render layout: false
   end
 
