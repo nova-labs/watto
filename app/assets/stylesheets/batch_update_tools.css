@@ -1,0 +1,16 @@
+.novapass{
+	background-color: #a9ff99;
+	border-radius: 5px;
+}
+
+.signoff-list-element{
+	white-space: nowrap;
+	width: min-content;
+	padding-right: .3em;
+	padding-left: .3em ;
+	padding-bottom: .1em;
+}
+
+#tool-signoff-list{
+	width: min-content;
+}
