@@ -77,7 +77,8 @@ class WAAPI
   end
 
   def self.events
-    filter = "$filter=IsUpcoming+eq+True"
+    ten_days_ago = 12.days.ago.strftime("%F")
+    filter = "$filter=StartDate+gt+#{ten_days_ago}"
     async = "$async=false"
     params = [async, filter].join("&")
     Client.new.get(u "accounts/#{config_account_id}/events?#{params}")
