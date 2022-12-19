@@ -32,6 +32,8 @@ class WildApricotSync
           value.selected_by_default = v["SelectedByDefault"]
           value.position = v["Position"]
 
+          value.save if value.persisted?
+
           value
         end
 
