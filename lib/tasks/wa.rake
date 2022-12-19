@@ -57,7 +57,7 @@ namespace :wa do
       puts "   #{field.id.to_s.rjust(4)} #{field.field_name}"
       unless field.allowed_values.empty?
         field.allowed_values.each do |v|
-          puts "        - #{v.label}"
+          puts "        - #{v.label} #{v.position}"
         end
       end
     end
