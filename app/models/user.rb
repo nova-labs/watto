@@ -65,7 +65,7 @@ class User < ApplicationRecord
   end
 
   def signoffer?
-    account_administrator? || admin || field_values.includes(:field_allowed_value).where(field_allowed_value: { label: "[nlgroup] wautils" }).any?
+    account_administrator? || admin || field_values.includes(:field_allowed_value).where(field_allowed_value: { label: "[NL] wautils" }).any?
   end
 
   # Returns a "truple" of user value, field, and allowed field models

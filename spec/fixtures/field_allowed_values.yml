@@ -465,7 +465,7 @@ field_allowed_value_ww_drill_press:
   field: signoffs
 field_allowed_value_75:
   uid: 14759142
-  label: "[nlgroup] accounting"
+  label: "[NL] accounting"
   value: '14759142'
   system_code:
   selected_by_default: false
@@ -473,7 +473,7 @@ field_allowed_value_75:
   field: signoffs
 field_allowed_value_76:
   uid: 14759143
-  label: "[nlgroup] admins"
+  label: "[NL] admins"
   value: '14759143'
   system_code:
   selected_by_default: false
@@ -481,7 +481,7 @@ field_allowed_value_76:
   field: signoffs
 field_allowed_value_77:
   uid: 14759144
-  label: "[nlgroup] associates"
+  label: "[NL] associates"
   value: '14759144'
   system_code:
   selected_by_default: false
@@ -489,7 +489,7 @@ field_allowed_value_77:
   field: signoffs
 field_allowed_value_78:
   uid: 14759145
-  label: "[nlgroup] blogadmins"
+  label: "[NL] blogadmins"
   value: '14759145'
   system_code:
   selected_by_default: false
@@ -497,7 +497,7 @@ field_allowed_value_78:
   field: signoffs
 field_allowed_value_79:
   uid: 14759146
-  label: "[nlgroup] dbadmins"
+  label: "[NL] dbadmins"
   value: '14759146'
   system_code:
   selected_by_default: false
@@ -505,7 +505,7 @@ field_allowed_value_79:
   field: signoffs
 field_allowed_value_80:
   uid: 14759147
-  label: "[nlgroup] directors"
+  label: "[NL] directors"
   value: '14759147'
   system_code:
   selected_by_default: false
@@ -513,7 +513,7 @@ field_allowed_value_80:
   field: signoffs
 field_allowed_value_81:
   uid: 14759148
-  label: "[nlgroup] facilities"
+  label: "[NL] facilities"
   value: '14759148'
   system_code:
   selected_by_default: false
@@ -521,7 +521,7 @@ field_allowed_value_81:
   field: signoffs
 field_allowed_value_82:
   uid: 14759149
-  label: "[nlgroup] founders"
+  label: "[NL] founders"
   value: '14759149'
   system_code:
   selected_by_default: false
@@ -529,7 +529,7 @@ field_allowed_value_82:
   field: signoffs
 field_allowed_value_83:
   uid: 14759150
-  label: "[nlgroup] GO_New Member Orientation"
+  label: "[NL] GO_New Member Orientation"
   value: '14759150'
   system_code:
   selected_by_default: false
@@ -537,7 +537,7 @@ field_allowed_value_83:
   field: signoffs
 field_allowed_value_84:
   uid: 14759151
-  label: "[nlgroup] members"
+  label: "[NL] members"
   value: '14759151'
   system_code:
   selected_by_default: false
@@ -545,7 +545,7 @@ field_allowed_value_84:
   field: signoffs
 field_allowed_value_85:
   uid: 14759152
-  label: "[nlgroup] Minor Age 11-15"
+  label: "[NL] Minor Age 11-15"
   value: '14759152'
   system_code:
   selected_by_default: false
@@ -553,7 +553,7 @@ field_allowed_value_85:
   field: signoffs
 field_allowed_value_86:
   uid: 14759153
-  label: "[nlgroup] Minor Age 16-17"
+  label: "[NL] Minor Age 16-17"
   value: '14759153'
   system_code:
   selected_by_default: false
@@ -561,7 +561,7 @@ field_allowed_value_86:
   field: signoffs
 field_allowed_value_87:
   uid: 14759154
-  label: "[nlgroup] Minor Age 8-10"
+  label: "[NL] Minor Age 8-10"
   value: '14759154'
   system_code:
   selected_by_default: false
@@ -569,7 +569,7 @@ field_allowed_value_87:
   field: signoffs
 field_allowed_value_88:
   uid: 14759155
-  label: "[nlgroup] officers"
+  label: "[NL] officers"
   value: '14759155'
   system_code:
   selected_by_default: false
@@ -577,7 +577,7 @@ field_allowed_value_88:
   field: signoffs
 field_allowed_value_89:
   uid: 14759156
-  label: "[nlgroup] operations"
+  label: "[NL] operations"
   value: '14759156'
   system_code:
   selected_by_default: false
@@ -585,7 +585,7 @@ field_allowed_value_89:
   field: signoffs
 field_allowed_value_90:
   uid: 14759157
-  label: "[nlgroup] waiver"
+  label: "[NL] waiver"
   value: '14759157'
   system_code:
   selected_by_default: false
@@ -593,7 +593,7 @@ field_allowed_value_90:
   field: signoffs
 field_allowed_value_wautils:
   uid: 14759158
-  label: "[nlgroup] wautils"
+  label: "[NL] wautils"
   value: '14759158'
   system_code:
   selected_by_default: false
@@ -601,7 +601,7 @@ field_allowed_value_wautils:
   field: signoffs
 field_allowed_value_92:
   uid: 14759159
-  label: "[nlgroup] wikiadmins"
+  label: "[NL] wikiadmins"
   value: '14759159'
   system_code:
   selected_by_default: false

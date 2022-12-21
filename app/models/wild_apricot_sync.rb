@@ -59,7 +59,7 @@ class WildApricotSync
     el = json
     user = User.create_or_find_by(provider: "wildapricot", uid: el["Id"])
     user.account_administrator = el["IsAccountAdministrator"]
-    user.admin = false # Default to false, overriden by "[nlgroup] wautils" signoff
+    user.admin = false # Default to false, overriden by "[NL] wautils" signoff
     user.email = el["Email"]
     user.first_name = el["FirstName"]
     user.last_name = el["LastName"]
@@ -135,7 +135,7 @@ class WildApricotSync
 
     signoffs = el["FieldValues"].find {|field| field["FieldName"] == "NL Signoffs and Categories" }
     if signoffs
-      if signoffs["Value"]&.find {|value| value["Label"] == "[nlgroup] wautils"}
+      if signoffs["Value"]&.find {|value| value["Label"] == "[NL] wautils"}
         user.admin = true
       end
     end

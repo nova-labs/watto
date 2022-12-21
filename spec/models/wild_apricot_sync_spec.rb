@@ -81,7 +81,7 @@ RSpec.describe WildApricotSync do
       sync.contacts(json)
     end
 
-    it "removes admin flag when the [nlgroup] wautils is removed" do
+    it "removes admin flag when the [NL] wautils is removed" do
       json = json_file_fixture('waapi_contact_59100437.json')
 
       sync = WildApricotSync.new
