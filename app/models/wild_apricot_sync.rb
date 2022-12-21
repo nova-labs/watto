@@ -226,6 +226,11 @@ class WildApricotSync
 
     r.event = event
     r.user = User.find_by uid: r.contact_uid
+    if r.user == nil
+      contact(WAAPI.contact(r.contact_uid).json) do |user|
+        r.user = user
+      end
+    end
     r.save!
 
     yield(r) if block_given?
