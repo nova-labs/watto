@@ -11,9 +11,9 @@
   <% if @field.field_type == "String" %>
     <input name="string_value" type="text" value="" maxlength="50" class="typeText">
   <% elsif @field.field_type == "MultipleChoice" %>
-    <% unless @field.allowed_values.empty? %>
+    <% unless @field.field_allowed_values.empty? %>
       <ul>
-        <% @field.allowed_values.each do |v| %>
+        <% @field.field_allowed_values.each do |v| %>
           <li>
             <input type="checkbox" class="form-check-input" name="multiple_choice_values[]id" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
             <label>
@@ -34,7 +34,7 @@
           </thead>
           <tbody>
 
-            <% @field.allowed_values.each do |v| %>
+            <% @field.field_allowed_values.each do |v| %>
               <tr>
                 <td><%= v.label %></td>
                 <td><%= v.value %></td>

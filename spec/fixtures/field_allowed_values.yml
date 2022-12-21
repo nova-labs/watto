@@ -15,7 +15,7 @@ field_allowed_value_18:
   selected_by_default: false
   position: 1
   field: signoff_permissions
-field_allowed_value_19:
+field_allowed_value_ww:
   uid: 14917545
   label: WW
   value: '14917545'
@@ -31,7 +31,7 @@ field_allowed_value_20:
   selected_by_default: false
   position: 3
   field: signoff_permissions
-field_allowed_value_21:
+field_allowed_value_3d_fdm:
   uid: 14759088
   label: "[equipment] 3D_FDM Printers"
   value: '14759088'
@@ -47,7 +47,7 @@ field_allowed_value_22:
   selected_by_default: false
   position: 1
   field: signoffs
-field_allowed_value_23:
+field_allowed_value_3d_phrozen:
   uid: 14759090
   label: "[equipment] 3d_Phrozen_LCD SLA"
   value: '14759090'
@@ -367,7 +367,7 @@ field_allowed_value_62:
   selected_by_default: false
   position: 41
   field: signoffs
-field_allowed_value_63:
+field_allowed_value_ww_sawstop:
   uid: 14759130
   label: "[equipment] WW_SawStop_Table Saw"
   value: '14759130'
@@ -455,7 +455,7 @@ field_allowed_value_73:
   selected_by_default: false
   position: 52
   field: signoffs
-field_allowed_value_74:
+field_allowed_value_ww_drill_press:
   uid: 14759141
   label: "[equipment] WWY_Various_Drill Press"
   value: '14759141'
@@ -591,7 +591,7 @@ field_allowed_value_90:
   selected_by_default: false
   position: 69
   field: signoffs
-field_allowed_value_91:
+field_allowed_value_wautils:
   uid: 14759158
   label: "[nlgroup] wautils"
   value: '14759158'

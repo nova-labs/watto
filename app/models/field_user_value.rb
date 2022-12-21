@@ -3,25 +3,15 @@ class FieldUserValue < ApplicationRecord
   belongs_to :field
   belongs_to :field_allowed_value, optional: true
 
+  delegate :category, to: :field_allowed_value
+  delegate :name, to: :field_allowed_value
+  delegate :novapass?, to: :field_allowed_value
+  delegate :label, to: :field_allowed_value, allow_nil: true
+  delegate :position, to: :field_allowed_value
 
-  def name
-    @name || begin
-      parse_display_names
-      @name
-    end
-  end
-
-  def category
-    @category || begin
-      parse_display_names
-      @category
-    end
-  end
-
-  def parse_display_names
-    if match = label&.match(/\[(.*)\](.*)/i)
-      @category = match[1]&.strip || "none"
-      @name = match[2]&.gsub("_", " ").strip || "none"
-    end
-  end
+  scope :signoffs, -> {
+    includes(:field_allowed_value)
+      .where(field: Field.signoffs)
+      .order("field_allowed_values.position ASC")
+  }
 end

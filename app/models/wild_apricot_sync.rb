@@ -23,7 +23,7 @@ class WildApricotSync
       field.system_code = el["SystemCode"]
       field.required = nil
 
-      field.allowed_values =
+      field.field_allowed_values =
         el["AllowedValues"].map do |v|
           value = FieldAllowedValue.find_or_initialize_by(uid: v["Id"])
           value.label = v["Label"]
@@ -101,7 +101,7 @@ class WildApricotSync
               system_code: v["SystemCode"]
             )
             fuv.field = field
-            fuv.label = choice_value["Label"]
+            #fuv.label = choice_value["Label"]
             fuv.field_allowed_value = FieldAllowedValue.find_by(uid: choice_value["Id"])
             fuv.save if fuv.persisted?
             field_values << fuv
@@ -114,7 +114,7 @@ class WildApricotSync
           system_code: v["SystemCode"]
         )
         fuv.field = field
-        fuv.label = v.dig("Value", "Label")
+        #fuv.label = v.dig("Value", "Label")
         fuv.field_allowed_value = FieldAllowedValue.find_by(uid: v.dig("Value", "Id"))
         fuv.save if fuv.persisted?
         field_values << fuv
@@ -226,6 +226,11 @@ class WildApricotSync
 
     r.event = event
     r.user = User.find_by uid: r.contact_uid
+    if r.user == nil
+      contact(WAAPI.contact(r.contact_uid).json) do |user|
+        r.user = user
+      end
+    end
     r.save!
 
     yield(r) if block_given?

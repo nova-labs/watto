@@ -55,7 +55,7 @@
   <div class="col">
     <h2>Allowed Values</h2>
 
-    <% unless @field.allowed_values.empty? %>
+    <% unless @field.field_allowed_values.empty? %>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -67,7 +67,7 @@
           </thead>
           <tbody>
 
-            <% @field.allowed_values.each do |v| %>
+            <% @field.field_allowed_values.each do |v| %>
               <tr>
                 <td><%= v.label %></td>
                 <td><%= v.value %></td>

@@ -1,5 +1,6 @@
 class Field < ApplicationRecord
-  has_many :allowed_values, -> { order(position: :asc) }, class_name: "FieldAllowedValue", dependent: :destroy
+  has_many :field_allowed_values, -> { order(position: :asc) }, dependent: :destroy
+  has_many :field_user_values, dependent: :destroy
 
   # Boy do I hate using a display name string for a scope
   scope :signoffs, -> { find_by(field_name: "NL Signoffs and Categories") }
