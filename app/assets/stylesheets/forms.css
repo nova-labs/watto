@@ -1,0 +1,5 @@
+.input-group-append input:last-child {
+  border-bottom-left-radius:0;
+  border-top-left-radius:0;
+}
+
