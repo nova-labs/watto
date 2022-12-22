@@ -20,6 +20,7 @@ class User < ApplicationRecord
     .where(archived: false)
   }
 
+
   # {"provider"=>"wildapricot",
   #  "uid"=>"59100437",
   #  "info"=>{"email"=>"chris.sexton@nova-labs.org", "name"=>"Christopher Sexton"},
@@ -64,16 +65,16 @@ class User < ApplicationRecord
   end
 
   def signoffer?
-    account_administrator? || admin || field_values.where(label: "[nlgroup] wautils").any?
+    account_administrator? || admin || field_values.includes(:field_allowed_value).where(field_allowed_value: { label: "[NL] wautils" }).any?
   end
 
   # Returns a "truple" of user value, field, and allowed field models
   def signoffs
     #values = field_values.left_joins(:field, :field_allowed_value).where(field: Field.signoffs)
-    values = field_values.where(field: Field.signoffs)
+    values = field_values.signoffs
 
     values.map do |value|
-      allowed = value.field.allowed_values.find_by(uid: value.value)
+      allowed = value.field.field_allowed_values.find_by(uid: value.value)
       [value, value.field, allowed]
     end
   end

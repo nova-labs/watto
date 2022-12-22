@@ -56,12 +56,12 @@ module FieldsHelper
 
     when "Choice"
       values.map do |v|
-        v.field.allowed_values.find_by(value: v.value)&.label || "Nil"
+        v.field.field_allowed_values.find_by(value: v.value)&.label || "Nil"
         v.label || "Nil"
       end
     when "MultipleChoice"
       values.map do |v|
-        #v.field.allowed_values.find_by(uid: v.value).label
+        #v.field.field_allowed_values.find_by(uid: v.value).label
         v.label || "Nil"
       end
     else
@@ -71,8 +71,10 @@ module FieldsHelper
   end
 
   def user_field_value_badge(field_value)
-    content_tag :span,
-      field_value.category,
-      class: ["badge", "badge-default", "badge-#{ field_value.category }"]
+    classes = ["badge", "badge-default"]
+    classes = ["badge", "badge-default", "badge-#{field_value.category}".downcase]
+    classes << "badge-novapass" if field_value.novapass?
+
+    content_tag(:span, field_value.category, class: classes)
   end
 end

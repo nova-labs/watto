@@ -1728,126 +1728,126 @@
          },
          {
             "Id":14759142,
-            "Label":"[nlgroup] accounting",
+            "Label":"[NL] accounting",
             "Value":"14759142",
             "SelectedByDefault":false,
             "Position":54
          },
          {
             "Id":14759143,
-            "Label":"[nlgroup] admins",
+            "Label":"[NL] admins",
             "Value":"14759143",
             "SelectedByDefault":false,
             "Position":55
          },
          {
             "Id":14759144,
-            "Label":"[nlgroup] associates",
+            "Label":"[NL] associates",
             "Value":"14759144",
             "SelectedByDefault":false,
             "Position":56
          },
          {
             "Id":14759145,
-            "Label":"[nlgroup] blogadmins",
+            "Label":"[NL] blogadmins",
             "Value":"14759145",
             "SelectedByDefault":false,
             "Position":57
          },
          {
             "Id":14759146,
-            "Label":"[nlgroup] dbadmins",
+            "Label":"[NL] dbadmins",
             "Value":"14759146",
             "SelectedByDefault":false,
             "Position":58
          },
          {
             "Id":14759147,
-            "Label":"[nlgroup] directors",
+            "Label":"[NL] directors",
             "Value":"14759147",
             "SelectedByDefault":false,
             "Position":59
          },
          {
             "Id":14759148,
-            "Label":"[nlgroup] facilities",
+            "Label":"[NL] facilities",
             "Value":"14759148",
             "SelectedByDefault":false,
             "Position":60
          },
          {
             "Id":14759149,
-            "Label":"[nlgroup] founders",
+            "Label":"[NL] founders",
             "Value":"14759149",
             "SelectedByDefault":false,
             "Position":61
          },
          {
             "Id":14759150,
-            "Label":"[nlgroup] GO_New Member Orientation",
+            "Label":"[NL] GO_New Member Orientation",
             "Value":"14759150",
             "SelectedByDefault":false,
             "Position":62
          },
          {
             "Id":14759151,
-            "Label":"[nlgroup] members",
+            "Label":"[NL] members",
             "Value":"14759151",
             "SelectedByDefault":false,
             "Position":63
          },
          {
             "Id":14759152,
-            "Label":"[nlgroup] Minor Age 11-15",
+            "Label":"[NL] Minor Age 11-15",
             "Value":"14759152",
             "SelectedByDefault":false,
             "Position":64
          },
          {
             "Id":14759153,
-            "Label":"[nlgroup] Minor Age 16-17",
+            "Label":"[NL] Minor Age 16-17",
             "Value":"14759153",
             "SelectedByDefault":false,
             "Position":65
          },
          {
             "Id":14759154,
-            "Label":"[nlgroup] Minor Age 8-10",
+            "Label":"[NL] Minor Age 8-10",
             "Value":"14759154",
             "SelectedByDefault":false,
             "Position":66
          },
          {
             "Id":14759155,
-            "Label":"[nlgroup] officers",
+            "Label":"[NL] officers",
             "Value":"14759155",
             "SelectedByDefault":false,
             "Position":67
          },
          {
             "Id":14759156,
-            "Label":"[nlgroup] operations",
+            "Label":"[NL] operations",
             "Value":"14759156",
             "SelectedByDefault":false,
             "Position":68
          },
          {
             "Id":14759157,
-            "Label":"[nlgroup] waiver",
+            "Label":"[NL] waiver",
             "Value":"14759157",
             "SelectedByDefault":false,
             "Position":69
          },
          {
             "Id":14759158,
-            "Label":"[nlgroup] wautils",
+            "Label":"[NL] wautils",
             "Value":"14759158",
             "SelectedByDefault":false,
             "Position":70
          },
          {
             "Id":14759159,
-            "Label":"[nlgroup] wikiadmins",
+            "Label":"[NL] wikiadmins",
             "Value":"14759159",
             "SelectedByDefault":false,
             "Position":71

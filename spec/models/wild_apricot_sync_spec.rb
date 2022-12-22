@@ -52,14 +52,14 @@ RSpec.describe WildApricotSync do
       sync = WildApricotSync.new
       sync.contact_fields(json)
       expect(json.first["AllowedValues"].length).to eq 4
-      expect(Field.find_by(uid:12971567).allowed_values.count).to eq 4
+      expect(Field.find_by(uid:12971567).field_allowed_values.count).to eq 4
 
       json.first["AllowedValues"].pop
 
       sync2 = WildApricotSync.new
       sync2.contact_fields(json)
       expect(json.first["AllowedValues"].length).to eq 3
-      expect(Field.find_by(uid:12971567).allowed_values.count).to eq 3
+      expect(Field.find_by(uid:12971567).field_allowed_values.count).to eq 3
 
     end
 
@@ -81,7 +81,7 @@ RSpec.describe WildApricotSync do
       sync.contacts(json)
     end
 
-    it "removes admin flag when the [nlgroup] wautils is removed" do
+    it "removes admin flag when the [NL] wautils is removed" do
       json = json_file_fixture('waapi_contact_59100437.json')
 
       sync = WildApricotSync.new

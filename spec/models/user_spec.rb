@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  fixtures :users, :fields, :field_allowed_values, :field_user_values
+  fixtures :users, :fields, :field_user_values, :field_allowed_values
 
   it "returns a list of signoffs as a truple (value, field, allowed value)" do
     amy = users(:amy)

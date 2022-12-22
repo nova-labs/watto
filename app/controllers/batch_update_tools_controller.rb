@@ -3,7 +3,7 @@ class BatchUpdateToolsController < ApplicationController
 
   def show
     @field = Field.signoffs
-    @values = @field.allowed_values
+    @values = @field.field_allowed_values
     @contacts = if params["m"]
                   User.where(uid: params["m"]&.split(','))
                 else
@@ -15,7 +15,7 @@ class BatchUpdateToolsController < ApplicationController
 
   def update
     @field = Field.signoffs
-    @values = @field.allowed_values
+    @values = @field.field_allowed_values
     @classes = JSON.parse(File.read("app/assets/data/classes.json"))
 
     @contacts = params["contacts"].uniq

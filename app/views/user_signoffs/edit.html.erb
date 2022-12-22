@@ -14,11 +14,11 @@
   <% if @field.field_type == "String" %>
     <input name="string_value" type="text" value="" maxlength="50" class="typeText">
   <% elsif @field.field_type == "MultipleChoice" %>
-    <% unless @field.allowed_values.empty? %>
+    <% unless @field.field_allowed_values.empty? %>
       <div class="table-responsive">
         <table class="table">
           <tbody>
-            <% @field.allowed_values.each do |v| %>
+            <% @field.field_allowed_values.each do |v| %>
               <tr>
                 <td scope="row">
                   <input type="checkbox" id="field-<%= v.uid %>" name="multiple_choice_values[]id" class="form-check-input" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
