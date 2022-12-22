@@ -17,4 +17,9 @@ class Event < ApplicationRecord
   scope :past, -> {
     order(start_date: :desc).where(start_date: ...(Time.now.midnight - 1.day))
   }
+
+  scope :recent_and_upcoming, -> {
+    order(start_date: :asc).where(start_date: (Time.now.midnight - 12.day)..(Time.now.midnight + 1.year))
+  }
+
 end
