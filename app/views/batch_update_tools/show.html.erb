@@ -15,11 +15,18 @@
       <label for="signoff_id">Signoff</label>
 
 
-      <select required="" name="field_value" class="form-control" id="signoff_list">
+
+      <select required="" name="field_value" class="form-control" id="signoff_list" data-batch-update-tool-target="signoffSelector" data-action="change->batch-update-tool#select">
         <%- if ENV["SHOW_CLASSES_IN_BATCH_SIGNOFF"] == "true" %>
           <option value="" disabled="" selected="">Select a Sign Off</option>
           <% @classes.each do |value| %>
-            <option value = "<%= value["class_name"]%>"><%= value["class_name"]%></option>
+            <option value = "class_<%= value["class_form_value"]%>"
+                    isClass=""
+                    signoffs="<%=value["signoffs_granted"]%>"
+                    <%= "selected" if params[:v] == "class_#{value["class_form_value"]}" %>
+                    >
+              <%= value["class_name"]%>
+            </option>
           <% end %>
           <option value="" disabled="">-----------</option>
         <% end %>

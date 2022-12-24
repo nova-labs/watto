@@ -1,30 +1,33 @@
 [
 	{
-		"class_name": "[class] WW_S: Yellow Tools Sign-off",
+		"class_name": "[class] WW_S01: Yellow Tools Sign-off",
+		"class_form_value": "wws01",
 		"signoffs_granted": [
-			"WWY_Delta_Spindle/Oscillating Sander",
-			"WWY_Dewalt_Scroll Saw",
-			"WWY_MXB_Grizzly_Bandsaw",
-			"WWY_Various_Drill Press",
-			"WWB_MXB_Rikon_Bandsawsaw",
-			"WWR_Dewalt_Sliding miter saw_novapass",
-			"WWY_Powermatic_Hollow Chisel Mortiser",
-			"WWY_Shop Fox_Stationary Sander"
 
+			"[WW-Y-NovaPass] Dewalt Sliding Miter Saw",
+			"[WW-Y] Delta Spindle/Oscillating Sander",
+			"[WW-Y] Rikon Bandsaw",
+			"[WW-Y] Dewalt Scroll Saw",
+			"[WW-Y] Drill Press",
+			"[WW-Y] Powermatic Hollow Chisel Mortiser",
+			"[WW-Y] Shop Fox Stationary Sander"
 		]
 	},
 	{
 		"class_name": "[class] MW_S01: Metal Shop 101 Basic Tools Sign-off",
+		"class_form_value": "mw_s01",
 		"signoffs_granted": [
-			"MWY_Central Forge_Media Blaster",
-			"MWY_Central Machinery_1x30 Belt Sander",
-			"MWY_Delta_Bench Grinder",
-			"MWY_Grizzly_Horizontal Bandsaw",
-			"MWY_Grizzly_Vertical Bandsaw",
-			"MWY_Milwaukee_Portaband",
-			"MWY_Northern Industrial_Drill Press",
-			"MWY_Various_Angle Grinders"
 
+			"[MW-B] Central Forge Media Blaster",
+			"[MW-B] Central Machinery 1x30 Belt Sander",
+			"[MW-B] Delta Bench Grinder",
+			"[MW-B] Grizzly Cold Cut Saw",
+			"[MW-B] Grizzly Horizontal Bandsaw",
+			"[MW-B-NovaPass] Grizzly Vertical Bandsaw",
+			"[MW-B] Milwaukee Portaband",
+			"[MW-B] Northern Industrial Drill Press",
+			"[MW-B] Angle Grinders",
+			"[MW-B] Rigid Abrasive Chopsaw"
 		]
 	}
 ]

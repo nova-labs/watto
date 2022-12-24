@@ -3,7 +3,7 @@ class BatchUpdateToolsController < ApplicationController
 
   def show
     @field = Field.signoffs
-    @values = @field.allowed_values
+    @values = @field.field_allowed_values
     @contacts = if params["m"]
                   User.where(uid: params["m"]&.split(','))
                 else
@@ -15,7 +15,7 @@ class BatchUpdateToolsController < ApplicationController
 
   def update
     @field = Field.signoffs
-    @values = @field.allowed_values
+    @values = @field.field_allowed_values
     @classes = JSON.parse(File.read("app/assets/data/classes.json"))
 
     @contacts = params["contacts"].uniq
@@ -23,9 +23,9 @@ class BatchUpdateToolsController < ApplicationController
       user = User.find_by uid: uid
       values = user.signoff_values
     # check if the user submitted a class or a single sign off
-      if params["field_value"].match(/\[class\]/)
+      if params["field_value"].match(/class_.*/)
         @classes.each do |a_class|
-          if a_class["class_name"] == params["field_value"]
+          if "class_#{a_class["class_form_value"]}" == params["field_value"]
             #found the right class in our data. Add all of its signoffs to values, so they'll get sent to WA
             #It looks like WA can handle duplicate signoffs just fine, so no need to dedup the array
             temp_values = []

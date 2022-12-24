@@ -805,7 +805,7 @@ field_allowed_value_74:
 field_allowed_value_75:
   id: 75
   uid: 14759142
-  label: "[nlgroup] accounting"
+  label: "[NL] accounting"
   value: '14759142'
   system_code:
   selected_by_default: false
@@ -816,7 +816,7 @@ field_allowed_value_75:
 field_allowed_value_76:
   id: 76
   uid: 14759143
-  label: "[nlgroup] admins"
+  label: "[NL] admins"
   value: '14759143'
   system_code:
   selected_by_default: false
@@ -827,7 +827,7 @@ field_allowed_value_76:
 field_allowed_value_77:
   id: 77
   uid: 14759144
-  label: "[nlgroup] associates"
+  label: "[NL] associates"
   value: '14759144'
   system_code:
   selected_by_default: false
@@ -838,7 +838,7 @@ field_allowed_value_77:
 field_allowed_value_78:
   id: 78
   uid: 14759145
-  label: "[nlgroup] blogadmins"
+  label: "[NL] blogadmins"
   value: '14759145'
   system_code:
   selected_by_default: false
@@ -849,7 +849,7 @@ field_allowed_value_78:
 field_allowed_value_79:
   id: 79
   uid: 14759146
-  label: "[nlgroup] dbadmins"
+  label: "[NL] dbadmins"
   value: '14759146'
   system_code:
   selected_by_default: false
@@ -860,7 +860,7 @@ field_allowed_value_79:
 field_allowed_value_80:
   id: 80
   uid: 14759147
-  label: "[nlgroup] directors"
+  label: "[NL] directors"
   value: '14759147'
   system_code:
   selected_by_default: false
@@ -871,7 +871,7 @@ field_allowed_value_80:
 field_allowed_value_81:
   id: 81
   uid: 14759148
-  label: "[nlgroup] facilities"
+  label: "[NL] facilities"
   value: '14759148'
   system_code:
   selected_by_default: false
@@ -882,7 +882,7 @@ field_allowed_value_81:
 field_allowed_value_82:
   id: 82
   uid: 14759149
-  label: "[nlgroup] founders"
+  label: "[NL] founders"
   value: '14759149'
   system_code:
   selected_by_default: false
@@ -893,7 +893,7 @@ field_allowed_value_82:
 field_allowed_value_83:
   id: 83
   uid: 14759150
-  label: "[nlgroup] GO_New Member Orientation"
+  label: "[GO] New Member Orientation"
   value: '14759150'
   system_code:
   selected_by_default: false
@@ -904,7 +904,7 @@ field_allowed_value_83:
 field_allowed_value_84:
   id: 84
   uid: 14759151
-  label: "[nlgroup] members"
+  label: "[NL] members"
   value: '14759151'
   system_code:
   selected_by_default: false
@@ -915,7 +915,7 @@ field_allowed_value_84:
 field_allowed_value_85:
   id: 85
   uid: 14759152
-  label: "[nlgroup] Minor Age 11-15"
+  label: "[NL] Minor Age 11-15"
   value: '14759152'
   system_code:
   selected_by_default: false
@@ -926,7 +926,7 @@ field_allowed_value_85:
 field_allowed_value_86:
   id: 86
   uid: 14759153
-  label: "[nlgroup] Minor Age 16-17"
+  label: "[NL] Minor Age 16-17"
   value: '14759153'
   system_code:
   selected_by_default: false
@@ -937,7 +937,7 @@ field_allowed_value_86:
 field_allowed_value_87:
   id: 87
   uid: 14759154
-  label: "[nlgroup] Minor Age 8-10"
+  label: "[NL] Minor Age 8-10"
   value: '14759154'
   system_code:
   selected_by_default: false
@@ -948,7 +948,7 @@ field_allowed_value_87:
 field_allowed_value_88:
   id: 88
   uid: 14759155
-  label: "[nlgroup] officers"
+  label: "[NL] officers"
   value: '14759155'
   system_code:
   selected_by_default: false
@@ -959,7 +959,7 @@ field_allowed_value_88:
 field_allowed_value_89:
   id: 89
   uid: 14759156
-  label: "[nlgroup] operations"
+  label: "[NL] operations"
   value: '14759156'
   system_code:
   selected_by_default: false
@@ -970,7 +970,7 @@ field_allowed_value_89:
 field_allowed_value_90:
   id: 90
   uid: 14759157
-  label: "[nlgroup] waiver"
+  label: "[NL] waiver"
   value: '14759157'
   system_code:
   selected_by_default: false
@@ -981,7 +981,7 @@ field_allowed_value_90:
 field_allowed_value_91:
   id: 91
   uid: 14759158
-  label: "[nlgroup] wautils"
+  label: "[NL] wautils"
   value: '14759158'
   system_code:
   selected_by_default: false
@@ -992,7 +992,7 @@ field_allowed_value_91:
 field_allowed_value_92:
   id: 92
   uid: 14759159
-  label: "[nlgroup] wikiadmins"
+  label: "[NL] wikiadmins"
   value: '14759159'
   system_code:
   selected_by_default: false

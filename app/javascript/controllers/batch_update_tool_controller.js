@@ -32,7 +32,8 @@ export default class extends Controller {
     const selected_value = selector[selector.selectedIndex]
     if (selected_value.hasAttribute("isClass")){
       this.notificationHeaderTarget.style.display="inline"
-      const signoff_list = this._parseSignoffList(selected_value.getAttribute("signoffs"))
+      const raw_list = selected_value.getAttribute("signoffs")
+      const signoff_list = this._parseSignoffList(raw_list)
       this.notificationAreaTarget.innerHTML=this._generateNotification(signoff_list)
     }
     else{
@@ -45,16 +46,17 @@ export default class extends Controller {
     let notification_HTML = ""
     let list_HTML = []
     signoff_list.forEach(element =>{
-      let signoff_type = element.match(/\[(.*)\]/)[1]
-      list_HTML.push(`<li class="signoff-list-element ${signoff_type}">${element.trim()}</li>`)
+      let css_class = "signoff-list-element" +  (element.match(/novapass/) ? " novapass" : "")
+      list_HTML.push(`<li class="${css_class}">${element.trim()}</li>`)
     })
     return list_HTML.join("")
   }
 
   _parseSignoffList(signoff_list_string){
+    console.log("parsing", signoff_list_string)
     let list = signoff_list_string.replaceAll("\"", "") // cut any included quotation marks
     list = list.replace(/^\[/, "") // strip leading bracket
-    list = list.replace(/\]%/, "") // strip trailing bracket
+    list = list.replace(/\]$/, "") // strip trailing bracket
     list = list.split(",")
     return list
   }

@@ -272,7 +272,7 @@
             },
             {
               "Id":14759158,
-              "Label":"[nlgroup] wautils"
+              "Label":"[NL] wautils"
             }
           ],
           "SystemCode":"custom-12971567"
@@ -696,7 +696,7 @@
             },
             {
               "Id":14759150,
-              "Label":"[nlgroup] GO_New Member Orientation"
+              "Label":"[GO] New Member Orientation"
             }
           ],
           "SystemCode":"custom-12971567"

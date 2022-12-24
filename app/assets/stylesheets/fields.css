@@ -1,15 +1,20 @@
 .badge-default {
   background-color: #6c757d;
 }
+
 .badge-equipment {
-  background-color: #7952b3;
+  background-color: #0d6efd;
+}
+
+.badge-ww {
+  background-color: #6c757d;
 }
 
 .badge-novapass {
   background-color:  #ffc107;
 }
 
-.badge-nlgroup {
+.badge-nl {
   background-color:  #28a745;
 }
 
