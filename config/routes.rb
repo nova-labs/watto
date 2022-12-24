@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get 'contact'
   end
 
+  resources :editclasses, only: [:index, :show, :update]
+
   get 'formbot/:event', to: 'formbot#redirect', as: :formbot
 
   # Admin Section
