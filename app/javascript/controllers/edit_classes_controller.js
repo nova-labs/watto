@@ -11,12 +11,12 @@ export default class extends Controller{
 		console.log("signoffs", signoffs)
 		const checkboxes = [].slice.call(this.checkboxAreaTarget.children).filter(el => el.nodeName == "INPUT") // gets a list of all input elements in the checkboxArea
 		checkboxes.forEach(box =>{
-			if (signoffs.includes(box.name)) {
+			if (signoffs.includes(box.getAttribute("desan-name"))) {
 				box.checked=true;
-				console.log("checked", box.name);
+				console.log("checked", box.getAttribute("desan-name"));
 			} else {
 				box.checked=false;
-				console.log("unchecked", box.name)
+				console.log("unchecked", box.getAttribute("desan-name"))
 			}
 		})
 	}

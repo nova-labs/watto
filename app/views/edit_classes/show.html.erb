@@ -24,7 +24,7 @@
 
   <div  class="mb-3" id="checkbox_area" data-edit-classes-target="checkboxArea">
     <% @signoffs.each do |signoff| %>
-    <input type="checkbox" id="checkbox_<%= signoff.label%>" name="<%= signoff.label%>" data-edit-classes->
+    <input type="checkbox" id="checkbox_<%= signoff.label%>" name="<%= sanitize_signoff(signoff.label) %>" desan-name="<%= signoff.label%>" data-edit-classes->
     <label for="checkbox_<%= signoff.label%>"><%= signoff.label%></label>
     <br>
     <% end %>
