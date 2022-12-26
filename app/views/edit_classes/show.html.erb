@@ -11,9 +11,9 @@
     <select required="" name="class_name" class="form-control" id="class_list" data-action="change->edit-classes#select">
       <option value="" disabled="" selected="">Select a Class</option>
       <% @classes.each do |value| %>
-      <option value="class_<%= value["class_form_value"]%>"
+      <option value="<%= value["class_form_value"]%>"
               signoffs = "<%=value["signoffs_granted"]%>"
-              <%= "selected" if params[:v] == "class_#{value["
+              <%= "selected" if params[:v] == "#{value["
               class_form_value"]}" %>
               >          
         <%= value["class_name"] %>
