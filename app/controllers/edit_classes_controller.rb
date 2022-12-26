@@ -21,6 +21,14 @@ class EditClassesController < ApplicationController
       end
     end
     puts all_classes
-    redirect_to edit_classes_path, notice: "Successfully did nothing"
+    opts = {
+      array_nl: "\n",
+      object_nl: "\n",
+      indent: '  ',
+      space_before: ' ',
+      space: ' '
+    }
+    File.write("app/assets/data/classes.json", JSON.generate(all_classes, opts))
+    redirect_to edit_classes_path, notice: "Successfully updated #{params["class_name"]}"
   end
 end
