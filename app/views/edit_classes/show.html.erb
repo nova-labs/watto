@@ -1,10 +1,37 @@
-<% content_for :title, "Batch Update Sign-offs" %>
+<% content_for :title, "Edit Classes" %>
 
 <% content_for :breadcrumbs do %>
   <%= crumb "Sign-offs by tool", active: true %>
 <% end %>
 
 <%= render "shared/flash" %>
-<div>
-  <%=@text%>
+<div class="mb-3" id="content area" data-controller="edit-classes">
+  <%= form_with url: edit_classes_path, method: :patch do |f| %>
+  <div class="mb-3" id="selector">
+    <select required="" name="class_name" class="form-control" id="class_list" data-action="change->edit-classes#select">
+      <option value="" disabled="" selected="">Select a Class</option>
+      <% @classes.each do |value| %>
+      <option value="class_<%= value["class_form_value"]%>"
+              signoffs = "<%=value["signoffs_granted"]%>"
+              <%= "selected" if params[:v] == "class_#{value["
+              class_form_value"]}" %>
+              >          
+        <%= value["class_name"] %>
+      </option>
+      <%end%>
+    </select>
+  </div>
+
+  <div  class="mb-3" id="checkbox_area" data-edit-classes-target="checkboxArea">
+    <% @signoffs.each do |signoff| %>
+    <input type="checkbox" id="checkbox_<%= signoff.label%>" name="<%= signoff.label%>" data-edit-classes->
+    <label for="checkbox_<%= signoff.label%>"><%= signoff.label%></label>
+    <br>
+    <% end %>
+  </div>
+    
+  <div class="mb-3">
+      <%= f.submit "Update Sign-offs", class: "btn btn-primary"%>
+  </div>
+  <% end %>
 </div>
