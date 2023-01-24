@@ -77,37 +77,35 @@
       <div class="card-header">
         Registrations
       </div>
-      <% unless @event.event_registrations.empty? %>
+      <% unless @event.active_registrations.empty? %>
         <div class="table-responsive">
           <table class="table align-middle">
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Registration Type</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Fee</th>
-                <th scope="col">Waitlist</th>
                 <th scope="col">Registered At</th>
-                <th scope="col">Registration Type</th>
                 <% if current_user.account_administrator %>
+                  <th scope="col">Waitlist</th>
+                  <th scope="col">Fee</th>
                   <th scope="col">Status</th>
                   <th scope="col"></th>
                 <% end %>
               </tr>
             </thead>
             <tbody>
-              <% @event.event_registrations.each do |reg| %>
+              <% @event.active_registrations.each do |reg| %>
                 <tr>
                   <td><%= reg.id %></td>
-                  <td>
-                    <%= reg.display_name %>
-                  </td>
-                  <td><%= reg.user.email %></td>
-                  <td><%= reg.registration_fee %></td>
-                  <td><%= reg.on_waitlist %></td>
-                  <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
                   <td><%= reg.registration_type %></td>
+                  <td><%= reg.display_name %></td>
+                  <td><%= reg.user.email %></td>
+                  <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
                   <% if current_user.account_administrator %>
+                    <td><%= reg.on_waitlist %></td>
+                    <td><%= reg.registration_fee %></td>
                     <td><%= reg.status %></td>
                     <td><a href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a></td>
                   <% end %>

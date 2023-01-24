@@ -1,0 +1,33 @@
+doctor_table_saw:
+  contact_uid: 59100437,
+  display_name: "The Doctor"
+  event: table_saw
+  on_waitlist: false
+  paid: true
+  registration_fee: 0
+  registration_type: "Instructor/Host"
+  status: "Free"
+  uid: 100
+  user: doctor
+canceled_amy_table_saw:
+  contact_uid: 59308919
+  display_name: "Pond, Amy"
+  event: table_saw
+  on_waitlist: false
+  paid: true
+  registration_fee: 80
+  registration_type: "RSVP"
+  status: "Canceled"
+  uid: 101
+  user: amy
+rory_table_saw:
+  contact_uid: 59318549
+  display_name: "Pond, Rory"
+  event: table_saw
+  on_waitlist: false
+  paid: true
+  registration_fee: 80
+  registration_type: "RSVP"
+  status: "Paid"
+  uid: 101
+  user: rory
