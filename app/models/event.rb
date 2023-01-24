@@ -22,4 +22,8 @@ class Event < ApplicationRecord
     order(start_date: :asc).where(start_date: (Time.now.midnight - 12.day)..(Time.now.midnight + 1.year))
   }
 
+  def active_registrations
+    event_registrations.where.not(status: "Canceled")
+  end
+
 end
