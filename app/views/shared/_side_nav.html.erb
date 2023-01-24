@@ -13,35 +13,42 @@
           Home
         </a>
 
-        <a class="nav-link" href="<%= events_path %>">
-          <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
-          Events
+        <a class="nav-link" href="<%= signoffs_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-screwdriver"></i></div>
+          Available Sign-offs
         </a>
 
-        <a class="nav-link" href="<%= users_path %>">
-          <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-          Members
-        </a>
-
-        <a class="nav-link" href="<%= adhoc_formbot_url %>">
-          <div class="sb-nav-link-icon"><i class="fas fa-asterisk"></i></div>
-          Ad-Hoc Class Form
-        </a>
-
-        <% if current_user.signoffer? %>
-          <div class="sb-sidenav-menu-heading">Adminstrative</div>
-          <a class="nav-link" href="<%= users_path(a: :signoff) %>">
-            <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
-            Sign-offs by Member
+        <% if current_user %>
+          <a class="nav-link" href="<%= events_path %>">
+            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+            Events
           </a>
-          <a class="nav-link" href="<%= batch_update_tool_path %>">
-            <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
-            Sign-offs by Tool
-          </a>
-          <a class="nav-link" href="<%= users_path(a: :googleworkspace) %>">
+
+          <a class="nav-link" href="<%= users_path %>">
             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-            Create Google Workspace Account
+            Members
           </a>
+
+          <a class="nav-link" href="<%= adhoc_formbot_url %>">
+            <div class="sb-nav-link-icon"><i class="fas fa-asterisk"></i></div>
+            Ad-Hoc Class Form
+          </a>
+
+          <% if current_user&.signoffer? %>
+            <div class="sb-sidenav-menu-heading">Adminstrative</div>
+            <a class="nav-link" href="<%= users_path(a: :signoff) %>">
+              <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+              Sign-offs by Member
+            </a>
+            <a class="nav-link" href="<%= batch_update_tool_path %>">
+              <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
+              Sign-offs by Tool
+            </a>
+            <a class="nav-link" href="<%= users_path(a: :googleworkspace) %>">
+              <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+              Create Google Workspace Account
+            </a>
+          <% end %>
         <% end %>
 
         <% if false %>
