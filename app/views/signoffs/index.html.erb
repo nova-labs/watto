@@ -1,0 +1,26 @@
+<% content_for :title, "Available Sign-offs" %>
+<div class="row g-5">
+  <div class="col-md">
+    <table class="table">
+      <tbody>
+        <% @fields.each do |field_value| %>
+          <tr>
+            <td scope="row">
+              <%= user_field_value_badge(field_value) %>
+            </td>
+            <td class="w-100">
+              <% if field_value.novapass? %>
+                <span class="badge badge-novapass">NovaPass</span>
+              <% end %>
+              <%= field_value.name %>
+              <% if @user_fields.include?(field_value.value) %>
+                <span class="badge badge-signoff" title="You have completed this sign off">Achievement Unlocked</span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

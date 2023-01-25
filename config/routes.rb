@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   get 'formbot/:event', to: 'formbot#redirect', as: :formbot
+  get 'signoffs', to: 'signoffs#index'
 
   # Admin Section
   get 'admin', to: 'admin/welcome#show'
