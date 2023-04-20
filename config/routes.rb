@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show, :update]
-  resources :users, only: [:index, :show, :update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resource :signoffs, only: [:edit, :update], controller: "user_signoffs"
     resource :onboarding
+    post 'sync'
   end
   resource :batch_update_tool do
     get 'search'

@@ -83,6 +83,9 @@
         <% end %>
         <% if current_user.signoffer? %>
           <li class="list-group-item">
+            <%= link_to "Edit Badge Number", edit_user_path(@user) %>
+          </li>
+          <li class="list-group-item">
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
           </li>
           <% unless @user.has_google_workspace_account? %>
@@ -91,7 +94,7 @@
             </li>
           <% end %>
           <li class="list-group-item">
-            <%= form_for @user do |f| %>
+            <%= form_for @user, url: user_sync_url(@user) do |f| %>
               <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
           <% end %>
           </li>

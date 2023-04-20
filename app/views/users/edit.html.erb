@@ -1,0 +1,21 @@
+<% content_for :title, "Edit Member: #{@user.name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Members", to: users_path %>
+  <%= crumb @user.name, to: user_path(@user) %>
+  <%= crumb "Edit", active: true %>
+<% end %>
+
+<hr>
+
+<%= render "shared/flash" %>
+
+<%= form_for @user do |f| %>
+    <div class="mb-3">
+      <label for="badge_number">Badge Number</label>
+  <input name="badge_number" type="text" value="<%= @user.badge_number %>" maxlength="50" class="form-control">
+    </div>
+    <div class="mb-3">
+  <%= f.submit class: "btn btn-primary" %>
+    </div>
+<% end %>
