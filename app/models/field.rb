@@ -6,4 +6,5 @@ class Field < ApplicationRecord
   scope :signoffs, -> { find_by(field_name: "NL Signoffs and Categories") }
   scope :permissions, -> { find_by(field_name: "NL Signoff Permissions") }
   scope :reason_for_free_access, -> { find_by(field_name: "Reason for free access") }
+  scope :badge_number, -> { find_by(field_name: "Badge Number") }
 end
