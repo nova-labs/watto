@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     resource :signoffs, only: [:edit, :update], controller: "user_signoffs"
     resource :onboarding
-    post 'sync'
+    patch 'sync'
   end
   resource :batch_update_tool do
     get 'search'
