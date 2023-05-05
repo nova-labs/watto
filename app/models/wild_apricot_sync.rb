@@ -110,7 +110,7 @@ class WildApricotSync
       when "Choice"
         fuv = FieldUserValue.find_or_initialize_by(
           user: user,
-          value: v.dig("Value", "Value"),
+          value: v.dig("Value", "Id"),
           system_code: v["SystemCode"]
         )
         fuv.field = field
