@@ -1,4 +1,4 @@
-<% content_for :title, "Admin::Fields" %>
+<% content_for :title, "Member: #{@user.name}" %>
 
 <% content_for :breadcrumbs do %>
   <%= crumb @user.name, to: user_path(@user) %>
