@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show, :update]
   resources :users, only: [:index, :show, :edit, :update] do
-    resource :signoffs, only: [:edit, :update], controller: "user_signoffs"
     resource :onboarding
     resources :fields, :show, controller: "user_fields"
     patch 'sync'

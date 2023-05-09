@@ -75,6 +75,14 @@
             Secondary Member Email
           </li>
           <li class="list-group-item">
+            <span class="float-end"><%= @user.updated_at %></span>
+            Last Updated
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.uid%></span>
+            Wild Apricot ID
+          </li>
+          <li class="list-group-item">
             <span class="float-end"><%= @user.badge_number || "None" %></span>
             <%= link_to "Badge Number", edit_user_field_path(@user, Field.badge_number) %>
           </li>
@@ -83,28 +91,16 @@
             <%= link_to "Door Access Group", edit_user_field_path(@user, Field.door_access_group) %>
           </li>
           <li class="list-group-item">
-            <span class="float-end"><%= @user.door_access_group || "None" %></span>
-            <%= link_to "Sign-offs", edit_user_field_path(@user, Field.signoffs) %>
-          </li>
-          <li class="list-group-item">
-            <span class="float-end"><%= @user.updated_at %></span>
-            Last Updated
-          </li>
-          <li class="list-group-item">
-            <span class="float-end"><%= @user.uid%></span>
-            Wild Apricot ID
-          </li>
-          <% if current_user.account_administrator? %>
-            <li class="list-group-item">
-              <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
-            </li>
-          <% end %>
-          <li class="list-group-item">
-            <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
+            <%= link_to "Edit Sign-offs", edit_user_field_path(@user, Field.signoffs) %>
           </li>
           <% unless @user.has_google_workspace_account? %>
             <li class="list-group-item">
               <%= link_to "Create Google Workspace Account", user_onboarding_path(@user) %>
+            </li>
+          <% end %>
+          <% if current_user.account_administrator? %>
+            <li class="list-group-item">
+              <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
             </li>
           <% end %>
           <li class="list-group-item">
@@ -122,7 +118,7 @@
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         Sign-offs and Categories
         <% if current_user.signoffer? %>
-          <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user), class: "btn btn-sm btn-danger" %>
+          <%= link_to "Edit Sign-offs", edit_user_field_path(@user, Field.signoffs), class: "btn btn-sm btn-danger" %>
         <% end %>
       </div>
       <% unless @signoffs.empty? %>
