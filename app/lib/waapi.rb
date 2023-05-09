@@ -42,10 +42,18 @@ class WAAPI
     Client.new.get(u "accounts/#{config_account_id}/contactfields")
   end
 
+  # Update a field of different types
+  #
+  # Choice format:
+  #   {"id"=>"19436209"}
+  #
+  # MultipleChoice type format:
+  #   [{"id"=>"19436209"}, {"id"=>"19436209"}]
+  #
+  # String type format:
+  #   "My String"
+  #
   def self.update_contact_field(uid, system_code, value)
-    if value.is_a? Enumerable
-      value = value.map {|id| { 'Id' => id }}
-    end
     body = {
       'Id' => uid,
       'FieldValues' => [{
@@ -58,7 +66,7 @@ class WAAPI
   end
 
   def self.create_contact_field(uid, system_code, value)
-    if value.is_a? Enumerable
+    if value.is_a? Array
       value = value.map {|id| { 'Id' => id }}
     end
     body = {

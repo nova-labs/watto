@@ -28,6 +28,10 @@ class FieldAllowedValue < ApplicationRecord
       @tags = (match[1]&.strip || "none").split("-")
       @category = @tags.first
       @name = match[2]&.gsub("_", " ").strip || "Field User Value #{id}"
+    else
+      @tags = []
+      @category = nil
+      @name = label&.gsub("_", " ").strip || "Field User Value #{id}"
     end
   end
 end

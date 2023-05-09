@@ -14,4 +14,9 @@ class FieldUserValue < ApplicationRecord
       .where(field: Field.signoffs)
       .order("field_allowed_values.position ASC")
   }
+  scope :door_access_group, -> {
+    includes(:field_allowed_value)
+      .where(field: Field.door_access_group)
+      .order("field_allowed_values.position ASC")
+  }
 end

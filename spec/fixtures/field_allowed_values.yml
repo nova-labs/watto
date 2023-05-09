@@ -687,3 +687,27 @@ field_allowed_value_102:
   selected_by_default: false
   position: 81
   field: signoffs
+field_allowed_value_103:
+  uid: 19436206
+  label: "[CommonDoors] All Day"
+  value: "19436206"
+  system_code:
+  selected_by_default: false
+  position: 0
+  field: door_access_group
+field_allowed_value_104:
+  uid: 19436207
+  label: "[CommonDoors] Associate Time"
+  value: "19436207"
+  system_code:
+  selected_by_default: false
+  position: 0
+  field: door_access_group
+field_allowed_value_105:
+  uid: 19436210
+  label: "[AllDoors] All Day"
+  value: "19436210"
+  system_code:
+  selected_by_default: false
+  position: 0
+  field: door_access_group

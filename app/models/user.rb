@@ -87,6 +87,10 @@ class User < ApplicationRecord
     field_values.find_by(field:  Field.reason_for_free_access)&.label
   end
 
+  def door_access_group
+    field_values.find_by(field:  Field.door_access_group)&.label
+  end
+
   def has_google_workspace_account?
     !!(email =~ /nova-labs.org$/ || secondary_email =~ /nova-labs.org$/)
   end

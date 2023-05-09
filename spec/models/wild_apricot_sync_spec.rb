@@ -5,6 +5,10 @@ RSpec.describe WildApricotSync do
   it "does not create duplicate records when syncing contact_fields" do
     json = json_file_fixture('waapi_contact_fields.json')
 
+    FieldUserValue.delete_all
+    FieldAllowedValue.delete_all
+    Field.delete_all
+
     sync = WildApricotSync.new
     sync.contact_fields(json)
     expect(FieldAllowedValue.count).to eq 102

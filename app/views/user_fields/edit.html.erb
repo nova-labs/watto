@@ -1,9 +1,7 @@
-<% content_for :title, "Admin::Fields" %>
+<% content_for :title, "Member: #{@user.name}" %>
 
 <% content_for :breadcrumbs do %>
-  <%= crumb "Admin", to: admin_path %>
-  <%= crumb @user.name, to: admin_user_path(@user) %>
-  <%= crumb "Fields" %>
+  <%= crumb @user.name, to: user_path(@user) %>
   <%= crumb @field.field_name, active: true %>
 <% end %>
 
@@ -18,7 +16,7 @@
       <div class="card-header">
         <%= @field.field_name %>
       </div>
-      <%= form_for [:admin, @user, @field] do |f| %>
+      <%= form_for [@user, @field] do |f| %>
         <% if @field.field_type == "String" %>
         <div class="card-body">
           <div class="form-group">
@@ -28,25 +26,17 @@
         <% elsif @field.field_type == "Choice" %>
           <% unless @field.field_allowed_values.empty? %>
             <div class="table-responsive">
-              <table class="table table-striped table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">Label</th>
-                    <th scope="col">Value</th>
-                    <th scope="col">Selected by Default</th>
-                  </tr>
-                </thead>
+              <table class="table table-sm">
                 <tbody>
                   <% @field.field_allowed_values.each do |v| %>
                     <tr>
                       <td>
                         <input id="value-<%=v.id%>" type="radio" class="form-check-input" name="choice_value[id]" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
                         <label for="value-<%=v.id%>">
-                          <%= v.label %>
+                          <%= user_field_value_badge(v) %>
+                          <%= v.name %>
                         </label>
                       </td>
-                      <td><%= v.value %></td>
-                      <td><%= v.selected_by_default %></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -56,26 +46,17 @@
         <% elsif @field.field_type == "MultipleChoice" %>
           <% unless @field.field_allowed_values.empty? %>
             <div class="table-responsive">
-              <table class="table table-striped table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">Label</th>
-                    <th scope="col">Value</th>
-                    <th scope="col">Selected by Default</th>
-                  </tr>
-                </thead>
+              <table class="table table-sm">
                 <tbody>
-
                   <% @field.field_allowed_values.each do |v| %>
                     <tr>
                       <td>
                         <input id="value-<%=v.id%>" type="checkbox" class="form-check-input" name="multiple_choice_values[]id" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
                         <label for="value-<%=v.id%>">
-                          <%= v.label %>
+                          <%= user_field_value_badge(v) %>
+                          <%= v.name %>
                         </label>
                       </td>
-                      <td><%= v.value %></td>
-                      <td><%= v.selected_by_default %></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -84,17 +65,9 @@
           <% end %>
         <% end %>
         <div class="card-footer">
-          <%= f.submit %>
+          <%= f.submit "Save Changes", class: "btn btn-primary"  %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
-<h2> Field JSON</h2>
-  <code>
-  <pre>
-<%= JSON.pretty_generate(@field.as_json) %>
-  </pre>
-  </code>
-

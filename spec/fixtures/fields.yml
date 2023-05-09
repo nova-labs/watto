@@ -39,3 +39,43 @@ signoffs:
   display_type:
   system_code: custom-12971567
   required:
+badge_number:
+  url: https//api.wildapricot.org/v2.2/accounts/335649/ContactFields/12472660
+  uid: 12472660
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: String
+  field_name: Badge Number
+  system: false
+  field_instructions:
+  max_length:
+  order: 10
+  display_type:
+  system_code: custom-12472660
+  required:
+door_access_group:
+  url: https://api.wildapricot.org/v2.2/accounts/335649/ContactFields/15341854
+  uid: 15341854
+  access: Nobody
+  description:
+  member_access:
+  member_only: true
+  built_in: false
+  support_search: true
+  editable: true
+  admin_only: false
+  field_type: Choice
+  field_name: Door Access Group
+  system: false
+  field_instructions:
+  max_length:
+  order: 10
+  display_type:
+  system_code: custom-15341854
+  required:
