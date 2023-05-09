@@ -8,29 +8,14 @@ class UserSignoffsController < ApplicationController
   end
 
   def update
-    #wa_put_data = {
-    #  'Id': this_contact_id,
-    #  'FieldValues': [{
-    #    'SystemCode': gl_equipment_signoff_systemcode,
-    #    'Value': indiv_signoff_ids
-    #  }]
-    #};
-
     @user = User.find(params[:user_id])
     @field = Field.signoffs
     @selected_fields = @user.field_values.where(field: @field)
 
+    # Signoff field can only be multiple choice
+    raise unless @field.field_type == "MultipleChoice"
 
-
-    value = case @field.field_type
-            when "MultipleChoice"
-                value = params[:multiple_choice_values].map{|p| p[:id].to_i}
-            when "String"
-                value = params[:string_value]
-            else
-              raise "Unsupported Field Type"
-            end
-
+    value = params[:multiple_choice_values].map{|p| {id: p[:id].to_i}}.as_json
 
     ret = WAAPI.update_contact_field(@user.uid, @field.system_code, value)
 

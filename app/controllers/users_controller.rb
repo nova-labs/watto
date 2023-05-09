@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @signoffs = @user.field_values.signoffs
+    @door_access_group = @user.field_values.door_access_group
   end
 
   def edit

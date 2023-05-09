@@ -44,7 +44,10 @@ class BatchUpdateToolsController < ApplicationController
       else
         values << params["field_value"]
       end
-      ret = WAAPI.update_contact_field(user.uid, @field.system_code, values.map(&:to_i))
+
+      field_values = values.map{ |e| {"id" => e.to_i} }
+
+      ret = WAAPI.update_contact_field(user.uid, @field.system_code, field_values)
       if ret.status != 200
         render :show, notice: ret.json.fetch("message")
         raise

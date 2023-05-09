@@ -25,20 +25,6 @@
           <span class="float-end"><%= @user.last_name %></span>
           Last Name
         </li>
-        <% if current_user.signoffer? %>
-          <li class="list-group-item">
-            <span class="float-end"><%= @user.email %></span>
-            Email
-          </li>
-          <li class="list-group-item">
-            <span class="float-end"><%= @user.phone%></span>
-            Phone
-          </li>
-          <li class="list-group-item">
-            <span class="float-end"><%= @user.secondary_email %></span>
-            Secondary Member Email
-          </li>
-        <% end %>
         <li class="list-group-item">
           <span class="float-end">
             <%= @user.membership_level_name %>
@@ -47,14 +33,6 @@
             <% end %>
           </span>
           Membership Level
-        </li>
-        <li class="list-group-item">
-          <span class="float-end"><%= @user.badge_number || "None" %></span>
-          Badge Number
-        </li>
-        <li class="list-group-item">
-          <span class="float-end"><%= @user.updated_at %></span>
-          Last Updated
         </li>
         <% if @user.archived? %>
           <li class="list-group-item">
@@ -76,15 +54,51 @@
             💪 Is a sign-offer
           </li>
         <% end %>
-        <% if current_user.account_administrator? %>
+      </ul>
+    </div>
+    <% if current_user.signoffer? %>
+      <div class="card bg-danger mb-4">
+        <div class="card-header text-white ">
+          Admin
+        </div>
+        <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
+            <span class="float-end"><%= @user.email %></span>
+            Email
           </li>
-        <% end %>
-        <% if current_user.signoffer? %>
           <li class="list-group-item">
-            <%= link_to "Edit Badge Number", edit_user_path(@user) %>
+            <span class="float-end"><%= @user.phone%></span>
+            Phone
           </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.secondary_email %></span>
+            Secondary Member Email
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.badge_number || "None" %></span>
+            <%= link_to "Badge Number", edit_user_field_path(@user, Field.badge_number) %>
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.door_access_group || "None" %></span>
+            <%= link_to "Door Access Group", edit_user_field_path(@user, Field.door_access_group) %>
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.door_access_group || "None" %></span>
+            <%= link_to "Sign-offs", edit_user_field_path(@user, Field.signoffs) %>
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.updated_at %></span>
+            Last Updated
+          </li>
+          <li class="list-group-item">
+            <span class="float-end"><%= @user.uid%></span>
+            Wild Apricot ID
+          </li>
+          <% if current_user.account_administrator? %>
+            <li class="list-group-item">
+              <%= link_to "View on Member Portal", wa_contact_admin_url(@user) %>
+            </li>
+          <% end %>
           <li class="list-group-item">
             <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user) %>
           </li>
@@ -96,11 +110,11 @@
           <li class="list-group-item">
             <%= form_for @user, url: user_sync_url(@user) do |f| %>
               <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
-          <% end %>
+            <% end %>
           </li>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md">
@@ -108,7 +122,7 @@
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         Sign-offs and Categories
         <% if current_user.signoffer? %>
-          <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user), class: "btn btn-sm btn-primary" %>
+          <%= link_to "Edit Sign-offs", edit_user_signoffs_path(@user), class: "btn btn-sm btn-danger" %>
         <% end %>
       </div>
       <% unless @signoffs.empty? %>
@@ -133,6 +147,5 @@
       <% end %>
     </div>
   </div>
-
 
 </div>

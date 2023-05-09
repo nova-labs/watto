@@ -51,6 +51,17 @@
         Actions
       </div>
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to "Instructor Formbot", formbot_url(@event) %>
+        </li>
+      </ul>
+    </div>
+    <% if current_user.signoffer? %>
+    <div class="card bg-danger mb-4">
+      <div class="card-header text-white">
+        Admin
+      </div>
+      <ul class="list-group list-group-flush">
         <% if current_user.account_administrator? %>
           <li class="list-group-item">
             <%= link_to "View on Member Portal", wa_event_url(@event) %>
@@ -59,15 +70,14 @@
         <li class="list-group-item">
           <%= link_to "Instructor Formbot", formbot_url(@event) %>
         </li>
-        <% if current_user.signoffer? %>
-          <li class="list-group-item">
-            <%= form_for @event do |f| %>
-              <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
-            <% end %>
-          </li>
-        <% end %>
+        <li class="list-group-item">
+          <%= form_for @event do |f| %>
+            <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
+          <% end %>
+        </li>
       </ul>
     </div>
+  <% end %>
   </div>
 </div>
 
@@ -88,10 +98,10 @@
                 <th scope="col">Email</th>
                 <th scope="col">Registered At</th>
                 <% if current_user.account_administrator %>
-                  <th scope="col">Waitlist</th>
-                  <th scope="col">Fee</th>
-                  <th scope="col">Status</th>
-                  <th scope="col"></th>
+                  <th class="text-danger" scope="col">Waitlist</th>
+                  <th class="text-danger" scope="col">Fee</th>
+                  <th class="text-danger" scope="col">Status</th>
+                  <th class="text-danger" scope="col"></th>
                 <% end %>
               </tr>
             </thead>
@@ -104,10 +114,10 @@
                   <td><%= reg.user.email %></td>
                   <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
                   <% if current_user.account_administrator %>
-                    <td><%= reg.on_waitlist %></td>
-                    <td><%= reg.registration_fee %></td>
-                    <td><%= reg.status %></td>
-                    <td><a href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a></td>
+                    <td class="text-danger"><%= reg.on_waitlist %></td>
+                    <td class="text-danger"><%= reg.registration_fee %></td>
+                    <td class="text-danger"><%= reg.status %></td>
+                    <td><a class="text-danger" href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a></td>
                   <% end %>
                 </tr>
               <% end %>

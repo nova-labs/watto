@@ -1,0 +1,73 @@
+<% content_for :title, "Admin::Fields" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb @user.name, to: user_path(@user) %>
+  <%= crumb @field.field_name, active: true %>
+<% end %>
+
+<h2><%= @field.field_name %></h2>
+<p><%= @field.description %></p>
+
+<%= render "shared/flash" %>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        <%= @field.field_name %>
+      </div>
+      <%= form_for [@user, @field] do |f| %>
+        <% if @field.field_type == "String" %>
+        <div class="card-body">
+          <div class="form-group">
+            <input name="string_value" type="text" value="<%= @selected_fields.first.value %>" class="form-control typeText">
+          </div>
+        </div>
+        <% elsif @field.field_type == "Choice" %>
+          <% unless @field.field_allowed_values.empty? %>
+            <div class="table-responsive">
+              <table class="table table-sm">
+                <tbody>
+                  <% @field.field_allowed_values.each do |v| %>
+                    <tr>
+                      <td>
+                        <input id="value-<%=v.id%>" type="radio" class="form-check-input" name="choice_value[id]" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
+                        <label for="value-<%=v.id%>">
+                          <%= user_field_value_badge(v) %>
+                          <%= v.name %>
+                        </label>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+        <% elsif @field.field_type == "MultipleChoice" %>
+          <% unless @field.field_allowed_values.empty? %>
+            <div class="table-responsive">
+              <table class="table table-sm">
+                <tbody>
+                  <% @field.field_allowed_values.each do |v| %>
+                    <tr>
+                      <td>
+                        <input id="value-<%=v.id%>" type="checkbox" class="form-check-input" name="multiple_choice_values[]id" value="<%= v.uid %>" <%= "checked" if @selected_fields.detect {|f| f.value == v.value } %> >
+                        <label for="value-<%=v.id%>">
+                          <%= user_field_value_badge(v) %>
+                          <%= v.name %>
+                        </label>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="card-footer">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
