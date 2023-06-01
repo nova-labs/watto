@@ -39,6 +39,17 @@
                       </td>
                     </tr>
                   <% end %>
+                  <% unless @field.required %>
+                    <tr>
+                      <td>
+                        <input id="value-none" type="radio" class="form-check-input" name="choice_value[id]" value="" <%= "checked" if @selected_fields.empty? %> >
+                        <label for="value-none">
+                          <span class="badge badge-danger">None</span>
+                          No option selected
+                        </label>
+                      </td>
+                    </tr>
+                  <% end %>
                 </tbody>
               </table>
             </div>

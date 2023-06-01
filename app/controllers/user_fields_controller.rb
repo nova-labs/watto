@@ -12,7 +12,11 @@ class UserFieldsController < ApplicationController
             when "MultipleChoice"
               params[:multiple_choice_values].map{|p| {id: p[:id].to_i}}.as_json
             when "Choice"
-              params[:choice_value][:id] = params[:choice_value][:id].to_i
+              if params[:choice_value][:id].empty?
+                params[:choice_value][:id] = nil
+              else
+                params[:choice_value][:id] = params[:choice_value][:id].to_i
+              end
               params[:choice_value].as_json
             when "String"
               params[:string_value]
