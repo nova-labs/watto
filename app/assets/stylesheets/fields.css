@@ -22,6 +22,11 @@
   background-color:  #28a745;
 }
 
+.badge-danger {
+  background-color:  #dc3545;
+}
+
+
 .callout {
     padding: 1.5rem;
     margin-right: 0;

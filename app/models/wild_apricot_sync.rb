@@ -21,7 +21,7 @@ class WildApricotSync
       field.order = el["Order"]
       field.display_type = nil
       field.system_code = el["SystemCode"]
-      field.required = nil
+      field.required = el["IsRequired"] || false
 
       field.field_allowed_values =
         el["AllowedValues"].map do |v|
