@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_20_194413) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_130816) do
   create_table "credentials", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider"
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_194413) do
     t.boolean "end_time_specified"
     t.boolean "start_time_specified"
     t.string "access_level"
-    t.boolean "registrations_limit"
+    t.integer "registrations_limit"
     t.integer "pending_registrations_count"
     t.integer "confirmed_registrations_count"
     t.integer "checked_in_attendees_number"
