@@ -4,10 +4,10 @@ class FieldUserValue < ApplicationRecord
   belongs_to :field_allowed_value, optional: true
 
   delegate :category, to: :field_allowed_value, allow_nil: true
-  delegate :name, to: :field_allowed_value
+  delegate :name, to: :field_allowed_value, allow_nil: true
   delegate :novapass?, to: :field_allowed_value, allow_nil: true
   delegate :label, to: :field_allowed_value, allow_nil: true
-  delegate :position, to: :field_allowed_value
+  delegate :position, to: :field_allowed_value, allow_nil: true
 
   scope :signoffs, -> {
     includes(:field_allowed_value)
