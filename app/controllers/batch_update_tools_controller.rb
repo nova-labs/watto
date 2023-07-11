@@ -18,9 +18,8 @@ class BatchUpdateToolsController < ApplicationController
     @values = @field.field_allowed_values
     @classes = JSON.parse(File.read("app/assets/data/classes.json"))
 
-    @contacts = params["contacts"].uniq
-    @contacts.each do |uid|
-      user = User.find_by uid: uid
+    @contacts = User.where(uid: params["contacts"].uniq)
+    @contacts.each do |user|
       values = user.signoff_values
     # check if the user submitted a class or a single sign off
       if params["field_value"].match(/class_.*/)
@@ -67,6 +66,8 @@ class BatchUpdateToolsController < ApplicationController
 
   def search
     @users = User.active_n_enabled.search(params[:q])
+    # Allow all users for debugging
+    #@users = User.all.search(params[:q])
     render layout: false
   end
 
