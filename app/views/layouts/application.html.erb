@@ -11,10 +11,10 @@
     <title>
       <%= content_for?(:title) ? yield(:title) : "Automations" %> - Nova Labs
     </title>
+    <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload", as: "style" %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <%= javascript_importmap_tags %>
   </head>
   <body class="sb-nav-fixed">
     <%= render "shared/top_nav" %>
