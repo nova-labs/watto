@@ -14,7 +14,7 @@ class Admin::SyncsController < Admin::BaseController
     contact_fields = WAAPI.contact_fields.json
     sync.contact_fields(contact_fields) do |field|
       log << "   [#{field.id}] #{field.field_name}"
-      unless field.filed_allowed_values.empty?
+      unless field.field_allowed_values.empty?
         field.field_allowed_values.each do |v|
           log << "        #{v.label}"
         end
