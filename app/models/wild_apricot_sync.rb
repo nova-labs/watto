@@ -119,13 +119,20 @@ class WildApricotSync
         fuv.save if fuv.persisted?
         field_values << fuv
       else
-        fuv = FieldUserValue.find_or_initialize_by(
-          user: user,
-          value:v["Value"],
-          system_code: v["SystemCode"]
-        )
-        fuv.field = field
-        field_values << fuv
+        unless v["Value"].class == Hash
+          fuv = FieldUserValue.find_or_initialize_by(
+            user: user,
+            value:v["Value"],
+            system_code: v["SystemCode"]
+          )
+          fuv.field = field
+          field_values << fuv
+        else
+          puts "Found a field that is a hash, skipping."
+          puts "Value is  #{v["Value"]}"
+          puts "User is  #{user}"
+          puts v
+        end
       end
     end
 

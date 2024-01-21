@@ -67,7 +67,8 @@ class BatchUpdateToolsController < ApplicationController
   def search
     @users = User.active_n_enabled.search(params[:q])
     # Allow all users for debugging
-    #@users = User.all.search(params[:q])
+
+    @users = User.all.search(params[:q])
     render layout: false
   end
 
