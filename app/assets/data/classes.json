@@ -1,5 +1,20 @@
 [
   {
+    "class_name": "[class] MX_S01: Basic Tools Sign-off",
+    "class_form_value": "ww_s01",
+    "signoffs_granted": [
+      "[WW-Y-NovaPass] Dewalt Sliding Miter Saw",
+      "[WW-Y] Delta Spindle/Oscillating Sander",
+      "[WW-Y] Rikon Bandsaw",
+      "[WW-Y] Dewalt Scroll Saw",
+      "[WW-Y] Drill Press",
+      "[WW-Y] Powermatic Hollow Chisel Mortiser",
+      "[WW-Y] Shop Fox Stationary Sander",
+      "[MX-B] Basic Tools",
+      "[MX-B] Grizzly Bandsaw"
+    ]
+  },
+  {
     "class_name": "[class] WW_S01: Yellow Tools Sign-off",
     "class_form_value": "ww_s01",
     "signoffs_granted": [
@@ -9,7 +24,9 @@
       "[WW-Y] Dewalt Scroll Saw",
       "[WW-Y] Drill Press",
       "[WW-Y] Powermatic Hollow Chisel Mortiser",
-      "[WW-Y] Shop Fox Stationary Sander"
+      "[WW-Y] Shop Fox Stationary Sander",
+      "[MX-B] Basic Tools",
+      "[MX-B] Grizzly Bandsaw"
     ]
   },
   {
