@@ -1,5 +1,21 @@
 [
   {
+    "class_name": "[class] MW_S01: Metal Shop 101 Basic Tools Sign-off",
+    "class_form_value": "mw_s01",
+    "signoffs_granted": [
+      "[MW-B] Central Forge Media Blaster",
+      "[MW-B] Central Machinery 1x30 Belt Sander",
+      "[MW-B] Delta Bench Grinder",
+      "[MW-B] Grizzly Cold Cut Saw",
+      "[MW-B] Grizzly Horizontal Bandsaw",
+      "[MW-B-NovaPass] Grizzly Vertical Bandsaw",
+      "[MW-B] Milwaukee Portaband",
+      "[MW-B] Northern Industrial Drill Press",
+      "[MW-B] Angle Grinders",
+      "[MW-B] Rigid Abrasive Chopsaw"
+    ]
+  },
+  {
     "class_name": "[class] MX_S01: Basic Tools Sign-off",
     "class_form_value": "ww_s01",
     "signoffs_granted": [
@@ -45,22 +61,6 @@
     "signoffs_granted": [
       "[WW-T-NovaPass] SawStop Table Saw",
       "[WW-T] Milwaukee Panel Saw"
-    ]
-  },
-  {
-    "class_name": "[class] MW_S01: Metal Shop 101 Basic Tools Sign-off",
-    "class_form_value": "mw_s01",
-    "signoffs_granted": [
-      "[MW-B] Central Forge Media Blaster",
-      "[MW-B] Central Machinery 1x30 Belt Sander",
-      "[MW-B] Delta Bench Grinder",
-      "[MW-B] Grizzly Cold Cut Saw",
-      "[MW-B] Grizzly Horizontal Bandsaw",
-      "[MW-B-NovaPass] Grizzly Vertical Bandsaw",
-      "[MW-B] Milwaukee Portaband",
-      "[MW-B] Northern Industrial Drill Press",
-      "[MW-B] Angle Grinders",
-      "[MW-B] Rigid Abrasive Chopsaw"
     ]
   }
 ]
