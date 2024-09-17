@@ -9,16 +9,23 @@ class WildApricot::WebhookController < ActionController::Base
 
       case params["MessageType"]
       when "ContactModified"
+        Rails.logger.info "Webhook processing ContactModified: #{params.to_json}"
         ret = WAAPI.contact(params["Parameters"]["Contact.Id"].to_i)
-        WildApricotSync.new.contact(ret.json)
+        WildApricotSync.new.contact(ret.json) do |user|
+          Rails.logger.info "WildApricotSync user: #{user.to_json}"
+        end
       when "Event"
+        Rails.logger.info "Webhook processing Event: #{params.to_json}"
         if params["Parameters"]["Action"] == "Deleted"
           Event.where(uid: params["Parameters"]["Event.Id"]).delete_all
         else
           ret = WAAPI.event(params["Parameters"]["Event.Id"].to_i)
-          WildApricotSync.new.event(ret.json)
+          WildApricotSync.new.event(ret.json) do |event|
+            Rails.logger.info "WildApricotSync event: #{event.to_json}"
+          end
         end
       when "EventRegistration"
+        Rails.logger.info "Webhook processing EventRegistration: #{params.to_json}"
         if params["Parameters"]["Action"] == "Deleted"
           EventRegistration.find_by(uid: params["Parameters"]["Registration.Id"].to_i).delete
         else
