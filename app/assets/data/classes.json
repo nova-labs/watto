@@ -16,6 +16,16 @@
     ]
   },
   {
+    "class_name": "[class] MW_S07: Sheet Metal Tools Sign-off",
+    "class_form_value": "mw_s07",
+    "signoffs_granted": [
+      "[MW-S] Central Forge Throatless Shear",
+      "[MW-S] Chicago Electric Spot Welder",
+      "[MW-S] Woodward Fab Sheet Metal Brake",
+      "[MW-S] Woodward Fab Sheet Metal Shear"
+    ]
+  },
+  {
     "class_name": "[class] MX_S01: Basic Tools Sign-off",
     "class_form_value": "ww_s01",
     "signoffs_granted": [
