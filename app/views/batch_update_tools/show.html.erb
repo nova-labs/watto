@@ -10,7 +10,6 @@
   <%= form_for @field, url: batch_update_tool_path do |f| %>
     <!-- Prevent implicit submission of the form -->
     <button type="submit" disabled="" style="display: none" aria-hidden="true"></button>
-    <input type="text" id="signoff_display_name2" value="snarl" style="display: none" aria-hidden="true"></input>
     <%= hidden_field_tag(:signoff_display_name) %>
     <div class="mb-3">
       <label for="signoff_id">Signoff</label>
