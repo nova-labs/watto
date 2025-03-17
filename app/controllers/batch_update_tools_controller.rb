@@ -60,8 +60,8 @@ class BatchUpdateToolsController < ApplicationController
       m: params["contacts"].join(","),
       v: params["field_value"],
     }
-    count = @contacts.count
-    redirect_to batch_update_tool_path(opts), notice: "Updated #{count} #{"member".pluralize(count)}"
+    list = @contacts.map{|c| c.first_name }.to_sentence
+    redirect_to batch_update_tool_path(opts), notice: "Updated #{list} on \"#{params["signoff_display_name"]}\""
   end
 
   def search

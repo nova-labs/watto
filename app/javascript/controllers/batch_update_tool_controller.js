@@ -4,6 +4,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "searchInput", "search", "contacts", "signoffSelector", "notificationArea", "notificationHeader" ]
 
+  connect() {
+    // The signoff display name isn't plumbed through the request, so when the
+    // page loads update the hidden field so we can get the user feedback in
+    // the flash message for which signoff was applied.
+    const selector = document.getElementById("signoff_list")
+    const selected_value = selector[selector.selectedIndex]
+    document.getElementById("signoff_display_name").value = selected_value.text
+  }
+
   input(event) {
     if (event.target.value.length > 2) {
       console.log("mega ouch", event);
@@ -23,13 +32,14 @@ export default class extends Controller {
   // iff selected option is class, then...
   // pull the signoffs value from the selected option
   // put that data in the notificationArea target to display
-  select(event) {    
+  select(event) {
     console.log("sweet ouch", event)
-    // I can get the selector as a Stimulus target or as the event target. 
-    // I'm not sure which is better SWE. 
+    // I can get the selector as a Stimulus target or as the event target.
+    // I'm not sure which is better SWE.
     // Getting it as the event target makes it easier to extend to other selectors, including accidentally
     const selector = event.target
     const selected_value = selector[selector.selectedIndex]
+    document.getElementById("signoff_display_name").value = selected_value.text
     if (selected_value.hasAttribute("isClass")){
       this.notificationHeaderTarget.style.display="inline"
       const raw_list = selected_value.getAttribute("signoffs")
