@@ -108,16 +108,23 @@ class WildApricotSync
           end
         end
       when "Choice"
-        fuv = FieldUserValue.find_or_initialize_by(
-          user: user,
-          value: v.dig("Value", "Id"),
-          system_code: v["SystemCode"]
-        )
-        fuv.field = field
-        #fuv.label = v.dig("Value", "Label")
-        fuv.field_allowed_value = FieldAllowedValue.find_by(uid: v.dig("Value", "Id"))
-        fuv.save if fuv.persisted?
-        field_values << fuv
+        if v["Value"].class == Hash
+          fuv = FieldUserValue.find_or_initialize_by(
+            user: user,
+            value: v.dig("Value", "Id"),
+            system_code: v["SystemCode"]
+          )
+          fuv.field = field
+          #fuv.label = v.dig("Value", "Label")
+          fuv.field_allowed_value = FieldAllowedValue.find_by(uid: v.dig("Value", "Id"))
+          fuv.save if fuv.persisted?
+          field_values << fuv
+        else
+          puts "Found a Choice field who's value isn't a hash, skipping."
+          puts "Value is  #{v["Value"]}"
+          puts "User is  #{user}"
+          puts v
+        end
       else
         unless v["Value"].class == Hash
           fuv = FieldUserValue.find_or_initialize_by(
