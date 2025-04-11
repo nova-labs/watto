@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.active_n_enabled.page(params[:page])
 
     if params[:q]
-      @users = User.active_n_enabled.search(params[:q]).page(params[:page])
+      @users = @users.search(params[:q])
     end
   end
 
