@@ -1,0 +1,116 @@
+<% @callout = WaitlistHelper::WAITLIST_CALLOUTS.sample
+%>
+
+<% content_for :title, "Waitlist" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Waitlist", active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<div class="container my-5">
+  <div class="text-center p-4 bg-light border rounded shadow-sm">
+    <h2 class="display-5 fw-bold"><%= @callout[:title] %></h2>
+    <p class="lead mt-3 mb-4">
+    <%= @callout[:description] %>
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="#SIGN_OFF_CLASS" class="btn btn-primary btn-lg">Sign-off Classes</a>
+      <a href="#PROJECT_CLASS" class="btn btn-outline-primary btn-lg">Project Classes</a>
+    </div>
+
+    <div class="position-relative mt-4">
+      <!-- The subtle help link -->
+      <a href="#classInfoCollapse"
+         class="position-absolute start-0 text-muted small text-decoration-underline"
+         style="bottom: 0.25rem;"
+         data-bs-toggle="collapse"
+         role="button"
+         aria-expanded="false"
+         aria-controls="classInfoCollapse">
+        What does this mean?
+      </a>
+
+      <!-- Collapsible explanation section -->
+      <div class="collapse mt-3" id="classInfoCollapse">
+        <div class="card card-body text-start">
+          <p class="mb-2">Nova Labs offers two types of classes:</p>
+          <ul class="mb-2">
+            <li><strong>Sign-off Classes</strong> are required before using certain tools or equipment in our makerspace. They focus on safety and proper use.</li>
+            <li><strong>Project Classes</strong> are open to everyone and involve making something — often hands-on and fun, no prior sign-off needed.</li>
+          </ul>
+          <p class="mb-0">If a class frequently fills up, a waitlist is be available below. Otherwise, use “Search for Class” to check if there are any upcoming sessions.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Details
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Location
+        </li>
+        <li class="list-group-item">
+          Event Type
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col">
+    <% if current_user.signoffer? %>
+      <div class="card bg-danger">
+        <div class="card-header text-white">
+          Admin
+        </div>
+        <ul class="list-group list-group-flush">
+          <% if current_user.account_administrator? %>
+            <li class="list-group-item">
+              <a href="https://docs.google.com/spreadsheets/d/<%= ENV.fetch('WAITLIST_GOOGLE_SHEET_ID') %>/edit">Waitlist Google Sheet</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <% @groups.each do |key, items| %>
+    <% next if key.empty? %>
+    <br>
+
+    <h3 id="<%= key %>"><%= key.downcase.titleize.pluralize %></h3>
+
+    <% items.each do |item| %>
+      <% next if item['is_hidden'] == "TRUE" %>
+      <div class="row border-bottom py-2">
+        <div class="col-sm-7">
+          <%= shop_badge_from_name(item['code']) %>
+          <%= item['name'] %>
+        </div>
+        <div class="col-sm-5">
+          <%= item['notes'] %>
+        </div>
+
+        <div class="col-11 pt-1 fs-6 text-muted">
+          <% if item['is_waitlist_enabled'] == 'TRUE' %>
+            This class has a waitlist, click here to
+            <%= link_to "Join Waitlist", new_waitlist_registration_path(c: "#{item['code']} #{item['name']}") %>
+          <% else %>
+            No waitlist required <%= link_to 'search for a class', events_path(q: item['code']) %>
+          <%= Event.all.search(item['code']).future.count  %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

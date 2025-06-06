@@ -1,0 +1,10 @@
+<% content_for :title, "Waitlist" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Waitlist", to: waitlist_index_path %>
+  <%= crumb "Registrations", active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<h1>Waitlist Registrations</h1>

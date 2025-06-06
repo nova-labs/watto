@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index, :show, :update]
+  resources :waitlist, only: [:index]
+  resources :waitlist_registrations, only: [:index, :create, :new]
   resources :users, only: [:index, :show, :edit, :update] do
     resource :onboarding
     resources :fields, :show, controller: "user_fields"

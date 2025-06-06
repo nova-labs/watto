@@ -1,0 +1,40 @@
+<% content_for :title, "Waitlist" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Waitlist", to: waitlist_index_path %>
+  <%= crumb "Registrations", to: waitlist_registrations_path %>
+  <%= crumb "New", active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<h1>Waitlist Registrations</h1>
+
+<%= form_with model: @registration, url: waitlist_registrations_path do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :course, "Class", class: "form-label" %>
+    <%= f.text_field :course, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :slack, class: "form-label" %>
+    <%= f.email_field :slack, class: "form-control", required: false %>
+  </div>
+
+  <div class="d-grid">
+    <%= f.hidden_field :watto_id, class: "form-control" %>
+    <%= f.hidden_field :wa_id, class: "form-control" %>
+    <%= f.submit "Join Waitlist", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
