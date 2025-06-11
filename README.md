@@ -80,6 +80,20 @@ To see all the options run:
 
 Watto uses Google Sheets as a data source for the waitlist features.
 
+Required Environment Variables.  Add the following to your `.env`:
+
+```
+WAITLIST_GOOGLE_SHEET_ID=...     # Google Sheet ID (from the URL)
+GOOGLE_CREDENTIALS_JSON=...      # JSON credentials for a service account
+```
+
+Setup Steps
+- Create a [Google Cloud service account](https://cloud.google.com/iam/docs/service-accounts-create)
+- Enable the [Google Sheets API](https://developers.google.com/sheets/api/quickstart) in the Google Cloud project.
+- Download the JSON credentials and put the body of the file in the `GOOGLE_CREDENTIALS_JSON` env var.
+- Share your spreadsheet with the service account's email (e.g., watto@your-project-id.iam.gserviceaccount.com).
+- Make sure your spreadsheet includes the available_classes, active_waitlist, and completed tabs.
+
 
 # License
 
