@@ -7,9 +7,18 @@
   <%#= crumb "Registrations", to: waitlist_registrations_path %>
 <% end %>
 
+
 <%= render "shared/flash" %>
 
 <div class="container my-4">
+  <% unless current_user %>
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      <div>
+        You're not logged in. You can still register as a guest, but logging in makes it easier for us to contact you (and saves you from typing the same info twice).
+        <a href="<%= login_path %>" class="alert-link">Log in</a> if you have an account. Please and thank you.
+      </div>
+    </div>
+  <% end %>
   <div class="bg-light border rounded p-3 shadow-sm">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
       <div>

@@ -7,6 +7,15 @@
 <% content_for :title, "Join the Waitlist" %>
 <div class="row ">
   <div class="col-md-8">
+
+  <% unless current_user %>
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      <div>
+        You're not logged in. You can still register as a guest, but logging in makes it easier for us to contact you (and saves you from typing the same info twice).
+        <a href="<%= login_path %>" class="alert-link">Log in</a> if you have an account. Please and thank you.
+      </div>
+    </div>
+  <% end %>
     <%= form_with model: @registration, url: waitlist_registrations_path, local: true do |f| %>
       <%= f.hidden_field :course %>
       <div class="card border shadow-sm">
