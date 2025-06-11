@@ -11,4 +11,9 @@ module EventsHelper
 
     location[/\((.*)\)/, 1] || location rescue location
   end
+
+  def shop_badge_from_name(name)
+    code = name&.split('_').first.downcase
+    content_tag(:span, code, class: "badge badge-default badge-#{code}")
+  end
 end

@@ -1,0 +1,137 @@
+<% content_for :title, "Event: #{@event.name}" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Events", to: events_path %>
+  <%= crumb @event.name, active: true %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Details
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span class="float-end" title="<%= @event.location %>" ><%= display_location @event.location %></span>
+          Location
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.event_type %></span>
+          Event Type
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.uid %></span>
+          Event ID
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= display_date @event.start_date %></span>
+          Start Date
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= display_date @event.end_date %></span>
+          End Date
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @event.confirmed_registrations_count %></span>
+          Registrations
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= display_date @event.updated_at %></span>
+          Last Updated
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Actions
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to "Instructor Formbot", formbot_url(@event) %>
+        </li>
+      </ul>
+    </div>
+    <% if current_user.signoffer? %>
+    <div class="card bg-danger mb-4">
+      <div class="card-header text-white">
+        Admin
+      </div>
+      <ul class="list-group list-group-flush">
+        <% if current_user.account_administrator? %>
+          <li class="list-group-item">
+            <%= link_to "View on Member Portal", wa_event_url(@event) %>
+          </li>
+        <% end %>
+        <li class="list-group-item">
+          <%= link_to "Instructor Formbot", formbot_url(@event) %>
+        </li>
+        <li class="list-group-item">
+          <%= form_for @event do |f| %>
+            <a href="#" onclick="this.closest('form').submit(); return false;">Re-sync from Portal</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="card mb-4">
+      <div class="card-header">
+        Registrations
+      </div>
+      <% unless @event.active_registrations.empty? %>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Registration Type</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Registered At</th>
+                <% if current_user.account_administrator %>
+                  <th class="text-danger" scope="col">Waitlist</th>
+                  <th class="text-danger" scope="col">Fee</th>
+                  <th class="text-danger" scope="col">Status</th>
+                  <th class="text-danger" scope="col"></th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% @event.active_registrations.each do |reg| %>
+                <tr>
+                  <td><%= reg.id %></td>
+                  <td><%= reg.registration_type %></td>
+                  <td><%= reg.display_name %></td>
+                  <td><%= reg.user.email %></td>
+                  <td><%= reg.registration_date.strftime("%m/%d/%Y") %></td>
+                  <% if current_user.account_administrator %>
+                    <td class="text-danger"><%= reg.on_waitlist %></td>
+                    <td class="text-danger"><%= reg.registration_fee %></td>
+                    <td class="text-danger"><%= reg.status %></td>
+                    <td><a class="text-danger" href="<%= wa_contact_admin_url reg.user %>">Edit on WA</a></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <div class="card-body">
+          None yet!
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+</div>

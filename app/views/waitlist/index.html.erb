@@ -1,0 +1,87 @@
+<% @callout = waitlist_callouts %>
+
+<% content_for :title, "Class Waitlist" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Waitlist", active: true %>
+  <%#= crumb "Registrations", to: waitlist_registrations_path %>
+<% end %>
+
+<%= render "shared/flash" %>
+
+<div class="container my-4">
+  <div class="bg-light border rounded p-3 shadow-sm">
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <div>
+        <h5 class="mb-1 fw-semibold"><%= @callout[:title] %></h5>
+        <p class="mb-2 small text-muted"><%= @callout[:description] %></p>
+      </div>
+      <div class="d-flex flex-wrap gap-2">
+        <a href="#SIGN_OFF_CLASS" class="btn btn-sm btn-primary">Sign-off Classes</a>
+        <a href="#PROJECT_CLASS" class="btn btn-sm btn-outline-primary">Project Classes</a>
+        <% if current_user&.signoffer? %>
+          <a href="<%= waitlist_google_sheet_url %>" class="btn btn-sm btn-outline-danger">Google Sheet Waitlist</a>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mt-2 position-relative">
+      <a href="#classInfoCollapse"
+         class="text-muted small text-decoration-underline"
+         data-bs-toggle="collapse"
+         role="button"
+         aria-expanded="false"
+         aria-controls="classInfoCollapse">
+        What does this mean?
+      </a>
+      <div class="collapse mt-2" id="classInfoCollapse">
+        <div class="bg-white border rounded p-2 small">
+          <p class="mb-1">Nova Labs offers:</p>
+          <ul class="mb-1">
+            <li><strong>Sign-off Classes</strong>: Required before using specific tools.</li>
+            <li><strong>Project Classes</strong>: Build cool stuff, may have prerequisites.</li>
+          </ul>
+          <p class="mb-0">Popular classes may have waitlists. Others are first-come, first-served.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <% @groups.each do |key, items| %>
+    <% next if key.blank? %>
+
+    <div class="row mt-5 mb-3">
+      <div class="col-12 col-md-8">
+        <h3 id="<%= key %>" class="d-inline-block me-3 mb-0"><%= key.downcase.titleize.pluralize %></h3>
+      </div>
+    </div>
+
+    <% items.each do |item| %>
+      <% next if item['is_hidden'] == "TRUE" %>
+
+      <div class="row border-bottom py-1 align-items-center">
+        <div class="col-md-8">
+          <span class="me-2"><%= shop_badge_from_name(item['code']) %></span>
+          <%= item['name'] %>
+        </div>
+
+        <div class="col-md-2 text-muted">
+          <%= item['notes'] %>
+        </div>
+
+        <div class="col-md-2 text-md-end pt-2 pt-md-0">
+            <div class="d-flex flex-column align-items-end">
+          <% if item['is_waitlist_enabled'] == 'TRUE' %>
+            <%= link_to "Join Waitlist", new_waitlist_registration_path(c: item['code_and_name']), class: "btn btn-sm btn-outline-primary" %>
+          <% else %>
+              <small class="text-muted mb-1">No waitlist required</small>
+              <%= link_to 'Search for class', events_path(q: item['code']), class: "btn btn-sm btn-outline-secondary" %>
+          <% end %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

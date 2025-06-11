@@ -61,6 +61,8 @@ gem 'omniauth-oauth2'
 gem 'faraday'
 gem 'kaminari'
 gem 'rotp'
+gem 'next_rails'
+gem 'google-apis-sheets_v4'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -13,7 +13,7 @@ module OmniAuth
       # initializing your consumer from the OAuth gem.
       option :client_options, {
         :site => ENV['WA_SITE_URL'],
-        :authorize_url => '/sys/login/OAuthLogin',
+        :authorize_url => '/sys/login/oauthlogin',
         :token_url => 'https://oauth.wildapricot.org/auth/token'
       }
 
