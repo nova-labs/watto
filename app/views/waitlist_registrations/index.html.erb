@@ -1,10 +1,75 @@
-<% content_for :title, "Waitlist" %>
+<% content_for :title, "Waitlist Registrations" %>
 
 <% content_for :breadcrumbs do %>
   <%= crumb "Waitlist", to: waitlist_index_path %>
-  <%= crumb "Registrations", active: true %>
+  <%= crumb "Waitlist Registrations", active: true %>
 <% end %>
 
 <%= render "shared/flash" %>
 
-<h1>Waitlist Registrations</h1>
+
+<div class="container">
+  <% @registrations.each do |registration| %>
+    <div class="row py-2 border-bottom align-items-start small">
+      <!-- Name and Course -->
+      <div class="col-12 col-md-6">
+        <div class="text-muted mb-1"><strong>Course:</strong> <%= registration["class"] %></div>
+        <div class="mb-1"><strong>Name:</strong> <%= registration["name"] %></div>
+      </div>
+
+      <!-- Date Registered -->
+      <div class="col-6 col-md-2">
+        <strong>Registered:</strong><br>
+        <%= Date.parse(registration["date"]).strftime("%Y-%m-%d") rescue "—" %>
+      </div>
+
+      <!-- Date Contacted -->
+      <div class="col-6 col-md-2">
+        <strong>Contacted:</strong><br>
+        <% if registration["date_contacted"].present? %>
+          <%= Date.parse(registration["date_contacted"]).strftime("%Y-%m-%d") rescue "—" %>
+        <% else %>
+          <span class="text-muted">Not yet contacted</span>
+        <% end %>
+      </div>
+
+      <% if current_user.signoffer? %>
+        <!-- Admin Buttons -->
+        <div class="col-12 col-md-2 text-md-end mt-2 mt-md-0">
+          <div class="dropdown">
+            <button class="btn btn-sm btn-outline-danger dropdown-toggle" type="button" id="dropdownMenu<%= registration[:uuid] %>" data-bs-toggle="dropdown" aria-expanded="false">
+              Mark as
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu<%= registration[:uuid] %>">
+              <li>
+                <%= button_to "Contacted",
+                  event_waitlist_registrations_path,
+                  method: :post,
+                  params: {
+                    uuid: registration[:uuid],
+                    name: registration[:name],
+                    class: registration[:class],
+                    event: "contact"
+                  },
+                  class: "dropdown-item text-danger" %>
+              </li>
+              <li>
+                <%= button_to "Completed",
+                  event_waitlist_registrations_path,
+                  method: :post,
+                  params: {
+                    uuid: registration[:uuid],
+                    name: registration[:name],
+                    class: registration[:class],
+                    event: "complete"
+                  },
+                  class: "dropdown-item text-danger" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+

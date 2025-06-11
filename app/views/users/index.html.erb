@@ -34,7 +34,6 @@
     <table class="table align-middle">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Membership</th>
         </tr>
@@ -42,7 +41,6 @@
       <tbody>
         <% @users.each do |member| %>
           <tr>
-            <td><%= member.uid %></td>
             <td><%= link_to member.name, user_path(member) %></td>
             <td><%= member.membership_level_name %></td>
           </tr>

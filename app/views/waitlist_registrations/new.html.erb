@@ -1,40 +1,63 @@
-<% content_for :title, "Waitlist" %>
-
 <% content_for :breadcrumbs do %>
   <%= crumb "Waitlist", to: waitlist_index_path %>
-  <%= crumb "Registrations", to: waitlist_registrations_path %>
-  <%= crumb "New", active: true %>
+  <%= crumb "Join Waitlist", active: true %>
 <% end %>
 
 <%= render "shared/flash" %>
+<% content_for :title, "Join the Waitlist" %>
+<div class="row ">
+  <div class="col-md-8">
+    <%= form_with model: @registration, url: waitlist_registrations_path, local: true do |f| %>
+      <%= f.hidden_field :course %>
+      <div class="card border shadow-sm">
+        <!-- Card Header -->
+        <div class="card-header">
+          <h5 class="card-title mb-0"><%= @registration.course %></h5>
+        </div>
 
-<h1>Waitlist Registrations</h1>
+        <!-- Card Body -->
+        <div class="card-body">
+          <p class="card-text small text-muted mb-4">
+            Class picked. Good taste. Now help us skip the email abyss by giving us your Slack handle.
+          </p>
 
-<%= form_with model: @registration, url: waitlist_registrations_path do |f| %>
-  <div class="mb-3">
-    <%= f.label :name, class: "form-label" %>
-    <%= f.text_field :name, class: "form-control", required: true %>
+          <!-- Name Field -->
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <%= f.text_field :name, class: "form-control", placeholder: "Your name" %>
+              <div class="form-text"><%= waitlist_field_quips_for(:name) %></div>
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <%= f.email_field :email, class: "form-control", placeholder: "you@example.com" %>
+              <div class="form-text"><%= waitlist_field_quips_for(:email) %></div>
+            </div>
+          </div>
+
+          <!-- Slack Handle Field -->
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Slack</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-text">@</span>
+                <%= f.text_field :slack, class: "form-control", placeholder: "yourhandle" %>
+              </div>
+              <div class="form-text"><%= waitlist_field_quips_for(:slack) %></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer text-end">
+          <%= f.submit "Join Waitlist", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="mb-3">
-    <%= f.label :course, "Class", class: "form-label" %>
-    <%= f.text_field :course, class: "form-control", required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.label :email, class: "form-label" %>
-    <%= f.email_field :email, class: "form-control", required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.label :slack, class: "form-label" %>
-    <%= f.email_field :slack, class: "form-control", required: false %>
-  </div>
-
-  <div class="d-grid">
-    <%= f.hidden_field :watto_id, class: "form-control" %>
-    <%= f.hidden_field :wa_id, class: "form-control" %>
-    <%= f.submit "Join Waitlist", class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>
 

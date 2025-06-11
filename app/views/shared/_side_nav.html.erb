@@ -18,6 +18,12 @@
           Available Sign-offs
         </a>
 
+        <a class="nav-link" href="<%= waitlist_index_path %>">
+          <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+          Class Waitlist
+        </a>
+
+
         <% if current_user %>
           <a class="nav-link" href="<%= events_path %>">
             <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
@@ -35,17 +41,23 @@
           </a>
 
           <% if current_user&.signoffer? %>
-            <div class="sb-sidenav-menu-heading">Adminstrative</div>
-            <a class="nav-link" href="<%= users_path(a: :signoff) %>">
-              <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+            <div class="sb-sidenav-menu-heading text-danger">Adminstrative</div>
+            <a class="nav-link text-danger" href="<%= users_path(a: :signoff) %>">
+              <div class="sb-nav-link-icon text-danger"><i class="fas fa-wrench"></i></div>
               Sign-offs by Member
             </a>
-            <a class="nav-link" href="<%= batch_update_tool_path %>">
-              <div class="sb-nav-link-icon"><i class="fas fa-hammer"></i></div>
+            <a class="nav-link text-danger" href="<%= batch_update_tool_path %>">
+              <div class="sb-nav-link-icon text-danger"><i class="fas fa-hammer"></i></div>
               Sign-offs by Tool
             </a>
-            <a class="nav-link" href="<%= users_path(a: :googleworkspace) %>">
-              <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+            <!--
+            <a class="nav-link text-danger" href="<%= waitlist_registrations_path %>">
+              <div class="sb-nav-link-icon text-danger"><i class="fas fa-list"></i></div>
+              Waitlist Registrations
+            </a>
+            -->
+            <a class="nav-link text-danger" href="<%= users_path(a: :googleworkspace) %>">
+              <div class="sb-nav-link-icon text-danger"><i class="fas fa-users"></i></div>
               Create Google Workspace Account
             </a>
           <% end %>

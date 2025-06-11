@@ -9,7 +9,7 @@
       </div>
     </div>
     <input type="checkbox" class="form-field small" name="past" id="past" value="true" <%= "checked" if params[:past] == "true" %> >
-    <label for="past" class="small">Past Events</label>
+    <label for="past" class="small">Include Old Events</label>
     <% if params[:q] %>
       <a class="small" href="<%= events_path %>">Clear Search</a>
     <% end %>
@@ -22,33 +22,48 @@
 
 <%= render "shared/flash" %>
 
-<div class="row">
-  <div class="col">
-    <div class="table-responsive">
-      <table class="table table-sm">
-        <thead>
-          <tr>
-            <th scope="col" class="d-none d-sm-table-cell">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Start Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @events.each do |event| %>
-            <tr>
-              <td class="d-none d-sm-table-cell"><%= event.uid %></td>
-              <td>
-                <%= link_to event.name, event %>
-              </td>
-              <td><%= display_location(event.location) %></td>
-              <td><%= display_date(event.start_date) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @events, params: {q: params[:q]} %>
+<div class="container">
+<% if params[:past] == "true" %>
+  <div class="alert alert-info alert-dismissible fade show small" role="alert">
+    You’re searching old events.
+    <%= link_to "Click here to clear.", events_path, class: "alert-link" %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
+  <% @events.each do |event| %>
+    <div class="row border-bottom py-3 align-items-center">
+      <!-- Name and Link -->
+      <div class="col-12 col-md-6">
+        <h6 class="mb-1">
+          <%= link_to event.name, event, class: "text-decoration-none fw-bold" %>
+        </h6>
+        <p class="mb-0 small text-muted d-none d-md-block">
+        Event ID: <%= event.uid %>
+        </p>
+      </div>
+
+      <!-- Location -->
+      <div class="col-6 col-md-3">
+        <span class="text-muted small">Location</span><br>
+        <%= display_location(event.location) %>
+      </div>
+
+      <!-- Start Date -->
+      <div class="col-6 col-md-3">
+        <span class="text-muted small">Start Date</span>
+        <% if event.start_date.to_date < Date.current %>
+          <span class="badge bg-secondary ms-2">Past</span>
+        <% end %>
+        <br>
+        <%= display_date(event.start_date) %>
+      </div>
     </div>
+  <% end %>
+
+  <!-- Pagination -->
+  <div class="mt-4">
+    <%= paginate @events, params: { q: params[:q] } %>
   </div>
 </div>
 

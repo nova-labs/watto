@@ -20,7 +20,7 @@ class Waitlist
     keys, *values= service.get_spreadsheet_values(spreadsheet_id, range).values
 
     values.map.with_index(1) { |row, index|
-      Hash[keys.zip(row)].tap { |h| h[:index] = index }
+      ActiveSupport::HashWithIndifferentAccess[keys.zip(row)].tap { |h| h[:index] = index }
     }
   end
 end
