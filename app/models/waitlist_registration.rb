@@ -11,6 +11,11 @@ class WaitlistRegistration < Waitlist
   attribute :date_contacted, :date
   attribute :wa_id, :string
 
+  def slack=(value)
+    # Normalize slack handle with leading '@'
+    super(value.present? ? "@#{value.delete_prefix('@')}" : value)
+  end
+
   def get_registrations
     get_range_as_hash 'active_waitlist!A:ZZ'
   end

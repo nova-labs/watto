@@ -18,6 +18,8 @@
   <% end %>
     <%= form_with model: @registration, url: waitlist_registrations_path, local: true do |f| %>
       <%= f.hidden_field :course %>
+      <%= f.hidden_field :wa_id %>
+      <%= f.hidden_field :watto_id %>
       <div class="card border shadow-sm">
         <!-- Card Header -->
         <div class="card-header">
