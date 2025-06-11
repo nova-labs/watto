@@ -5,6 +5,7 @@ class WaitlistRegistration < Waitlist
   attribute :name, :string
   attribute :course, :string
   attribute :email, :string
+  attribute :slack, :string
   attribute :watto_id, :string
   attribute :date, :date
   attribute :date_contacted, :date
@@ -32,7 +33,9 @@ class WaitlistRegistration < Waitlist
         date_contacted,
         name,
         course,
+        slack,
         email,
+        "", # notes
         watto_id,
         wa_id,
         SecureRandom.uuid,

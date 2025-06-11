@@ -2,8 +2,6 @@
 # frozen_string_literal: true
 
 class WaitlistRegistrationsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:index, :new, :create]
-
   def index
     @registrations = WaitlistRegistration.new.get_registrations
   end
@@ -40,7 +38,7 @@ class WaitlistRegistrationsController < ApplicationController
 private
 
   def waitlist_registration_params
-    params.require(:waitlist_registration).permit(:name, :course, :email, :watto_id, :wa_id)
+    params.require(:waitlist_registration).permit(:name, :course, :slack, :email, :watto_id, :wa_id)
   end
 end
 
