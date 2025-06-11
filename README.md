@@ -76,6 +76,10 @@ To see all the options run:
 ./bin/rails -T
 ```
 
+# Integration with Google Sheets
+
+Watto uses Google Sheets as a data source for the waitlist features.
+
 
 # License
 
