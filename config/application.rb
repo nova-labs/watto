@@ -18,5 +18,8 @@ module MakerSpace
     #
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = "Eastern Time (US & Canada)"
+
+    # We use sqlite in prod
+    config.active_record.sqlite3_production_warning=false
   end
 end
