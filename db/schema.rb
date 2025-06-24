@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_130816) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_23_154245) do
   create_table "credentials", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider"
@@ -138,6 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_130816) do
     t.boolean "archived"
     t.string "phone"
     t.string "secondary_email"
+    t.date "birthdate"
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 

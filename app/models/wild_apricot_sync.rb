@@ -120,10 +120,7 @@ class WildApricotSync
           fuv.save if fuv.persisted?
           field_values << fuv
         else
-          puts "Found a Choice field who's value isn't a hash, skipping."
-          puts "Value is  #{v["Value"]}"
-          puts "User is  #{user}"
-          puts v
+          puts "Invalid choice field: #{v.to_json} for user #{user.id}"
         end
       else
         unless v["Value"].class == Hash
@@ -135,10 +132,7 @@ class WildApricotSync
           fuv.field = field
           field_values << fuv
         else
-          puts "Found a field that is a hash, skipping."
-          puts "Value is  #{v["Value"]}"
-          puts "User is  #{user}"
-          puts v
+          puts "Invalid field: #{v.to_json} for user #{user.id}"
         end
       end
     end
@@ -178,6 +172,13 @@ class WildApricotSync
         user.secondary_email = nil
       else
         user.secondary_email = secondary_email["Value"]
+      end
+    end
+
+    birthdate = el["FieldValues"].find {|field| field["FieldName"] == "Birthdate" }
+    if birthdate
+      unless phone_number["Value"].blank?
+        user.birthdate = Date.parse(birthdate["Value"]) rescue nil
       end
     end
 

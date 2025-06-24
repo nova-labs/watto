@@ -68,6 +68,10 @@ class User < ApplicationRecord
     account_administrator? || admin || field_values.includes(:field_allowed_value).where(field_allowed_value: { label: "[NL] wautils" }).any?
   end
 
+  def youth?
+    birthdate&.after? 18.years.ago
+  end
+
   # Returns a "truple" of user value, field, and allowed field models
   def signoffs
     #values = field_values.left_joins(:field, :field_allowed_value).where(field: Field.signoffs)

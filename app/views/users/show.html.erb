@@ -17,6 +17,18 @@
         </h5>
       </div>
       <ul class="list-group list-group-flush">
+        <% if @user.youth? %>
+          <li class="list-group-item">
+            <span class="float-end">
+              This member is under 18
+            </span>
+            <span class="badge bg-warning text-dark ">Youth</span>
+          </li>
+        <% end %>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.birthdate %></span>
+          Birthdate
+        </li>
         <li class="list-group-item">
           <span class="float-end"><%= @user.first_name %></span>
           First Name
@@ -56,6 +68,7 @@
         <% end %>
       </ul>
     </div>
+
     <% if current_user.signoffer? %>
       <div class="card bg-danger mb-4">
         <div class="card-header text-white ">

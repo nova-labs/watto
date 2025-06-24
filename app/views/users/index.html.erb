@@ -42,7 +42,12 @@
         <% @users.each do |member| %>
           <tr>
             <td><%= link_to member.name, user_path(member) %></td>
-            <td><%= member.membership_level_name %></td>
+            <td>
+
+              <% if member.youth? %>
+                <span class="badge bg-warning text-dark ">Youth</span>
+              <% end %>
+              <%= member.membership_level_name %></td>
           </tr>
         <% end %>
       </tbody>
