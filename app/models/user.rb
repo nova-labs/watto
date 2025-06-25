@@ -72,6 +72,32 @@ class User < ApplicationRecord
     birthdate&.after? 18.years.ago
   end
 
+  def age
+    return unless birthdate
+
+    now = Time.zone.today
+    age = now.year - birthdate.year
+    age -= 1 if birthdate.to_date.change(year: now.year) > now
+    age
+  end
+
+  def age_category
+    return :adult unless birthdate.is_a?(Date)
+
+    case ((Date.today - birthdate).to_i / 365.25).floor
+    when 0..7
+      :under_8
+    when 8..11
+      :age_8_to_11
+    when 12..15
+      :age_12_to_15
+    when 16..17
+      :age_16_to_17
+    else
+      :adult
+    end
+  end
+
   # Returns a "truple" of user value, field, and allowed field models
   def signoffs
     #values = field_values.left_joins(:field, :field_allowed_value).where(field: Field.signoffs)

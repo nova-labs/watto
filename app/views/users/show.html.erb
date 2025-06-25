@@ -20,9 +20,9 @@
         <% if @user.youth? %>
           <li class="list-group-item">
             <span class="float-end">
-              This member is under 18
+              This member is a minor
             </span>
-            <span class="badge bg-warning text-dark ">Youth</span>
+            <%= youth_badge @user %>
           </li>
         <% end %>
         <li class="list-group-item">
@@ -84,6 +84,10 @@
             Secondary Member Email
           </li>
           <li class="list-group-item">
+            <span class="float-end"><%= @user.birthdate&.to_date || "N/A" %></span>
+            Birthdate
+          </li>
+          <li class="list-group-item">
             <span class="float-end"><%= @user.updated_at %></span>
             Last Updated
           </li>
@@ -123,6 +127,51 @@
   </div>
 
   <div class="col-md">
+
+    <% if @user.age_category != :adult %>
+  <div class="card border-warning mb-3">
+    <div class="card-header bg-warning text-dark fw-bold">
+      Youth Supervision &amp; Tool Use
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        For <%= youth_badge @user %> members:
+      <p class="card-text">
+        <%= case @user.age_category
+            when :under_8
+              "⚠️ Children under 8 are not allowed to enter the shops."
+            when :age_8_to_11
+              "Parent/Guardian must be in sight and able to physically assist immediately."
+            when :age_12_to_15
+              "Parent/Guardian must be in sight while on-site."
+            when :age_16_to_17
+              "Parent/Guardian must remain on-site but doesn't need to be in sight."
+            end
+        %>
+      </p>
+      <p class="card-text">
+        <%= case @user.age_category
+            when :under_8
+            when :age_8_to_11
+              "May use GREEN tools with Certified Adult supervision. YELLOW and RED tools are observe-only."
+            when :age_12_to_15
+              "May use GREEN tools with supervision, YELLOW with all sign-offs and supervision. RED is observe-only."
+            when :age_16_to_17
+              "May use GREEN and YELLOW tools independently with proper sign-offs. RED requires Certified Adult supervision."
+            end
+        %>
+      </p>
+      <p class="card-text">
+      These rules are governed by the minor policy, there may be exceptions.
+      Please refer to <a
+      href="https://www.notion.so/novalabs/Minor-Child-of-Member-MCoM-cd37f4b12c0845ac8cd99341174f4520#71b4b6effa804936a0c77472c9498d02">Minor Child
+      of Member</a> for details.
+      </p>
+    </div>
+  </div>
+<% end %>
+
+
     <div class="card mb-4">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         Sign-offs and Categories
