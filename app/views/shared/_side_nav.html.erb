@@ -18,13 +18,10 @@
           Available Sign-offs
         </a>
 
-        <% if ENV['HIDE_WAITLIST_SIDEBAR'] == 'TRUE' %>
         <a class="nav-link" href="<%= waitlist_index_path %>">
           <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
           Class Waitlist
         </a>
-      <% end %>
-
 
         <% if current_user %>
           <a class="nav-link" href="<%= events_path %>">

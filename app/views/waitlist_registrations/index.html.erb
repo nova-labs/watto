@@ -26,8 +26,8 @@
       <!-- Date Contacted -->
       <div class="col-6 col-md-2">
         <strong>Contacted:</strong><br>
-        <% if registration["date_contacted"].present? %>
-          <%= Date.parse(registration["date_contacted"]).strftime("%Y-%m-%d") rescue "—" %>
+        <% if registration["first_contacted"].present? %>
+          <%= Date.parse(registration["first_contacted"]).strftime("%Y-%m-%d") rescue "—" %>
         <% else %>
           <span class="text-muted">Not yet contacted</span>
         <% end %>

@@ -8,7 +8,7 @@ class WaitlistRegistration < Waitlist
   attribute :slack, :string
   attribute :watto_id, :string
   attribute :date, :date
-  attribute :date_contacted, :date
+  attribute :first_contacted, :date
   attribute :wa_id, :string
 
   def slack=(value)
@@ -35,7 +35,8 @@ class WaitlistRegistration < Waitlist
     values = [
       [
         date,
-        date_contacted,
+        first_contacted,
+        "", # second_contact
         name,
         course,
         slack,
@@ -126,7 +127,7 @@ class WaitlistRegistration < Waitlist
 
     # Step 2: Find indexes
     uuid_col_index = headers.find_index("uuid")
-    contacted_col_index = headers.find_index("date_contacted")
+    contacted_col_index = headers.find_index("first_contact")
 
     raise "Missing required columns" unless uuid_col_index && contacted_col_index
 
