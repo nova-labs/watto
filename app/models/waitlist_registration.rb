@@ -42,6 +42,7 @@ class WaitlistRegistration < Waitlist
         slack,
         email,
         "", # notes
+        "", # date_registered
         watto_id,
         wa_id,
         SecureRandom.uuid,
