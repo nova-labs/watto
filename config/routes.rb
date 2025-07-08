@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :update]
   resources :waitlist, only: [:index]
   resources :waitlist_registrations, only: [:index, :create, :new]
-  post "waitlist_registrations/event", to: "waitlist_registrations#event", as: :event_waitlist_registrations
 
   resources :users, only: [:index, :show, :edit, :update] do
     resource :onboarding

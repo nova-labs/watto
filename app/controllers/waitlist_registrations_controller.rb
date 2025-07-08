@@ -29,17 +29,6 @@ class WaitlistRegistrationsController < ApplicationController
     redirect_to waitlist_index_path, notice: "Added #{@registration.name} to the \"#{@registration.course}\" waitlist"
   end
 
-  def event
-    case params[:event]
-    when "contact"
-      msg = WaitlistRegistration.new.mark_as_contacted(params[:uuid])
-      redirect_to waitlist_registrations_path, notice: "Marked #{params[:name]} as contacted for #{params[:class]}"
-    when "complete"
-      msg = WaitlistRegistration.new.move_to_completed(params[:uuid])
-      redirect_to waitlist_registrations_path, notice: "Moved #{params[:name]} to complete for #{params[:class]}"
-    end
-  end
-
 private
 
   def slack_cookie_key
