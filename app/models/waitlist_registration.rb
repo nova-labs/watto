@@ -10,10 +10,11 @@ class WaitlistRegistration < Waitlist
   attribute :date, :date
   attribute :first_contacted, :date
   attribute :wa_id, :string
+  attribute :membership_level, :string
 
-  def slack=(value)
+  def normalized_slack
     # Normalize slack handle with leading '@'
-    super(value.present? ? "@#{value.delete_prefix('@')}" : value)
+    slack.present? ? "@#{slack.delete_prefix('@')}" : slack
   end
 
   def get_registrations
@@ -39,8 +40,8 @@ class WaitlistRegistration < Waitlist
         "", # second_contact
         name,
         course,
-        slack,
-        email,
+        normalized_slack,
+        membership_level,
         "", # notes
         "", # date_registered
         watto_id,

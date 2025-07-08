@@ -70,27 +70,25 @@
     <% items.each do |item| %>
       <% next if item['is_hidden'] == "TRUE" %>
 
-      <div class="row border-bottom py-1 align-items-center">
-        <div class="col-md-8">
+      <div class="row border-bottom py-1">
+        <div class="col-12 col-lg-8 d-flex align-items-center">
           <span class="me-2"><%= shop_badge_from_name(item['code']) %></span>
           <%= item['name'] %>
         </div>
 
-        <div class="col-md-2 text-muted">
-          <%= item['notes'] %>
-        </div>
-
-        <div class="col-md-2 text-md-end pt-2 pt-md-0">
-            <div class="d-flex flex-column align-items-end">
-          <% if item['is_waitlist_enabled'] == 'TRUE' %>
-            <%= link_to "Join Waitlist", new_waitlist_registration_path(c: item['code_and_name']), class: "btn btn-sm btn-outline-primary" %>
-          <% else %>
-              <small class="text-muted mb-1">No waitlist required</small>
-              <%= link_to 'Search for class', events_path(q: item['code']), class: "btn btn-sm btn-outline-secondary" %>
-          <% end %>
-            </div>
+        <div class="col-12 col-lg-4 mt-2 mt-lg-0">
+          <div class="flex-column flex-xs-row flex-lg-row justify-content-end align-items-end align-items-lg-center text-end gap-1">
+            <% if item['is_waitlist_enabled'] == 'TRUE' %>
+              <%= link_to "Join Waitlist", new_waitlist_registration_path(c: item['code_and_name']), class: "btn btn-sm btn-outline-primary w-auto" %>
+            <% else %>
+              <small class="text-muted">No waitlist required</small>
+              <%= link_to 'Search for class', events_path(q: item['code']), class: "btn btn-sm btn-outline-secondary w-auto" %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
+

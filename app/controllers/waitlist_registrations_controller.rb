@@ -13,6 +13,8 @@ class WaitlistRegistrationsController < ApplicationController
     @registration.wa_id = current_user&.uid
     @registration.email = current_user&.email
     @registration.name = current_user&.name
+    @registration.slack = get_slack_cookie
+    @registration.membership_level = current_user&.membership_level_name
   end
 
   def create
@@ -20,6 +22,9 @@ class WaitlistRegistrationsController < ApplicationController
     @registration.date = Time.zone.now
 
     @registration.save!
+
+    cookies.permanent[slack_cookie_key] = @registration.slack if current_user
+
 
     redirect_to waitlist_index_path, notice: "Added #{@registration.name} to the \"#{@registration.course}\" waitlist"
   end
@@ -37,8 +42,20 @@ class WaitlistRegistrationsController < ApplicationController
 
 private
 
+  def slack_cookie_key
+    return nil unless current_user
+
+    "slack_handle_for_#{current_user.uid}"
+  end
+
+  def get_slack_cookie
+    if current_user && cookies[slack_cookie_key].present?
+      cookies[slack_cookie_key].delete_prefix('@')
+    end
+  end
+
   def waitlist_registration_params
-    params.require(:waitlist_registration).permit(:name, :course, :slack, :email, :watto_id, :wa_id)
+    params.require(:waitlist_registration).permit(:name, :course, :slack, :email, :watto_id, :wa_id, :membership_level)
   end
 end
 
