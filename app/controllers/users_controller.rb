@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_signoffer, only: [:edit, :update]
   def index
-    @users = User.active_n_enabled.page(params[:page])
+    @users = User.active_n_enabled.order(:last_name).page(params[:page])
 
     if params[:q]
       @users = @users.search(params[:q])
