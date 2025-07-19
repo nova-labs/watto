@@ -24,12 +24,14 @@ module UserHelper
 
   def youth_access_details(user)
     case user.age_category
-    when :under_12
+    when :under_8
       "Youth under 12 are not allowed access to tools"
-    when :age_12_to_14
-      "Youth age 12 to 14"
-    when :age_15_to_17
-      "Youth age 15 to 17"
+    when :age_8_to_11
+      "Youth under 12 are not allowed access to tools"
+    when :age_12_to_15
+      "Youth age 12 to 15"
+    when :age_16_to_17
+      "Youth age 16 to 17"
     else
       ""
     end

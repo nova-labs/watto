@@ -75,16 +75,16 @@ class User < ApplicationRecord
   def age
     return unless birthdate
 
-    now = Time.zone.today
-    age = now.year - birthdate.year
-    age -= 1 if birthdate.to_date.change(year: now.year) > now
-    age
+    days = (Date.today - birthdate).to_i
+    return 0 if days.negative?
+
+    (days / 365.25).floor
   end
 
   def age_category
     return :adult unless birthdate.is_a?(Date)
 
-    case ((Date.today - birthdate).to_i / 365.25).floor
+    case age
     when 0..7
       :under_8
     when 8..11
