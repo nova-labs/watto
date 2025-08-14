@@ -54,7 +54,7 @@ namespace :wa do
     write_json_file(:contact_fields, contact_fields)
     puts "   Fields:"
     sync.contact_fields(contact_fields) do |field|
-      puts "   #{field.id.to_s.rjust(4)} #{field.field_name}"
+      puts "   #{field.uid.to_s.rjust(4)} #{field.field_name}"
       unless field.field_allowed_values.empty?
         field.field_allowed_values.each do |v|
           puts "        - #{v.label} #{v.position}"
@@ -72,7 +72,7 @@ namespace :wa do
     puts "   Users:"
     write_json_file(:contact, contacts)
     sync.contacts(contacts) do |contact|
-      puts "   #{contact.id.to_s.rjust(4)} #{contact.name}"
+      puts "   #{contact.uid.to_s.rjust(4)} #{contact.name}"
     end
   end
 
@@ -85,7 +85,7 @@ namespace :wa do
     write_json_file(:events, events)
     puts "   Events:"
     sync.events(events) do |event|
-      puts "   #{event.id.to_s.rjust(4)} #{event.name}"
+      puts "   #{event.uid.to_s.rjust(4)} #{event.name}"
       event_registrations = WAAPI.event_registrations(event.uid).json
       write_json_file("event_registrations_#{event.uid}", event_registrations)
       sync.event_registrations(event, event_registrations) do |reg|

@@ -18,6 +18,23 @@ class WAAPI
       @token = token || Oauth.new.fetch_and_cache_token
     end
 
+    def download_image(path)
+      uri = URI(path)
+
+      req = Net::HTTP::Get.new(uri)
+      req["Authorization"] = "Bearer #{@token}"
+
+      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+        http.request(req)
+      end
+
+      if res.code.to_i == 200
+        res.body  # This is the binary image data
+      else
+        raise "Failed to download image: #{res.code} #{res.message}"
+      end
+    end
+
     def get(path)
       uri = URI(path)
 

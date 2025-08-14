@@ -182,6 +182,18 @@ class WildApricotSync
       end
     end
 
+    picture = el["FieldValues"].find {|field| field["FieldName"] == "Member Picture" }
+    if picture
+      begin
+        url = picture.dig("Value", "Url")
+        res = WAAPI::Client.new.download_image(url)
+        file = File.join Rails.root, "public", "member_pictures", "#{user.uid}.png"
+        File.open(file, "wb") { |f| f.write(res) }
+      rescue
+        # ope
+      end
+    end
+
     user.archived = json["FieldValues"].find{|fv| fv["SystemCode"] == "IsArchived"}&.fetch("Value")
 
     user.save!

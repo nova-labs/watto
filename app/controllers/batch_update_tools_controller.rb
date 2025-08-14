@@ -48,8 +48,9 @@ class BatchUpdateToolsController < ApplicationController
 
       ret = WAAPI.update_contact_field(user.uid, @field.system_code, field_values)
       if ret.status != 200
+        Rails.logger.error "WAAPI ERROR: #{ret.json}"
+
         render :show, notice: ret.json.fetch("message")
-        raise
         return
       end
       ret = WAAPI.contact(user.uid)
