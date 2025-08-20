@@ -26,10 +26,10 @@
         <p class="mb-2 small text-muted"><%= @callout[:description] %></p>
       </div>
       <div class="d-flex flex-wrap gap-2">
-        <a href="#SIGN_OFF_CLASS" class="btn btn-sm btn-primary">Sign-off Classes</a>
+        <a href="#SIGN_OFF_CLASS" class="btn btn-sm btn-outline-primary">Sign-off Classes</a>
         <a href="#PROJECT_CLASS" class="btn btn-sm btn-outline-primary">Project Classes</a>
         <% if current_user&.signoffer? %>
-          <a href="<%= waitlist_google_sheet_url %>" class="btn btn-sm btn-outline-danger">Waitlist Google Sheet</a>
+          <a href="<%= waitlist_google_sheet_url %>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Waitlist Google Sheet</a>
         <% end %>
       </div>
     </div>
