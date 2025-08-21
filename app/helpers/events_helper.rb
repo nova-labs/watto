@@ -13,6 +13,8 @@ module EventsHelper
   end
 
   def shop_badge_from_name(name)
+    return "" unless name
+
     code = name&.split('_').first.downcase
     content_tag(:span, code, class: "badge badge-default badge-#{code}")
   end
