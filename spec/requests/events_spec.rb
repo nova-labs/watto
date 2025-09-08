@@ -17,7 +17,7 @@ RSpec.describe "Events", type: :request do
       sign_in(users :doctor)
 
       json = json_file_fixture('waapi_events.json')
-      WildApricotSync.new.events(json)
+      WildApricotSync.new.events(json["Events"])
       event = Event.first
 
       get events_path(event)

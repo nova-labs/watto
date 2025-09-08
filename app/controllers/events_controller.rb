@@ -34,7 +34,7 @@ class EventsController < ApplicationController
       sync = WildApricotSync.new
       sync.event(ret.json)
 
-      event_registrations = WAAPI.event_registrations(@event.uid).json
+      event_registrations = WAAPI.event_registrations(@event.uid)
       @event.event_registrations.delete_all
       sync.event_registrations(@event, event_registrations)
 

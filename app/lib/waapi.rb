@@ -31,7 +31,7 @@ class WAAPI
   end
 
   def self.contacts
-    Client.new.get(u "accounts/#{config_account_id}/contacts?$async=false")
+    Client.new.get_all(u "accounts/#{config_account_id}/contacts?$async=false")
   end
 
   def self.contact(uid)
@@ -89,7 +89,7 @@ class WAAPI
     filter = "$filter=StartDate+gt+#{ten_days_ago}"
     async = "$async=false"
     params = [async, filter].join("&")
-    Client.new.get(u "accounts/#{config_account_id}/events?#{params}")
+    Client.new.get_all(u "accounts/#{config_account_id}/events?#{params}")
   end
 
   def self.event(event_id)
@@ -101,7 +101,7 @@ class WAAPI
   end
 
   def self.event_registrations(event_id)
-    Client.new.get(u "accounts/#{config_account_id}/eventregistrations?eventId=#{event_id}")
+    Client.new.get_all(u "accounts/#{config_account_id}/eventregistrations?eventId=#{event_id}")
   end
 
   def self.event_registration_types(event_id)

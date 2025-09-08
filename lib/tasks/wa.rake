@@ -86,7 +86,7 @@ namespace :wa do
     puts "   Events:"
     sync.events(events) do |event|
       puts "   #{event.uid.to_s.rjust(4)} #{event.name}"
-      event_registrations = WAAPI.event_registrations(event.uid).json
+      event_registrations = WAAPI.event_registrations(event.uid)
       write_json_file("event_registrations_#{event.uid}", event_registrations)
       sync.event_registrations(event, event_registrations) do |reg|
         puts "        - #{reg.display_name}"

@@ -68,7 +68,7 @@ RSpec.describe WildApricotSync do
     end
 
     it "does not create duplicate records when syncing contacts" do
-      json = json_file_fixture('waapi_contacts.json')
+      json = json_file_fixture('waapi_contacts.json')["Contacts"]
       sync = WildApricotSync.new
       sync.contacts(json)
       expect(User.count).to eq 3
@@ -77,7 +77,7 @@ RSpec.describe WildApricotSync do
     end
 
     it "creates user field association" do
-      json = json_file_fixture('waapi_contacts.json')
+      json = json_file_fixture('waapi_contacts.json')["Contacts"]
       sync = WildApricotSync.new
       sync.contacts(json)
       expect(User.count).to eq 3

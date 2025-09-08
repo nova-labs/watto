@@ -47,8 +47,8 @@ class WildApricotSync
     end
   end
 
-  def contacts(json)
-    json["Contacts"].each do |el|
+  def contacts(arr)
+    arr.each do |el|
       contact(el) do |user|
         yield(user) if block_given?
       end
@@ -200,8 +200,8 @@ class WildApricotSync
     yield(user) if block_given?
   end
 
-  def events(json)
-    json["Events"].each do |el|
+  def events(arr)
+    arr.each do |el|
       event(el) do |ev|
         yield(ev) if block_given?
       end

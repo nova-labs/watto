@@ -11,7 +11,7 @@ class Admin::SyncsController < Admin::BaseController
     log = Array.new
 
     log << "Fields:"
-    contact_fields = WAAPI.contact_fields.json
+    contact_fields = WAAPI.contact_fields
     sync.contact_fields(contact_fields) do |field|
       log << "   [#{field.id}] #{field.field_name}"
       unless field.field_allowed_values.empty?
@@ -22,7 +22,7 @@ class Admin::SyncsController < Admin::BaseController
     end
 
     log << "Users:"
-    contacts = WAAPI.contacts.json
+    contacts = WAAPI.contacts
     sync.contacts(contacts) do |contact|
       log << "   [#{contact.id}] #{contact.name}"
     end
