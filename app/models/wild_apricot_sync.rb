@@ -232,6 +232,8 @@ class WildApricotSync
   end
 
   def event_registrations(event, json)
+    return if json.nil?
+
     json.each do |reg|
       event_registration(event, reg) do |er|
         yield(er) if block_given?
