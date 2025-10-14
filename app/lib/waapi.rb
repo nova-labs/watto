@@ -111,4 +111,12 @@ class WAAPI
   def self.event_registration_types(event_id)
     Client.new.get(u "accounts/#{config_account_id}/EventRegistrationTypes?eventId=#{event_id}")
   end
+
+  def self.invoice(invoice_id)
+    Client.new.get(u "accounts/#{config_account_id}/invoices/#{invoice_id}")
+  end
+
+  def self.invoices_for(wa_id)
+    Client.new.get(u "accounts/#{config_account_id}/invoices?contactId=#{wa_id}")
+  end
 end
