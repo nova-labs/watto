@@ -62,6 +62,14 @@
             💪 Is a sign-offer
           </li>
         <% end %>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.badge_number || "None" %></span>
+          Badge Number
+        </li>
+        <li class="list-group-item">
+          <span class="float-end"><%= @user.door_access_group || "None" %></span>
+          Door Access Group
+        </li>
       </ul>
     </div>
 
