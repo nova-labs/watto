@@ -1,6 +1,7 @@
 class FieldAllowedValue < ApplicationRecord
   belongs_to :field
   has_many :field_user_values, dependent: :destroy
+  has_many :users, through: :field_user_values
 
   def name
     @name || begin

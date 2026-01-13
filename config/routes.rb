@@ -21,6 +21,14 @@ Rails.application.routes.draw do
   get 'formbot/:event', to: 'formbot#redirect', as: :formbot
   get 'signoffs', to: 'signoffs#index'
 
+
+  namespace :api do
+    scope :digital_sign do
+      get :events, to: "digital_sign#events"
+    end
+  end
+
+
   # Admin Section
   get 'admin', to: 'admin/welcome#show'
   namespace :admin do
