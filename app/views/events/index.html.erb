@@ -9,7 +9,10 @@
       </div>
     </div>
     <input type="checkbox" class="form-field small" name="past" id="past" value="true" <%= "checked" if params[:past] == "true" %> >
-    <label for="past" class="small">Include Old Events</label>
+    <label for="past" class="small">Search old events</label>
+    <span class="btn btn-link p-0 ms-1 align-baseline" data-controller="bootstrap" data-action="click->bootstrap#logClick" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-delay='{"show":0,"hide":0}' data-bs-trigger="click" title="Default search includes events from yesterday through one year ahead. Check this box to search only events before yesterday." role="img" aria-label="Search help">
+      <i class="fas fa-info-circle text-muted" aria-hidden="true"></i>
+    </span>
     <% if params[:q] %>
       <a class="small" href="<%= events_path %>">Clear Search</a>
     <% end %>
@@ -66,4 +69,3 @@
     <%= paginate @events, params: { q: params[:q] } %>
   </div>
 </div>
-
