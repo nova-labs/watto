@@ -1,0 +1,275 @@
+<turbo-frame id="waitlist-stats">
+
+<% if @stats.error? %>
+  <div class="alert alert-danger">
+    <strong>Failed to load waitlist data:</strong> <%= @stats.error %>
+  </div>
+<% else %>
+
+<%
+  level_badge = ->(level) {
+    case level.to_s.strip
+    when "Key"                        then "bg-danger"
+    when "Associate"                  then "bg-success"
+    when "Weekday"                    then "bg-primary"
+    when "Innovation Center"          then "bg-dark"
+    when "Comp Access"                then "bg-secondary"
+    when "Membership Application"     then "bg-light text-dark border"
+    when /Youth Robotics/             then "bg-warning text-dark"
+    else                                   "bg-secondary"
+    end
+  }
+
+  today = Date.today
+
+  days_ago = ->(date) {
+    return nil unless date
+    n = (today - date).to_i
+    n == 0 ? "today" : n == 1 ? "1d ago" : "#{n}d ago"
+  }
+
+  days_ago_class = ->(date) {
+    return "text-muted" unless date
+    n = (today - date).to_i
+    if n <= 7    then "text-success fw-semibold"
+    elsif n <= 30 then "text-warning"
+    else              "text-danger"
+    end
+  }
+%>
+
+<%# ── Summary bar ──────────────────────────────────────────────────────────── %>
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <div class="display-6"><%= @stats.registrations.length %></div>
+        <div class="text-muted small">Total registrations</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <div class="display-6"><%= @stats.unique_people %></div>
+        <div class="text-muted small">People waiting</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <div class="display-6 text-warning"><%= @stats.total_uncontacted %></div>
+        <div class="text-muted small">Not yet contacted</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <div class="display-6"><%= @stats.courses.length %></div>
+        <div class="text-muted small">Available courses</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# ── Classes to schedule ──────────────────────────────────────────────────── %>
+<div class="card mb-4">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <strong>Classes to Schedule</strong>
+    <span class="text-muted small">sorted by total waiting</span>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Course</th>
+          <th class="text-end">Waiting</th>
+          <th class="text-end">Contacted</th>
+          <th class="text-end">Last Signup</th>
+          <th class="text-end">Median Wait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stats.by_course.each do |row| %>
+          <tr>
+            <td><%= shop_badge_from_name(row[:course]) %> <%= row[:course] %></td>
+            <td class="text-end fw-semibold"><%= row[:regs].length %></td>
+            <td class="text-end <%= row[:contacted] > 0 ? "text-success" : "text-muted" %>">
+              <%= row[:contacted] > 0 ? row[:contacted] : "—" %>
+            </td>
+            <td class="text-end <%= days_ago_class.(row[:last_signup_date]) %>">
+              <%= days_ago.(row[:last_signup_date]) || "—" %>
+            </td>
+            <td class="text-end text-muted">
+              <% if (m = row[:median_wait_days]) %>
+                <% if m < 30    then %><%= m.round %>d
+                <% elsif m < 90 then %><%= (m / 7.0).round %>w
+                <% else              %><%= (m / 30.0).round %>mo
+                <% end %>
+              <% else %>—<% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%# ── Most popular courses ─────────────────────────────────────────────────── %>
+<div class="card mb-4">
+  <div class="card-header"><strong>Most Popular Courses</strong></div>
+  <div class="table-responsive">
+    <table class="table table-sm mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Course</th>
+          <th class="text-end">Waiting</th>
+          <th>Membership levels</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stats.popular_courses(10).each_with_index do |(course, rs), i| %>
+          <tr>
+            <td class="text-muted"><%= i + 1 %></td>
+            <td><%= shop_badge_from_name(course) %> <%= course %></td>
+            <td class="text-end"><%= rs.length %></td>
+            <td>
+              <% rs.group_by { |r| r[:membership_level] }
+                   .sort_by { |_, xs| -xs.length }
+                   .each do |lvl, xs| %>
+                <span class="badge <%= level_badge.(lvl) %> me-1"><%= xs.length %> <%= lvl %></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+
+  <%# ── Membership level breakdown + orphaned courses ─────────────────────── %>
+  <div class="col-md-6">
+    <div class="card mb-3">
+      <div class="card-header"><strong>Registrations by Membership Level</strong></div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr><th>Level</th><th class="text-end">Count</th><th class="text-end">%</th></tr>
+          </thead>
+          <tbody>
+            <% @stats.by_membership_level.each do |level, rs| %>
+              <tr>
+                <td><span class="badge <%= level_badge.(level) %>"><%= level %></span></td>
+                <td class="text-end"><%= rs.length %></td>
+                <td class="text-end text-muted"><%= (rs.length * 100.0 / @stats.registrations.length).round(1) %>%</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <% orphaned = @stats.orphaned_courses %>
+    <% unless orphaned.empty? %>
+      <div class="card border-warning">
+        <div class="card-header bg-warning text-dark"><strong>Waitlisted Courses No Longer Available</strong></div>
+        <div class="table-responsive">
+          <table class="table table-sm mb-0">
+            <thead class="table-light">
+              <tr><th>Course</th><th class="text-end">Still waiting</th></tr>
+            </thead>
+            <tbody>
+              <% orphaned.each do |row| %>
+                <tr>
+                  <td><%= row[:course] %></td>
+                  <td class="text-end "><%= row[:count] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# ── Members on the most waitlists ───────────────────────────────────────── %>
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-header"><strong>Most Waitlists per Person</strong></div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr><th>#</th><th>Name</th><th class="text-end">Courses</th></tr>
+          </thead>
+          <tbody>
+            <% @stats.most_waitlisted_people(10).each_with_index do |(name, rs), i| %>
+              <% collapse_id = "person-courses-#{i}" %>
+              <tr>
+                <td class="text-muted"><%= i + 1 %></td>
+                <td>
+                  <a class="text-body text-decoration-none"
+                     role="button"
+                     data-bs-toggle="collapse"
+                     href="#<%= collapse_id %>"
+                     aria-expanded="false">
+                    <%= name %>
+                    <i class="fas fa-chevron-down ms-1 small text-muted"></i>
+                  </a>
+                  <div class="collapse text-muted small mt-1" id="<%= collapse_id %>">
+                    <% rs.each do |r| %>
+                      <div><%= shop_badge_from_name(r[:course]) %> <%= r[:course] %></div>
+                    <% end %>
+                  </div>
+                </td>
+                <td class="text-end"><%= rs.length %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%# ── Recent signups ───────────────────────────────────────────────────────── %>
+<% recent = @stats.recent_signups(days: 30) %>
+<% unless recent.empty? %>
+  <div class="card mb-4">
+    <div class="card-header"><strong>Recent Signups — Last 30 Days</strong> <span class="text-muted small ms-2"><%= recent.length %> signups</span></div>
+    <div class="table-responsive">
+      <table class="table table-sm mb-0">
+        <thead class="table-light">
+          <tr><th>Date</th><th>Name</th><th>Course</th><th>Level</th></tr>
+        </thead>
+        <tbody>
+          <% recent.each do |r| %>
+            <tr>
+              <td class="text-muted"><%= r[:date]&.strftime("%-m/%-d/%Y") %></td>
+              <td><%= r[:name] %></td>
+              <td><%= shop_badge_from_name(r[:course]) %> <%= r[:course] %></td>
+              <td>
+                <% if r[:membership_level].present? %>
+                  <span class="badge <%= level_badge.(r[:membership_level]) %>"><%= r[:membership_level] %></span>
+                <% else %>
+                  <span class="text-muted">—</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+
+<p class="text-muted small text-end">Loaded at <%= @stats.loaded_at&.strftime("%H:%M:%S") %></p>
+
+<% end %>
+</turbo-frame>
