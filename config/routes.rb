@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :update]
   resources :waitlist, only: [:index]
   resources :waitlist_registrations, only: [:index, :create, :new]
+  resources :waitlist_stats, only: [:index] do
+    get :stats, on: :collection
+  end
 
   resources :users, only: [:index, :show, :edit, :update] do
     resource :onboarding

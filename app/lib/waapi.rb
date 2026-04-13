@@ -85,7 +85,8 @@ class WAAPI
   end
 
   def self.events
-    ten_days_ago = 12.days.ago.strftime("%F")
+    days_back = ENV.fetch("WA_EVENTS_DAYS_BACK", "12").to_i
+    ten_days_ago = days_back.days.ago.strftime("%F")
     filter = "$filter=StartDate+gt+#{ten_days_ago}"
     async = "$async=false"
     params = [async, filter].join("&")
