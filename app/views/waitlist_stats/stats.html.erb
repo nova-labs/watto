@@ -75,13 +75,16 @@
 </div>
 
 <%# ── Classes to schedule ──────────────────────────────────────────────────── %>
-<div class="card mb-4">
+<div class="card mb-4" data-controller="sortable-table">
   <div class="card-header d-flex justify-content-between align-items-center">
     <strong>Classes to Schedule</strong>
-    <span class="text-muted small">click a column to sort</span>
+    <span class="text-muted small">
+      click a column to sort &middot;
+      <a href="#" data-action="click->sortable-table#toggleFilter">filter</a>
+    </span>
   </div>
   <div class="table-responsive">
-    <table class="table table-sm table-hover mb-0 sortable-table" data-controller="sortable-table">
+    <table class="table table-sm table-hover mb-0">
       <thead class="table-light">
         <tr>
           <th class="sortable-col" data-action="click->sortable-table#sort" data-sort-col="0">Course</th>
@@ -89,6 +92,13 @@
           <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="2">Contacted</th>
           <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="3">Last Signup</th>
           <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="4">Median Wait</th>
+        </tr>
+        <tr class="filter-row d-none" data-sortable-table-target="filterRow">
+          <th><input type="search" class="form-control form-control-sm" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="0"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="1"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="2"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="3"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="4"></th>
         </tr>
       </thead>
       <tbody>

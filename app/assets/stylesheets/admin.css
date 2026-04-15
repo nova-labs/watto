@@ -1,3 +1,15 @@
+/* Sortable / filterable table */
+.filter-row th {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.filter-row input[type="search"] {
+  font-weight: normal;
+  font-size: 0.8rem;
+  min-width: 0;
+}
+
 /* Sortable table column headers */
 .sortable-col {
   cursor: pointer;
