@@ -36,6 +36,26 @@
     else              "text-danger"
     end
   }
+
+  time_ago = ->(date) {
+    return nil unless date
+    n = (today - date).to_i
+    if    n == 0        then "today"
+    elsif n < 7         then "#{n}d ago"
+    elsif n < 60        then "#{(n / 7.0).round}w ago"
+    elsif n < 365       then "#{(n / 30.0).round}mo ago"
+    else                     "#{(n / 365.0).round(1)}y ago"
+    end
+  }
+
+  time_ago_class = ->(date) {
+    return "text-muted" unless date
+    n = (today - date).to_i
+    if    n < 90  then "text-success"
+    elsif n < 180 then "text-warning"
+    else               "text-danger"
+    end
+  }
 %>
 
 <%# ── Summary bar ──────────────────────────────────────────────────────────── %>
@@ -88,23 +108,46 @@
       <thead class="table-light">
         <tr>
           <th class="sortable-col" data-action="click->sortable-table#sort" data-sort-col="0">Course</th>
-          <th class="sortable-col text-end sort-desc" data-action="click->sortable-table#sort" data-sort-col="1">Waiting</th>
-          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="2">Contacted</th>
-          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="3">Last Signup</th>
-          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="4">Median Wait</th>
+          <th class="sortable-col" data-action="click->sortable-table#sort" data-sort-col="1">Type</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="2">Last Offered</th>
+          <th class="sortable-col text-end sort-desc" data-action="click->sortable-table#sort" data-sort-col="3">Waiting</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="4">Contacted</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="5">Last Signup</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="6">Median Wait</th>
         </tr>
         <tr class="filter-row d-none" data-sortable-table-target="filterRow">
           <th><input type="search" class="form-control form-control-sm" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="0"></th>
-          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="1"></th>
+          <th><input type="search" class="form-control form-control-sm" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="1"></th>
           <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="2"></th>
           <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="3"></th>
           <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="4"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="5"></th>
+          <th><input type="search" class="form-control form-control-sm text-end" placeholder="filter…" data-action="input->sortable-table#filterRows" data-sort-col="6"></th>
         </tr>
       </thead>
       <tbody>
         <% @stats.by_course.each do |row| %>
+          <%
+            type_label, type_class = case row[:course_type]
+            when "SIGN_OFF_CLASS"  then ["Sign-off", "bg-info text-dark"]
+            when "PROJECT_CLASS"   then ["Project",  "bg-warning text-dark"]
+            else                        [nil,         nil]
+            end
+          %>
           <tr>
             <td data-sort-value="<%= row[:course] %>"><%= shop_badge_from_name(row[:course]) %> <%= row[:course] %></td>
+            <td data-sort-value="<%= type_label || row[:course_type] %>">
+              <% if type_label %>
+                <span class="badge <%= type_class %>"><%= type_label %></span>
+              <% elsif row[:course_type].present? %>
+                <span class="badge bg-secondary"><%= row[:course_type] %></span>
+              <% else %>
+                <span class="text-muted">—</span>
+              <% end %>
+            </td>
+            <td class="text-end <%= time_ago_class.(row[:last_offered]) %>" data-sort-value="<%= row[:last_offered] ? (today - row[:last_offered]).to_i : 99999 %>">
+              <%= time_ago.(row[:last_offered]) || "—" %>
+            </td>
             <td class="text-end fw-semibold" data-sort-value="<%= row[:regs].length %>"><%= row[:regs].length %></td>
             <td class="text-end <%= row[:contacted] > 0 ? "text-success" : "text-muted" %>" data-sort-value="<%= row[:contacted] %>">
               <%= row[:contacted] > 0 ? row[:contacted] : "—" %>

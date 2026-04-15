@@ -29,13 +29,21 @@ class WaitlistStats
   # Each hash: { course:, regs:, contacted:, last_signup_date:, median_wait_days: }
   # "contacted" = has a value in first_contact OR second_contact
   def by_course
-    today = Date.today
+    today        = Date.today
+    course_types = courses.each_with_object({}) do |c, h|
+      h[c["code_and_name"].to_s.strip] = c["event_type"].to_s.strip
+    end
+    last_offered = last_offered_lookup
+
     registrations.group_by { |r| r[:course] }
       .map do |course, rs|
         contacted = rs.count { |r| r[:first_contact].present? || r[:second_contact].present? }
         dates     = rs.filter_map { |r| r[:date] }
+        code      = course.split(":").first.strip.downcase
         {
           course:            course,
+          course_type:       course_types[course],
+          last_offered:      last_offered[code]&.to_date,
           regs:              rs,
           contacted:         contacted,
           last_signup_date:  dates.max,
@@ -111,6 +119,14 @@ class WaitlistStats
     Date.strptime(value.to_s.strip, "%m/%d/%Y")
   rescue ArgumentError, Date::Error
     nil
+  end
+
+  def last_offered_lookup
+    Event.where(start_date: ..Time.current)
+         .each_with_object({}) do |e, h|
+           code = e.name.strip.split(":").first.strip.downcase
+           h[code] = [h[code], e.start_date].compact.max
+         end
   end
 
   def median(values)
