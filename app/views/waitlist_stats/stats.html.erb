@@ -78,31 +78,31 @@
 <div class="card mb-4">
   <div class="card-header d-flex justify-content-between align-items-center">
     <strong>Classes to Schedule</strong>
-    <span class="text-muted small">sorted by total waiting</span>
+    <span class="text-muted small">click a column to sort</span>
   </div>
   <div class="table-responsive">
-    <table class="table table-sm table-hover mb-0">
+    <table class="table table-sm table-hover mb-0 sortable-table" data-controller="sortable-table">
       <thead class="table-light">
         <tr>
-          <th>Course</th>
-          <th class="text-end">Waiting</th>
-          <th class="text-end">Contacted</th>
-          <th class="text-end">Last Signup</th>
-          <th class="text-end">Median Wait</th>
+          <th class="sortable-col" data-action="click->sortable-table#sort" data-sort-col="0">Course</th>
+          <th class="sortable-col text-end sort-desc" data-action="click->sortable-table#sort" data-sort-col="1">Waiting</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="2">Contacted</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="3">Last Signup</th>
+          <th class="sortable-col text-end" data-action="click->sortable-table#sort" data-sort-col="4">Median Wait</th>
         </tr>
       </thead>
       <tbody>
         <% @stats.by_course.each do |row| %>
           <tr>
-            <td><%= shop_badge_from_name(row[:course]) %> <%= row[:course] %></td>
-            <td class="text-end fw-semibold"><%= row[:regs].length %></td>
-            <td class="text-end <%= row[:contacted] > 0 ? "text-success" : "text-muted" %>">
+            <td data-sort-value="<%= row[:course] %>"><%= shop_badge_from_name(row[:course]) %> <%= row[:course] %></td>
+            <td class="text-end fw-semibold" data-sort-value="<%= row[:regs].length %>"><%= row[:regs].length %></td>
+            <td class="text-end <%= row[:contacted] > 0 ? "text-success" : "text-muted" %>" data-sort-value="<%= row[:contacted] %>">
               <%= row[:contacted] > 0 ? row[:contacted] : "—" %>
             </td>
-            <td class="text-end <%= days_ago_class.(row[:last_signup_date]) %>">
+            <td class="text-end <%= days_ago_class.(row[:last_signup_date]) %>" data-sort-value="<%= row[:last_signup_date] ? (today - row[:last_signup_date]).to_i : 99999 %>">
               <%= days_ago.(row[:last_signup_date]) || "—" %>
             </td>
-            <td class="text-end text-muted">
+            <td class="text-end text-muted" data-sort-value="<%= row[:median_wait_days] || 99999 %>">
               <% if (m = row[:median_wait_days]) %>
                 <% if m < 30    then %><%= m.round %>d
                 <% elsif m < 90 then %><%= (m / 7.0).round %>w
