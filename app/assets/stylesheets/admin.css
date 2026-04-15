@@ -1,0 +1,34 @@
+/* Sortable / filterable table */
+.filter-row th {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.filter-row input[type="search"] {
+  font-weight: normal;
+  font-size: 0.8rem;
+  min-width: 0;
+}
+
+/* Sortable table column headers */
+.sortable-col {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.sortable-col::after {
+  content: " ⇅";
+  opacity: 0.3;
+  font-size: 0.75em;
+}
+
+.sortable-col.sort-asc::after {
+  content: " ▲";
+  opacity: 1;
+}
+
+.sortable-col.sort-desc::after {
+  content: " ▼";
+  opacity: 1;
+}
