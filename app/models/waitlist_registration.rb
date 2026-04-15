@@ -20,6 +20,10 @@ class WaitlistRegistration < Waitlist
     get_range_as_hash 'active_waitlist!A:ZZ'
   end
 
+  def get_completed
+    get_range_as_hash 'completed!A:ZZ'
+  end
+
   def append_values_to_sheet(range, values)
     value_range = Google::Apis::SheetsV4::ValueRange.new(values: values)
     result = service.append_spreadsheet_value(

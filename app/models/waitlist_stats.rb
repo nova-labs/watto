@@ -4,10 +4,13 @@ class WaitlistStats
   attr_reader :registrations, :courses, :loaded_at, :error
 
   def fetch!
-    raw_regs    = WaitlistRegistration.new.get_registrations
-    raw_courses = WaitlistCourse.new.get_courses
+    wr             = WaitlistRegistration.new
+    raw_regs       = wr.get_registrations
+    raw_completed  = wr.get_completed
+    raw_courses    = WaitlistCourse.new.get_courses
     @loaded_at     = Time.current
     @registrations = normalize_registrations(raw_regs)
+    @completed     = raw_completed
     @courses       = raw_courses.reject { |c| c["is_hidden"] == "TRUE" }
     self
   rescue => e
@@ -121,12 +124,22 @@ class WaitlistStats
     nil
   end
 
+  # Derives "last offered" from the completed sheet's first_contact date —
+  # when a coordinator reached out to schedule someone, the class ran around
+  # that time. Keyed by lowercased course code prefix (part before the colon).
+  # Derives "last offered" from the completed sheet's first_contact date —
+  # when a coordinator reached out to schedule someone, the class ran around
+  # that time. Keyed by lowercased course code prefix (part before the colon).
+  # Future dates are excluded since they indicate data entry errors in the sheet.
   def last_offered_lookup
-    Event.where(start_date: ..Time.current)
-         .each_with_object({}) do |e, h|
-           code = e.name.strip.split(":").first.strip.downcase
-           h[code] = [h[code], e.start_date].compact.max
-         end
+    today = Date.today
+    (@completed || []).each_with_object({}) do |row, h|
+      code = row["class"].to_s.split(":").first.strip.downcase
+      next if code.empty?
+      date = parse_sheet_date(row["first_contact"])
+      next unless date && date <= today
+      h[code] = [h[code], date].compact.max
+    end
   end
 
   def median(values)
