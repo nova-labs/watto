@@ -44,6 +44,11 @@
         <p class="mb-0 small text-muted d-none d-md-block">
         Event ID: <%= event.uid %>
         </p>
+        <% if event.instructor_registrations.any? %>
+          <p class="mb-0 small text-muted">
+            Instructor: <%= event.instructor_registrations.map(&:display_name).join(", ") %>
+          </p>
+        <% end %>
       </div>
 
       <!-- Location -->

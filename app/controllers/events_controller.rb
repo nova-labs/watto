@@ -14,7 +14,7 @@ class EventsController < ApplicationController
       @events = @events.future
     end
 
-    @events = @events.page(params[:page])
+    @events = @events.page(params[:page]).includes(:instructor_registrations)
   end
 
   def show

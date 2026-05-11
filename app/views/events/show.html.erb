@@ -35,6 +35,10 @@
           End Date
         </li>
         <li class="list-group-item">
+          <span class="float-end"><%= @event.instructor_registrations.map(&:display_name).join(", ").presence || "—" %></span>
+          Instructor
+        </li>
+        <li class="list-group-item">
           <span class="float-end"><%= @event.confirmed_registrations_count %></span>
           Registrations
         </li>
