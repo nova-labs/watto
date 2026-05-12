@@ -3,6 +3,10 @@ class User < ApplicationRecord
   has_many :field_values, class_name: "FieldUserValue", dependent: :destroy
   has_many :event_registrations
   has_many :events, through: :event_registrations
+  has_many :teaching_registrations, -> { where("registration_type LIKE ?", "%Instructor%") }, class_name: "EventRegistration"
+  has_many :teaching_events, through: :teaching_registrations, source: :event
+  has_many :attending_registrations, -> { where("registration_type NOT LIKE ? OR registration_type IS NULL", "%Instructor%") }, class_name: "EventRegistration"
+  has_many :attending_events, through: :attending_registrations, source: :event
 
   scope :search, ->(search_term) {
     like_term = "%#{search_term}%"

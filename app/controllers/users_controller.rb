@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @signoffs = @user.field_values.signoffs
     @door_access_group = @user.field_values.door_access_group
+    @teaching_events = @user.teaching_events.recent_and_upcoming
   end
 
   def edit

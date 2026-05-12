@@ -180,6 +180,29 @@
 <% end %>
 
 
+    <% if @teaching_events.any? %>
+      <div class="card mb-4">
+        <div class="card-header">Classes Teaching</div>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <tbody>
+              <% @teaching_events.each do |event| %>
+                <tr>
+                  <td><%= link_to event.name, event %></td>
+                  <td class="text-muted small">
+                    <%= display_date(event.start_date) %>
+                    <% if event.start_date.to_date < Date.current %>
+                      <span class="badge bg-secondary ms-2">Past</span>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+
     <div class="card mb-4">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         Sign-offs and Categories

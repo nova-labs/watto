@@ -1,5 +1,6 @@
 <hr>
 
+
 <div class="row g-5">
   <div class="col">
     <div class="card">
@@ -48,30 +49,72 @@
 
     &nbsp;
 
-    <div class="card">
-      <div class="card-header py-3 d-flex align-items-center">
-        Your Events
+    <div class="row g-2">
+      <div class="col">
+        <%= link_to waitlist_index_path, class: "card action-card text-center text-decoration-none text-muted py-3" do %>
+          <div><i class="fas fa-list-alt fa-2x text-warning"></i></div>
+          <small>The Waitlist</small>
+        <% end %>
       </div>
-      <% if current_user.events.recent_and_upcoming.count > 0 %>
+      <div class="col">
+        <%= link_to events_path, class: "card action-card text-center text-decoration-none text-muted py-3" do %>
+          <div><i class="fas fa-calendar-alt fa-2x text-primary"></i></div>
+          <small>All Events</small>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= link_to user_path(current_user), class: "card action-card text-center text-decoration-none text-muted py-3" do %>
+          <div><i class="fas fa-user-circle fa-2x text-info"></i></div>
+          <small>Your Profile</small>
+        <% end %>
+      </div>
+    </div>
+
+    &nbsp;
+
+    <div class="card">
+      <div class="card-header py-3">Classes You're Taking</div>
+      <% taking = current_user.attending_events.recent_and_upcoming %>
+      <% if taking.any? %>
         <ul class="list-group list-group-flush">
-          <% current_user.events.recent_and_upcoming.each do |event| %>
+          <% taking.each do |event| %>
             <li class="list-group-item">
-              <a href="<%= event_path(event) %>">
-                <%= event.name %>
-              </a>
-              <span class="float-end"><%= display_date event.start_date %></span>
+              <%= link_to event.name, event_path(event) %>
+              <span class="float-end">
+                <%= display_date event.start_date %>
+                <% if event.start_date.to_date < Date.current %>
+                  <span class="badge bg-secondary ms-2">Past</span>
+                <% end %>
+              </span>
             </li>
           <% end %>
         </ul>
       <% else %>
-        <div class="card-body">
-          You have no recent or upcoming events
-        </div>
+        <div class="card-body">No recent or upcoming classes</div>
       <% end %>
-      <div class="card-footer">
-        <a href="<%= events_path %>" class="card-link">View All Events</a>
-      </div>
     </div>
+
+    <% teaching = current_user.teaching_events.recent_and_upcoming %>
+    <% if teaching.any? %>
+      &nbsp;
+      <div class="card">
+        <div class="card-header py-3">Classes You're Teaching</div>
+        <ul class="list-group list-group-flush">
+          <% teaching.each do |event| %>
+            <li class="list-group-item">
+              <%= link_to event.name, event_path(event) %>
+              <span class="float-end">
+                <%= display_date event.start_date %>
+                <% if event.start_date.to_date < Date.current %>
+                  <span class="badge bg-secondary ms-2">Past</span>
+                <% end %>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
   </div>
   <div class="col-md">
     <h3>Your Sign-offs and Categories</h3>
