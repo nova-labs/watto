@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  serialize :tags, JSON
+
   has_many :event_registrations, dependent: :destroy
   has_many :instructor_registrations, -> { where("registration_type LIKE ?", "%Instructor%") }, class_name: "EventRegistration"
 
