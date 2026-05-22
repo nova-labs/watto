@@ -87,8 +87,8 @@ namespace :wa do
     sync.events(events) do |event|
       puts "   #{event.uid.to_s.rjust(4)} #{event.name}"
 
-      detail = WAAPI.event(event.uid).json
-      sync.event(detail)
+      detail = WAAPI.event(event.uid)
+      sync.event(detail.json) if detail.json.present?
 
       event_registrations = WAAPI.event_registrations(event.uid).json
       write_json_file("event_registrations_#{event.uid}", event_registrations)
