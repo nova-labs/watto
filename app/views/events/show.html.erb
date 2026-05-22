@@ -48,6 +48,26 @@
         </li>
       </ul>
     </div>
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        Digital Display Image
+        <button class="btn btn-link p-0 text-decoration-none text-dark disclosure-toggle collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#event-image-collapse"
+                aria-expanded="false">
+          <span class="disclosure-triangle">&#9654;</span>
+        </button>
+      </div>
+      <div class="collapse" id="event-image-collapse">
+        <% if @event.image_url.present? %>
+          <img src="<%= @event.image_url %>" class="card-img-bottom" alt="<%= @event.name %>">
+        <% else %>
+          <div class="card-body">
+            <p class="text-muted small mb-0">No image found in event description.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="col">
     <div class="card mb-4">
@@ -66,7 +86,7 @@
         </li>
       </ul>
     </div>
-    <% if current_user.signoffer? %>
+  <% if current_user.signoffer? %>
     <div class="card bg-danger mb-4">
       <div class="card-header text-white">
         Admin

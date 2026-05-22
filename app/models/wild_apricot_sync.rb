@@ -277,11 +277,23 @@ class WildApricotSync
 
   def extract_image_url(html)
     return nil if html.blank?
+    base = ENV.fetch("WA_SITE_URL", "").chomp("/")
     doc = Nokogiri::HTML(html)
-    img = doc.css("img").find { |el| el["src"].to_s.match?(/\.(png|jpe?g|gif|webp|svg)(\?|$)/i) }
-    return nil unless img
-    src = img["src"]
-    return src if src.start_with?("http://", "https://")
-    "#{ENV.fetch('WA_SITE_URL', '').chomp('/')}#{src}"
+    candidates = doc.css("img").filter_map do |el|
+      src = el["src"].to_s
+      next unless src.match?(/\.(png|jpe?g|gif|webp|svg)(\?|$)/i)
+      src.start_with?("http://", "https://") ? src : "#{base}#{src}"
+    end
+    candidates.find { |url| image_url_exists?(url) }
+  end
+
+  def image_url_exists?(url)
+    uri = URI.parse(url)
+    res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
+      http.head(uri.request_uri)
+    end
+    res.code.to_i == 200
+  rescue StandardError
+    false
   end
 end

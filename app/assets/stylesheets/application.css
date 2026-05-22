@@ -15,6 +15,17 @@
  *= require_self
  */
 
+.disclosure-toggle .disclosure-triangle {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  margin-right: 0.4em;
+  font-size: 0.75em;
+}
+
+.disclosure-toggle[aria-expanded="true"] .disclosure-triangle {
+  transform: rotate(90deg);
+}
+
 .action-card {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }

@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
+/db/*.bak
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -40,3 +41,6 @@
 /fixture_dump
 
 /spec/examples.txt
+
+# exports and data analysis
+/*.csv
