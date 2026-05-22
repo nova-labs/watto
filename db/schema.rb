@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_06_23_154245) do
+ActiveRecord::Schema[7.0].define(version: 2026_05_22_161330) do
   create_table "credentials", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider"
@@ -61,6 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_06_23_154245) do
     t.integer "checked_in_attendees_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "tags"
+    t.string "image_url"
   end
 
   create_table "field_allowed_values", force: :cascade do |t|

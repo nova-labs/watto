@@ -226,6 +226,9 @@ class WildApricotSync
     e.start_time_specified = json["StartTimeSpecified"] #=>true,
     e.end_time_specified = json["EndTimeSpecified"] #=>true,
     e.name = json["Name"] #=>"Test Event in the Past"}
+    e.tags = json["Tags"] || []
+    html = json.dig("Details", "DescriptionHtml")
+    e.image_url = extract_image_url(html) if html.present?
     e.save!
 
     yield(e) if block_given?
@@ -263,5 +266,17 @@ class WildApricotSync
     r.save!
 
     yield(r) if block_given?
+  end
+
+  private
+
+  def extract_image_url(html)
+    return nil if html.blank?
+    doc = Nokogiri::HTML(html)
+    img = doc.css("img").find { |el| el["src"].to_s.match?(/\.(png|jpe?g|gif|webp|svg)(\?|$)/i) }
+    return nil unless img
+    src = img["src"]
+    return src if src.start_with?("http://", "https://")
+    "#{ENV.fetch('WA_SITE_URL', '').chomp('/')}#{src}"
   end
 end

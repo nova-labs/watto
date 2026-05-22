@@ -12,6 +12,26 @@ module EventsHelper
     location[/\((.*)\)/, 1] || location rescue location
   end
 
+  def google_calendar_url(event)
+    if event.start_time_specified?
+      start_str = event.start_date.utc.strftime("%Y%m%dT%H%M%SZ")
+      end_str   = (event.end_date || event.start_date + 1.hour).utc.strftime("%Y%m%dT%H%M%SZ")
+    else
+      start_str = event.start_date.strftime("%Y%m%d")
+      end_str   = (event.end_date || event.start_date + 1.day).strftime("%Y%m%d")
+    end
+
+    params = {
+      action:   "TEMPLATE",
+      text:     event.name,
+      dates:    "#{start_str}/#{end_str}",
+      details:  event.description,
+      location: event.location
+    }.compact
+
+    "https://calendar.google.com/calendar/render?#{params.to_query}"
+  end
+
   def shop_badge_from_name(name)
     return "" unless name
 

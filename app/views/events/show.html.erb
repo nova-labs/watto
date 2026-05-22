@@ -61,6 +61,9 @@
         <li class="list-group-item">
           <%= link_to "Instructor Formbot", formbot_url(@event) %>
         </li>
+        <li class="list-group-item">
+          <%= link_to "Add to Google Calendar", google_calendar_url(@event), target: "_blank", rel: "noopener" %>
+        </li>
       </ul>
     </div>
     <% if current_user.signoffer? %>
