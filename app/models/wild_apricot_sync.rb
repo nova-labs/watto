@@ -258,11 +258,16 @@ class WildApricotSync
 
     r.event = event
     r.user = User.find_by uid: r.contact_uid
-    if r.user == nil
-      contact(WAAPI.contact(r.contact_uid).json) do |user|
-        r.user = user
-      end
+    if r.user.nil?
+      contact_resp = WAAPI.contact(r.contact_uid)
+      contact(contact_resp.json) { |user| r.user = user } if contact_resp.json.present?
     end
+
+    if r.user.nil?
+      Rails.logger.warn "Skipping registration #{r.uid}: contact #{r.contact_uid} not found in WA"
+      return
+    end
+
     r.save!
 
     yield(r) if block_given?
