@@ -51,6 +51,9 @@ namespace :wa do
 
     puts "== Syncing fields =="
     contact_fields = WAAPI.contact_fields.json
+    # Fail before anything is written if the account's fields have drifted from
+    # WAAPI::CONTACT_FIELDS. Uses the list already fetched above, so it is free.
+    WAAPI.verify_contact_fields!(contact_fields)
     write_json_file(:contact_fields, contact_fields)
     puts "   Fields:"
     sync.contact_fields(contact_fields) do |field|
@@ -68,6 +71,9 @@ namespace :wa do
     sync = WildApricotSync.new
 
     puts "== Syncing users =="
+    # Costs one request, against the 75+ this task already makes. Without it a
+    # stale field list silently drops columns, or drops the workaround.
+    WAAPI.verify_contact_fields!
     contacts = WAAPI.contacts.json
     puts "   Users:"
     write_json_file(:contact, contacts)

@@ -3,6 +3,8 @@
 require "waapi/oauth"
 
 class WAAPI
+  class Error < StandardError; end
+
   class Response
     attr_reader :raw, :json, :status
 
@@ -87,19 +89,29 @@ class WAAPI
 
       loop do
         page_path = add_paging(path, top: page_size, skip: skip)
-        puts "--> Getting #{page_path}"
+        # The $select list can run to thousands of characters, so keep the
+        # progress line readable -- the paging params are the useful part.
+        puts "--> Getting #{page_path.sub(/\$select=[^&]*/, "$select=...")}"
         res = get(page_path)
 
+        unless res.status == 200
+          message = res.json.is_a?(Hash) ? (res.json["Message"] || res.json["message"]) : nil
+          raise Error, "Wild Apricot returned HTTP #{res.status} for #{page_path}: #{message || res.raw.body.to_s[0, 200]}"
+        end
 
         # Sometimes WA returns an array for the APIs that need to be paginated,
         # but other times it is a hash with a top level key. Lets guess at what
         # it is and combine them.
-        items = if res.json.is_a? Array
-                  res.json
-                else
-                  key = res.json.keys.first # guess the key for the array returned
-                  items = res.json[key]
+        items = case res.json
+                when Array then res.json
+                when Hash then res.json[res.json.keys.first] # guess the key for the array returned
                 end
+
+        # Guessing the key only works when the body really is a page of
+        # records, so say so plainly rather than failing on the value later.
+        unless items.is_a? Array
+          raise Error, "Expected a list of records from #{page_path}, got #{items.class}: #{res.raw.body.to_s[0, 200]}"
+        end
 
         puts "--> got #{items.count}"
         break if items.empty?
