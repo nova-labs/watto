@@ -24,11 +24,16 @@ Rails.application.routes.draw do
   get 'formbot/:event', to: 'formbot#redirect', as: :formbot
   get 'signoffs', to: 'signoffs#index'
 
+  resource :dust_collector, only: [:show], controller: "dust_collector" do
+    get :history
+  end
+
 
   namespace :api do
     scope :digital_sign do
       get :events, to: "digital_sign#events"
     end
+    resource :dust_collector, only: [:create], controller: "dust_collector"
   end
 
 

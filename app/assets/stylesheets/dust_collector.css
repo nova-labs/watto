@@ -1,0 +1,184 @@
+/* Dust collector level page. Level bar and bag drawing ported from dc-level-app. */
+
+.dust-collector .level-gauge {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 360px;
+  padding: 10px 0;
+}
+
+.dust-collector .level-scale {
+  position: relative;
+  width: 44px;
+}
+
+.dust-collector .level-scale.right {
+  width: 70px;
+}
+
+.dust-collector .level-scale span {
+  position: absolute;
+  transform: translateY(50%);
+  font-size: 0.85rem;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+.dust-collector .level-scale.left span {
+  right: 0;
+}
+
+.dust-collector .level-scale.right span {
+  left: 0;
+}
+
+.dust-collector .level-track {
+  position: relative;
+  width: 70px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dust-collector .level-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  background: linear-gradient(to top, #146c43, #198754);
+  transition: height 1.5s ease-out;
+}
+
+.dust-collector .level-fill.warning {
+  background: linear-gradient(to top, #cc9a06, #ffc107);
+}
+
+.dust-collector .level-fill.critical {
+  background: linear-gradient(to top, #b02a37, #dc3545);
+}
+
+.dust-collector .level-fill.offline,
+.dust-collector .level-fill.fault {
+  background: linear-gradient(to top, #565e64, #adb5bd);
+}
+
+.dust-collector .level-tick {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(50%);
+}
+
+.dust-collector .level-threshold {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed;
+  transform: translateY(50%);
+}
+
+.dust-collector .level-threshold.warning {
+  border-color: #ffc107;
+}
+
+.dust-collector .level-threshold.critical {
+  border-color: #dc3545;
+}
+
+.dust-collector .level-percent {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dust-collector .level-percent.normal { color: #198754; }
+.dust-collector .level-percent.warning { color: #cc9a06; }
+.dust-collector .level-percent.critical { color: #dc3545; }
+.dust-collector .level-percent.offline,
+.dust-collector .level-percent.fault { color: #6c757d; }
+
+.dust-collector .bag-svg {
+  width: 100%;
+  height: 400px;
+}
+
+.dust-collector .legend-icon {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.2rem;
+  margin-right: 0.5rem;
+  vertical-align: -0.1rem;
+}
+
+.dust-collector .history-chart {
+  position: relative;
+  height: 300px;
+}
+
+/* Bag SVG (classes and ids come from bag_view.js) */
+
+.dust-collector #bag-sawdust {
+  transition: filter 1s;
+}
+
+.dust-collector #bag-sawdust.stale {
+  filter: grayscale(0.85) brightness(0.9);
+}
+
+.dust-collector .bag-back {
+  opacity: 0.45;
+}
+
+.dust-collector .bag-hidden-edge {
+  fill: none;
+  stroke: #6c757d;
+  stroke-width: 2;
+  stroke-dasharray: 8 8;
+}
+
+.dust-collector .bag-edge {
+  stroke: #6c757d;
+  stroke-opacity: 0.8;
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.dust-collector .bag-seam {
+  stroke: #6c757d;
+  stroke-opacity: 0.35;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 6;
+}
+
+.dust-collector .bag-loop-edge {
+  fill: none;
+  stroke: #6c757d;
+  stroke-width: 15;
+}
+
+.dust-collector .bag-loop {
+  fill: none;
+  stroke: #ced4da;
+  stroke-width: 11;
+}
+
+.dust-collector .bag-scale-tick {
+  stroke: #adb5bd;
+  stroke-width: 2;
+}
+
+.dust-collector .bag-scale-label {
+  fill: #6c757d;
+  font-size: 20px;
+}
+
+.dust-collector .bag-scale-unit {
+  fill: #adb5bd;
+  font-size: 18px;
+}
