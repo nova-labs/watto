@@ -1,0 +1,194 @@
+<% content_for :title, "Dust Collector" %>
+
+<% content_for :breadcrumbs do %>
+  <%= crumb "Dust Collector", active: true %>
+<% end %>
+
+<%
+  reading = @status[:reading]
+  status = @status[:status]
+  fill = reading&.dig(:fill_percent)
+  capacity = DustCollectorReading::BAG_CAPACITY_YD3
+  warning = DustCollectorReading::WARNING_PERCENT
+  critical = DustCollectorReading::CRITICAL_PERCENT
+%>
+
+<div class="dust-collector"
+     data-controller="dust-collector"
+     data-dust-collector-url-value="<%= dust_collector_path(format: :json) %>"
+     data-dust-collector-status-value="<%= @status.to_json %>">
+
+  <p class="text-muted mb-4" data-dust-collector-target="lastReading">
+    <% if reading %>
+      Last reading: <%= dust_collector_time(reading[:read_at]) %>
+    <% else %>
+      No gauge readings yet
+    <% end %>
+  </p>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-chart-bar me-1"></i> Fill Level</div>
+        <div class="card-body">
+          <div class="level-gauge">
+            <div class="level-scale left">
+              <% [100, 75, 50, 25, 0].each do |pct| %>
+                <span style="bottom: <%= pct %>%"><%= pct %>%</span>
+              <% end %>
+            </div>
+            <div class="level-track">
+              <div class="level-fill <%= status %>" data-dust-collector-target="levelFill" style="height: <%= fill || 0 %>%"></div>
+              <% [25, 50, 75].each do |pct| %>
+                <div class="level-tick" style="bottom: <%= pct %>%"></div>
+              <% end %>
+              <div class="level-threshold warning" style="bottom: <%= warning %>%"></div>
+              <div class="level-threshold critical" style="bottom: <%= critical %>%"></div>
+            </div>
+            <div class="level-scale right">
+              <% [100, 75, 50, 25, 0].each do |pct| %>
+                <span style="bottom: <%= pct %>%"><%= format("%.2f", pct / 100.0 * capacity) %> yd³</span>
+              <% end %>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <div class="level-percent <%= status %>" data-dust-collector-target="levelPercent"><%= fill ? "#{fill.round}%" : "--%" %></div>
+            <div class="text-muted fs-5 mt-1" data-dust-collector-target="levelVolume"><%= dust_collector_yd3(@status[:volume_yd3]) %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-box me-1"></i> Collection Bag
+          <span class="text-muted small ms-1"><%= number_with_precision(capacity, precision: 2, strip_insignificant_zeros: true) %> yd³ bulk bag</span>
+        </div>
+        <div class="card-body">
+          <svg class="bag-svg" data-dust-collector-target="bag" viewBox="40 50 700 690" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="text-center fs-5" data-dust-collector-target="caption">
+            <% if reading %>
+              <strong><%= dust_collector_yd3(@status[:volume_yd3]) %></strong>
+              <span class="text-muted">of sawdust in a <%= number_with_precision(capacity, precision: 2, strip_insignificant_zeros: true) %> yd³ bag</span>
+            <% else %>
+              <span class="text-muted">Waiting for gauge...</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-info-circle me-1"></i> Bag Status</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span class="float-end badge <%= dust_collector_badge_class(status) %>" data-dust-collector-target="badge"><%= @status[:status_label] %></span>
+            Status
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="fill"><%= fill ? "#{format("%.1f", fill)}%" : "—" %></span>
+            Fill Level
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="volume"><%= dust_collector_yd3(@status[:volume_yd3]) %></span>
+            Sawdust
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="room"><%= dust_collector_yd3(@status[:room_left_yd3]) %></span>
+            Room Left
+          </li>
+        </ul>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-tachometer-alt me-1"></i> Level Gauge</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="signal"><%= reading ? "#{format("%.2f", reading[:current_ma])} mA" : "—" %></span>
+            Signal
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="raw"><%= reading ? reading[:raw] : "—" %></span>
+            Raw Value
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="readAt"><%= dust_collector_time(reading&.dig(:read_at)) %></span>
+            Last Reading
+          </li>
+          <li class="list-group-item">
+            <span class="float-end" data-dust-collector-target="checkedAt"><%= dust_collector_time(@status[:checked_at]) %></span>
+            Last Check
+          </li>
+          <li class="list-group-item text-danger small <%= "d-none" if @status[:error].blank? %>" data-dust-collector-target="error"><%= @status[:error] %></li>
+        </ul>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-list me-1"></i> Legend</div>
+        <div class="card-body small">
+          <div><span class="legend-icon bg-success"></span>&lt; <%= warning %>% (Normal)</div>
+          <div><span class="legend-icon bg-warning"></span><%= warning %>–<%= critical %>% (Nearly Full)</div>
+          <div><span class="legend-icon bg-danger"></span>&ge; <%= critical %>% (Empty the Bag)</div>
+          <div><span class="legend-icon bg-secondary"></span>Gauge offline or faulted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# History is hidden while the page is being integrated; add ?h=1 to see it. %>
+  <% if params[:h] == "1" %>
+  <div class="card mb-4"
+       data-controller="dust-collector-history"
+       data-dust-collector-history-url-value="<%= history_dust_collector_path(format: :json) %>"
+       data-dust-collector-history-warning-value="<%= warning %>"
+       data-dust-collector-history-critical-value="<%= critical %>">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span><i class="fas fa-chart-line me-1"></i> History</span>
+      <div class="btn-group btn-group-sm" role="group">
+        <% DustCollectorReading::HISTORY_RANGES.each_key do |range| %>
+          <button type="button"
+                  class="btn btn-outline-secondary <%= "active" if range == "7d" %>"
+                  data-dust-collector-history-target="rangeButton"
+                  data-range="<%= range %>"
+                  data-action="dust-collector-history#select"><%= range %></button>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="history-chart">
+        <canvas data-dust-collector-history-target="canvas"></canvas>
+      </div>
+    </div>
+    <div class="card-body border-top">
+      <div class="row text-center">
+        <div class="col-6 col-md-3">
+          <div class="fs-4" data-dust-collector-history-target="timesEmptied">—</div>
+          <div class="text-muted small">Times Emptied</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-4" data-dust-collector-history-target="daysBetween">—</div>
+          <div class="text-muted small">Avg Days Between</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-4" data-dust-collector-history-target="fillAtEmptying">—</div>
+          <div class="text-muted small">Avg Fill When Emptied</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-4" data-dust-collector-history-target="nearlyFull">—</div>
+          <div class="text-muted small">Time &ge; <%= warning %>% Full</div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-sm mb-0">
+      <thead>
+        <tr><th class="ps-3">Emptied</th><th>Level Before</th><th>Level After</th></tr>
+      </thead>
+      <tbody data-dust-collector-history-target="emptyings">
+        <tr><td colspan="3" class="ps-3 text-muted">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>

@@ -110,3 +110,32 @@ do
     fi
 done
 ```
+
+## Databases
+
+Watto uses two SQLite databases (see `config/database.yml`):
+
+- **primary**: `db/<WA_ACCOUNT>-<env>.sqlite3`, a cache of Wild Apricot. It's fine to throw away and resync.
+- **telemetry**: `db/telemetry-<env>.sqlite3`, the readings reported by on-site agents (dust collector
+  level). It is **not** recreated from Wild Apricot, so keep it and back it up.
+
+`db:prepare` and `db:migrate` handle both. The unscoped `db:drop`, `db:reset` and `db:schema:load` act
+on **both** databases, so to wipe only the WA cache use the scoped tasks:
+
+```
+bin/rails db:reset:primary
+bin/rails db:drop:primary
+```
+
+Telemetry migrations live in `db/telemetry_migrate/`. Generate them with `--database telemetry`.
+
+## Dust collector agent
+
+The dust collector page (`/dust_collector`) shows readings that the on-site
+[dc-level-app](https://github.com/sklosky-nl/dc-level-app) poller POSTs to `/api/dust_collector` once a
+minute. The agent authenticates with a shared bearer token:
+
+1. Generate a token (`openssl rand -hex 32`) and set `DUST_COLLECTOR_TOKEN` in Watto's `.env`.
+2. On the agent host, set `WATTO_URL=https://<watto host>/api/dust_collector` and `WATTO_TOKEN` to the same value.
+
+If `DUST_COLLECTOR_TOKEN` isn't set, every POST is rejected with 401.

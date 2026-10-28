@@ -10,19 +10,36 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/<%= ENV.fetch("WA_ACCOUNT") %>-development.sqlite3
+  primary:
+    <<: *default
+    database: db/<%= ENV.fetch("WA_ACCOUNT") %>-development.sqlite3
+  # Telemetry from on-site agents (dust collector level). Unlike primary, this
+  # is not a Wild Apricot cache, so don't throw it away with the WA data.
+  telemetry:
+    <<: *default
+    database: db/telemetry-development.sqlite3
+    migrations_paths: db/telemetry_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  primary:
+    <<: *default
+    database: db/test.sqlite3
+  telemetry:
+    <<: *default
+    database: db/telemetry-test.sqlite3
+    migrations_paths: db/telemetry_migrate
 
 production:
-  <<: *default
-  database: db/<%= ENV.fetch("WA_ACCOUNT") %>-production.sqlite3
+  primary:
+    <<: *default
+    database: db/<%= ENV.fetch("WA_ACCOUNT") %>-production.sqlite3
+  telemetry:
+    <<: *default
+    database: db/telemetry-production.sqlite3
+    migrations_paths: db/telemetry_migrate
 
 
 
