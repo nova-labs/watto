@@ -27,6 +27,25 @@ RSpec.describe DustCollectorReading, type: :model do
     it { expect(DustCollectorReading.status_for(nil, nil, now: now)).to eq(:offline) }
   end
 
+  describe ".default_history_range" do
+    it "is 24h with no readings" do
+      expect(DustCollectorReading.default_history_range(now: now)).to eq("24h")
+    end
+
+    it "is 24h with less than a week of readings" do
+      reading(at: now - 6.days, fill: 20)
+      reading(at: now - 8.days, fill: 0, ok: false)
+
+      expect(DustCollectorReading.default_history_range(now: now)).to eq("24h")
+    end
+
+    it "is 7d once readings go back a week" do
+      reading(at: now - 7.days, fill: 20)
+
+      expect(DustCollectorReading.default_history_range(now: now)).to eq("7d")
+    end
+  end
+
   describe ".status" do
     it "uses the latest attempt with the latest good reading" do
       travel_to now do

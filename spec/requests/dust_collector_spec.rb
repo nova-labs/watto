@@ -30,12 +30,18 @@ RSpec.describe "Dust Collector", type: :request do
       expect(response.body).to include("Empty the Bag", "93.8%", "19.00 mA")
     end
 
-    it "hides the history unless h=1" do
-      get "/dust_collector"
-      expect(response.body).not_to include("dust-collector-history")
+    it "shows the history, opening on 24h until there's a week of data" do
+      DustCollectorReading.create!(checked_at: 2.days.ago, ok: true, read_at: 2.days.ago,
+                                   raw: 10000, current_ma: 10.0, fill_percent: 37.5)
 
-      get "/dust_collector", params: { h: 1 }
-      expect(response.body).to include("dust-collector-history")
+      get "/dust_collector"
+      expect(response.body).to include('data-dust-collector-history-range-value="24h"')
+
+      DustCollectorReading.create!(checked_at: 8.days.ago, ok: true, read_at: 8.days.ago,
+                                   raw: 10000, current_ma: 10.0, fill_percent: 37.5)
+
+      get "/dust_collector"
+      expect(response.body).to include('data-dust-collector-history-range-value="7d"')
     end
 
     it "returns the status as json" do

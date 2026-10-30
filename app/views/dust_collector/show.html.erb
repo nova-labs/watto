@@ -137,19 +137,18 @@
     </div>
   </div>
 
-  <%# History is hidden while the page is being integrated; add ?h=1 to see it. %>
-  <% if params[:h] == "1" %>
   <div class="card mb-4"
        data-controller="dust-collector-history"
        data-dust-collector-history-url-value="<%= history_dust_collector_path(format: :json) %>"
        data-dust-collector-history-warning-value="<%= warning %>"
-       data-dust-collector-history-critical-value="<%= critical %>">
+       data-dust-collector-history-critical-value="<%= critical %>"
+       data-dust-collector-history-range-value="<%= @history_range %>">
     <div class="card-header d-flex justify-content-between align-items-center">
       <span><i class="fas fa-chart-line me-1"></i> History</span>
       <div class="btn-group btn-group-sm" role="group">
         <% DustCollectorReading::HISTORY_RANGES.each_key do |range| %>
           <button type="button"
-                  class="btn btn-outline-secondary <%= "active" if range == "7d" %>"
+                  class="btn btn-outline-secondary <%= "active" if range == @history_range %>"
                   data-dust-collector-history-target="rangeButton"
                   data-range="<%= range %>"
                   data-action="dust-collector-history#select"><%= range %></button>
@@ -190,5 +189,4 @@
       </tbody>
     </table>
   </div>
-  <% end %>
 </div>
