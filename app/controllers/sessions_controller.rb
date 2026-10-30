@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     session[:user_uid] = user.uid
     session[:oa_credentials_token] = auth_hash.credentials.token
 
-    redirect_to :root
+    redirect_to return_to_path || root_path
   end
 
   def destroy
@@ -23,5 +23,12 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
+  end
+
+  # Where the user was headed before being sent to sign in. Only local paths,
+  # so this can't be used to bounce someone off-site.
+  def return_to_path
+    path = session.delete(:return_to)
+    path if path.is_a?(String) && path.start_with?("/") && !path.start_with?("//")
   end
 end

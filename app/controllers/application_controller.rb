@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !current_user
+      session[:return_to] = request.fullpath if request.get? && request.format.html?
       redirect_to "/auth/wildapricot"
     end
   end
