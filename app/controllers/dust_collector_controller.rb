@@ -3,6 +3,7 @@
 class DustCollectorController < ApplicationController
   def show
     @status = DustCollectorReading.status
+    @history_range = DustCollectorReading.default_history_range
 
     respond_to do |format|
       format.html

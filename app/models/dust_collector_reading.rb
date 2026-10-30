@@ -75,6 +75,13 @@ class DustCollectorReading < TelemetryRecord
     :normal
   end
 
+  # The history range the page opens on: a week once there's a week of data
+  # to show, otherwise the last day so a new gauge isn't mostly empty chart.
+  def self.default_history_range(now: Time.current)
+    first = successful.minimum(:read_at)
+    first && first <= now - 7.days ? "7d" : "24h"
+  end
+
   # Average fill per bucket over the range, with nil for buckets that have no
   # readings so the chart shows gaps where the gauge or agent was down.
   def self.history(range, now: Time.current)
