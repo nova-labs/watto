@@ -1,0 +1,76 @@
+#!/bin/bash
+# Uploads databases from a deploy/backup-db folder to a server, replacing the
+# ones there. Run on your own machine:
+#
+#   deploy/restore-db srv-c.nova-labs.org backups/srv-b/2026-11-02-14-30 telemetry
+#
+# Names pick which databases to restore (telemetry, or a file name like
+# 335649-production.sqlite3); with none, every database in the folder is
+# restored. The app is stopped while files are swapped, so this needs sudo on
+# the server as you (or ADMIN_USER). Replaced databases are kept in
+# db/backups/ as NAME.before-restore-TIMESTAMP.
+
+set -euo pipefail
+
+HOST=${1:?usage: deploy/restore-db HOST BACKUP_FOLDER [NAME...]}
+SRC=${2:?usage: deploy/restore-db HOST BACKUP_FOLDER [NAME...]}
+shift 2
+APP_USER=wautils
+ADMIN_USER=${ADMIN_USER:-$USER}
+DB_DIR=/home/$APP_USER/srv/watto/db
+stamp=$(date +%Y-%m-%d-%H-%M)
+
+files=()
+if [ $# -eq 0 ]; then
+  files=("$SRC"/*.sqlite3)
+else
+  for name in "$@"; do
+    case $name in
+      *.sqlite3) files+=("$SRC/$name") ;;
+      *) files+=("$SRC/$name-production.sqlite3") ;;
+    esac
+  done
+fi
+
+for f in "${files[@]}"; do
+  [ -f "$f" ] || { echo "No such database: $f" >&2; exit 1; }
+  check=$(sqlite3 -readonly "$f" 'pragma integrity_check')
+  [ "$check" = ok ] || { echo "$f fails integrity_check: $check" >&2; exit 1; }
+done
+
+echo "This replaces on $HOST ($DB_DIR):"
+for f in "${files[@]}"; do echo "    $(basename "$f")"; done
+read -r -p "Continue? [y/N] " answer
+[ "$answer" = y ] || [ "$answer" = Y ] || exit 1
+
+staging=$DB_DIR/.restore-$stamp
+echo "==> Uploading"
+ssh "$APP_USER@$HOST" "mkdir -p '$staging'"
+scp -q "${files[@]}" "$APP_USER@$HOST:$staging/"
+
+echo "==> Swapping databases (the app is down for a few seconds)"
+ssh -t "$ADMIN_USER@$HOST" "
+  set -e
+  was_running=\$(systemctl is-active wautils || true)
+  sudo systemctl stop wautils
+  sudo -u $APP_USER bash -c '
+    set -e
+    cd $DB_DIR
+    mkdir -p backups
+    for new in $staging/*.sqlite3; do
+      name=\$(basename \"\$new\")
+      [ -f \"\$name\" ] && mv \"\$name\" \"backups/\$name.before-restore-$stamp\"
+      rm -f \"\$name-journal\"
+      mv \"\$new\" \"\$name\"
+      chmod 644 \"\$name\"
+      echo \"    restored \$name\"
+    done
+    rmdir $staging
+  '
+  if [ \"\$was_running\" = active ]; then
+    sudo systemctl start wautils
+    echo '==> wautils started again'
+  else
+    echo '==> wautils was not running, so it was left stopped'
+  fi
+"

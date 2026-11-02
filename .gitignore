@@ -44,3 +44,6 @@
 
 # exports and data analysis
 /*.csv
+
+# Database downloads from deploy/backup-db
+/backups
