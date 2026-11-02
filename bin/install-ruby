@@ -1,0 +1,58 @@
+#!/bin/bash
+# Builds the Ruby in .ruby-version into ~/.rubies with ruby-install, for the
+# servers where the app runs without a Ruby version manager (see DEPLOY.md).
+# Run it as the app user from the checkout, e.g. ~/srv/watto/bin/install-ruby.
+# Safe to re-run: it skips the build when that Ruby already works.
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+version=$(sed 's/^ruby-//' .ruby-version)
+root=$HOME/.rubies/ruby-$version
+api=$(echo "$version" | sed -E 's/^([0-9]+\.[0-9]+).*/\1.0/')
+bundler=$(awk '/^BUNDLED WITH/ {getline; print $1}' Gemfile.lock)
+
+if ! command -v ruby-install >/dev/null; then
+  echo "ruby-install isn't installed. See https://github.com/postmodern/ruby-install" >&2
+  exit 1
+fi
+
+# Check that openssl loads too, so a Ruby built against a libssl that's no
+# longer installed (e.g. one copied from an older server) gets rebuilt.
+if "$root/bin/ruby" -ropenssl -e '' 2>/dev/null; then
+  echo "==> Ruby $version is already installed in $root"
+else
+  echo "==> Building Ruby $version into $root (this takes a while)"
+  # --latest refreshes ruby-install's list of versions and checksums, which
+  # goes stale on older ruby-install releases.
+  ruby-install --latest --no-install-deps --cleanup --install-dir "$root" ruby "$version"
+fi
+
+export GEM_HOME=$HOME/.gem/ruby/$version
+export GEM_PATH=$GEM_HOME:$root/lib/ruby/gems/$api
+export PATH=$GEM_HOME/bin:$root/lib/ruby/gems/$api/bin:$root/bin:$PATH
+
+if ! gem list -i bundler -v "$bundler" >/dev/null; then
+  echo "==> Installing Bundler $bundler"
+  gem install --no-document bundler -v "$bundler"
+fi
+
+ruby -ropenssl -e 'puts "==> #{RUBY_DESCRIPTION}", "    #{OpenSSL::OPENSSL_LIBRARY_VERSION}"'
+
+if [ -f .env ] && grep -q "^RUBY_ROOT=$root\$" .env; then
+  echo "==> .env already points at Ruby $version"
+else
+  cat <<EOF
+
+To switch the app to this Ruby, set these in .env, then deploy (or restart):
+
+RUBY_VERSION=$version
+GEM_ROOT=$root/lib/ruby/gems/$api
+RUBY_ENGINE=ruby
+GEM_PATH=$GEM_PATH
+GEM_HOME=$GEM_HOME
+RUBY_ROOT=$root
+PATH=$GEM_HOME/bin:$root/lib/ruby/gems/$api/bin:$root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+EOF
+fi
