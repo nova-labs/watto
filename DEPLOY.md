@@ -129,6 +129,26 @@ bin/rails db:drop:primary
 
 Telemetry migrations live in `db/telemetry_migrate/`. Generate them with `--database telemetry`.
 
+### Backing up and restoring
+
+From your own machine, download both production databases into
+`backups/HOST/YYYY-MM-DD-HH-MM/` (gitignored; it includes member data):
+
+```
+deploy/backup-db srv-b.nova-labs.org
+```
+
+To put them on a server, replacing what's there (e.g. carrying the dust collector
+history to a new server):
+
+```
+deploy/restore-db srv-c.nova-labs.org backups/srv-b/2026-11-02-14-30 telemetry
+```
+
+Leave off the name to restore every database in the folder. It checks each file,
+asks before replacing anything, stops the app while it swaps the files (so it
+needs sudo), and keeps the replaced ones in `db/backups/` on the server.
+
 ## Dust collector agent
 
 The dust collector page (`/dust_collector`) shows readings that the on-site

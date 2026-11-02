@@ -1,0 +1,37 @@
+#!/bin/bash
+# Downloads the production SQLite databases from a server into
+# backups/HOST/YYYY-MM-DD-HH-MM/ in this checkout. Run on your own machine:
+#
+#   deploy/backup-db srv-b.nova-labs.org
+#
+# Copies are taken with sqlite3's .backup, so they're consistent even while the
+# app is writing. Set BACKUP_DIR to save somewhere other than ./backups.
+
+set -euo pipefail
+
+HOST=${1:?usage: deploy/backup-db HOST}
+APP_USER=wautils
+DB_DIR=srv/watto/db
+
+cd "$(dirname "$0")/.."
+dest=${BACKUP_DIR:-backups}/${HOST%%.*}/$(date +%Y-%m-%d-%H-%M)
+mkdir -p "$dest"
+
+echo "==> Snapshotting databases on $HOST"
+remote_tmp=$(ssh "$APP_USER@$HOST" "
+  set -e
+  tmp=\$(mktemp -d)
+  for db in $DB_DIR/*-production.sqlite3; do
+    sqlite3 \"\$db\" \".backup '\$tmp/\$(basename \"\$db\")'\"
+  done
+  echo \$tmp
+")
+
+echo "==> Downloading to $dest"
+scp -q "$APP_USER@$HOST:$remote_tmp/*.sqlite3" "$dest/"
+ssh "$APP_USER@$HOST" "rm -rf '$remote_tmp'"
+
+for db in "$dest"/*.sqlite3; do
+  printf "    %-32s %8s  integrity: %s\n" "$(basename "$db")" "$(du -h "$db" | cut -f1)" \
+    "$(sqlite3 -readonly "$db" 'pragma integrity_check')"
+done
