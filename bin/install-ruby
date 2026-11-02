@@ -3,10 +3,13 @@
 # servers where the app runs without a Ruby version manager (see DEPLOY.md).
 # Run it as the app user from the checkout, e.g. ~/srv/watto/bin/install-ruby.
 # Safe to re-run: it skips the build when that Ruby already works.
+#
+# Usage: bin/install-ruby [ENV_FILE]   (default: .env in the checkout)
 
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+env_file=${1:-.env}
 
 version=$(sed 's/^ruby-//' .ruby-version)
 root=$HOME/.rubies/ruby-$version
@@ -38,14 +41,19 @@ if ! gem list -i bundler -v "$bundler" >/dev/null; then
   gem install --no-document bundler -v "$bundler"
 fi
 
+# sqlite3 1.x has no precompiled gem for newer Rubies, and building its bundled
+# SQLite needs pkg-config. Link against the system libsqlite3 instead.
+bundle config set --global build.sqlite3 --enable-system-libraries
+
 ruby -ropenssl -e 'puts "==> #{RUBY_DESCRIPTION}", "    #{OpenSSL::OPENSSL_LIBRARY_VERSION}"'
 
-if [ -f .env ] && grep -q "^RUBY_ROOT=$root\$" .env; then
-  echo "==> .env already points at Ruby $version"
+if [ -f "$env_file" ] && grep -q "^RUBY_ROOT=$root\$" "$env_file"; then
+  echo "==> $env_file already points at Ruby $version"
 else
   cat <<EOF
 
-To switch the app to this Ruby, set these in .env, then deploy (or restart):
+To switch the app to this Ruby, set these in $env_file (above the # STOP
+comment), deploy, then sudo systemctl restart wautils:
 
 RUBY_VERSION=$version
 GEM_ROOT=$root/lib/ruby/gems/$api

@@ -1,0 +1,38 @@
+#!/bin/bash
+# Provisions a server to run Watto. Run from a checkout on your own machine:
+#
+#   deploy/provision srv-c.nova-labs.org
+#
+# Logs in as you (or ADMIN_USER), so you need an account with sudo on the
+# server; sudo will prompt for your password. Safe to re-run, e.g. after
+# moving DNS to pick up a TLS certificate. Set CERTBOT_EMAIL to register the
+# certificate with an email address, and APP_ALIASES to serve extra names, e.g.
+#
+#   APP_ALIASES=xwautils.nova-labs.org deploy/provision srv-c.nova-labs.org
+
+set -euo pipefail
+
+HOST=${1:?usage: deploy/provision HOST}
+ADMIN_USER=${ADMIN_USER:-$USER}
+REMOTE_DIR=/tmp/watto-provision
+
+cd "$(dirname "$0")/.."
+
+echo "==> Copying provisioning files to $HOST"
+# Keeps the checkout's layout, so deploy/app-setup.sh finds bin/install-ruby
+# and bin/install-ruby finds .ruby-version and Gemfile.lock.
+COPYFILE_DISABLE=1 tar --no-xattrs -c deploy bin/install-ruby .ruby-version Gemfile.lock |
+  ssh "$ADMIN_USER@$HOST" "rm -rf $REMOTE_DIR && mkdir -m 755 $REMOTE_DIR && tar -x -C $REMOTE_DIR"
+
+ssh -t "$ADMIN_USER@$HOST" "
+  set -e
+  sudo CERTBOT_EMAIL='${CERTBOT_EMAIL:-}' APP_ALIASES='${APP_ALIASES:-}' bash $REMOTE_DIR/deploy/system-setup.sh
+  sudo -u wautils -H bash $REMOTE_DIR/deploy/app-setup.sh
+  rm -rf $REMOTE_DIR
+"
+
+echo
+echo "==> $HOST is provisioned. To deploy:"
+echo "    git remote add $HOST wautils@$HOST:git/watto"
+echo "    git push $HOST main"
+echo "    then on $HOST: sudo systemctl restart wautils"

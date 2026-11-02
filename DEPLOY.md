@@ -4,112 +4,99 @@
 This describes the deploy process for Nova Labs. It is a bit manual of a deploy
 solution, but wanted to document it for future reference.
 
-## Installing on Ubuntu
+## How it runs
 
-##### 1. Create limited user
+- The app runs as the `wautils` user from `~/srv/watto`, under the `wautils`
+  systemd unit ([`deploy/wautils.service`](deploy/wautils.service)), with Puma
+  on `127.0.0.1:$PORT`.
+- Apache proxies `wautils.nova-labs.org` to it
+  ([`deploy/apache.conf`](deploy/apache.conf), the whole HTTP and HTTPS
+  config). certbot only fetches the Let's Encrypt certificate (`certonly
+  --webroot`, cert name `wautils`) and reloads Apache when it renews.
+- Ruby is built with `ruby-install` into `~wautils/.rubies` by
+  [`bin/install-ruby`](bin/install-ruby), and `.env` sets `PATH`, `GEM_HOME`
+  etc. to point at it (see [`.env-example`](.env-example)) instead of using a
+  Ruby version manager. chruby is installed only so interactive `wautils`
+  shells get the right Ruby.
+- Deploys are a `git push` to the bare repo at `~wautils/git/watto`. Its
+  [`post-receive`](deploy/post-receive) hook checks out `main`, bundles,
+  migrates, precompiles assets, and touches `tmp/restart.txt` so Puma restarts
+  itself. The hook only reads `.env` up to the `# STOP` comment.
 
-We used user `wautils`
+The server is shared with other Nova Labs apps. Watto only owns the `wautils`
+user, the `wautils` unit and the `wautils` Apache site.
 
-##### 2. Install Ruby
-
-Gonna build a ruby and store it in the wautils users home dir, so the app stays
-isolated(ish) from the system.
-
-Build dependencies:
-
-```
-sudo apt install git curl libssl-dev libreadline-dev \
-         zlib1g-dev autoconf bison build-essential \
-         libyaml-dev libreadline-dev libncurses5-dev \
-         libffi-dev libgdbm-dev libsqlite3-dev
-```
-
-Install `ruby-install` per it's [README](https://github.com/postmodern/ruby-install)
-
-Install Ruby as the limited user.
-
-```
-sudo su - wautils
-ruby-install --no-install-deps ruby 3.0.3
-```
-
-##### 3. Setup the Rails app
-
-Clone this repo to `~/src`
-
-Install the `.env` file. This file will include variables for PATH and
-RUBY_HOME so that the correct Ruby and Gems are loaded when running the app.
-This is done in lieu of a Ruby Version Manager to keep things simple. See
-[`.env-example`](.env-example) for the options.
-
-Create the DB, run migrations, and precompile assets:
+## Deploying
 
 ```
-sudo su - wautils
-source ./bin/load-env
-bundle exec bin/setup
+git remote add production wautils@srv-b.nova-labs.org:git/watto
+git push production main
 ```
 
-Install the systemd unit:
+Logs: `sudo journalctl -u wautils`
+
+Puma's `tmp/restart.txt` restart keeps the environment systemd started it
+with, so a deploy that needs a changed `.env` (a new Ruby, a new secret) also
+needs `sudo systemctl restart wautils`.
+
+### Upgrading Ruby
+
+1. Update `.ruby-version` and the `ruby` line in the `Gemfile`, and get the
+   specs passing.
+2. On the server, as `wautils`, build it before deploying. From your checkout:
+   ```
+   COPYFILE_DISABLE=1 tar --no-xattrs -c bin/install-ruby .ruby-version Gemfile.lock | ssh wautils@HOST 'd=$(mktemp -d) && tar -x -C "$d" && "$d/bin/install-ruby" ~/srv/watto/.env; rm -rf "$d"'
+   ```
+3. Put the Ruby lines it prints into `.env`, push `main`, then
+   `sudo systemctl restart wautils`. Deploy right after editing `.env`: until
+   then any deploy of the old code would run on the new Ruby.
+
+The old Ruby stays in `~/.rubies`, so rolling back is restoring the old `.env`
+lines, pushing the previous commit, and restarting.
+
+## Provisioning a server
+
+[`deploy/provision`](deploy/provision) sets up a fresh Ubuntu server: build
+packages, Apache and certbot, `ruby-install` and chruby, the `wautils` user
+and unit, the Apache site, Ruby (the version in `.ruby-version`, via
+`bin/install-ruby`), and the deploy repo.
+Run it from your own checkout with an account that has sudo on the server. It
+is safe to re-run:
 
 ```
-sudo ln -s /home/wautils/src/watto/etc/watto.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl start watto
+deploy/provision srv-c.nova-labs.org
 ```
 
-To see logs:
+It never touches `.env` or the databases. Those are copied over by hand.
+
+To also serve other names, like a temporary one for testing a new server
+before DNS moves, pass them in `APP_ALIASES`. The certificate covers each name
+whose DNS already points at the server:
 
 ```
-sudo journalctl -u watto
+APP_ALIASES=xwautils.nova-labs.org deploy/provision srv-c.nova-labs.org
 ```
 
-##### 3. Setup deploy repo
+Keep passing the same `APP_ALIASES` on later runs, or the name is dropped from
+Apache (and certbot will be asked to drop it from the certificate).
 
-1.  Create a bare repo at `~/git/watto`
-2. Configure authroized hosts to use key pair autentication for the user.
-3. Add the `post-receive` hook below
+### Moving to a new server
 
-To deploy to this branch you will need to configure the development machine.
-
-1. Add production remote `git remote add production wautils@srv-b.nova-labs.org:git/watto`
-2. Push to the main branch `git push produciton main`
-
-###### Post Recieve Hook for Deploying via Git
-
-```
-#!/bin/bash
-
-set -e
-
-GIT_DIR=/home/wautils/git/watto
-WORK_TREE=/home/wautils/srv/watto
-
-export RAILS_ENV=production
-
-while read oldrev newrev ref
-do
-    if [[ $ref =~ .*/main$ ]];
-    then
-        echo "Main ref received.  Deploying main branch to production..."
-        mkdir -p $WORK_TREE
-        git --work-tree=$WORK_TREE --git-dir=$GIT_DIR checkout -f
-
-        # start deploy tasks
-        cd $WORK_TREE
-	export $(cat .env | sed 's/#.*//g' | xargs)
-
-        ./bin/bundle install
-        ./bin/rails db:prepare
-        ./bin/rails assets:precompile
-        ./bin/rails restart
-        # end deploy tasks
-        echo "Git hooks deploy complete"
-    else
-        echo "Ref $ref successfully received.  Doing nothing: only the main branch may be deployed on this server."
-    fi
-done
-```
+1. Point a temporary name (e.g. `xwautils.nova-labs.org`) at the new server and
+   run `APP_ALIASES=<temp name> deploy/provision NEW_HOST`.
+2. Copy `~wautils/srv/watto/.env` from the old server, and update the Ruby
+   paths if the Ruby version changed. Add your SSH key to
+   `~wautils/.ssh/authorized_keys`.
+3. `git push NEW_HOST main` to deploy, then `sudo systemctl restart wautils`.
+   The hook only restarts a running app, so the first start is manual. Check
+   it at `https://<temp name>`. Signing in there only works if the Wild
+   Apricot app allows that redirect domain.
+4. Cut over: `sudo systemctl stop wautils` on the old server, copy both
+   databases from `~wautils/srv/watto/db/` (the telemetry one can't be rebuilt,
+   see below), and `sudo systemctl restart wautils` on the new one.
+5. Point DNS for `wautils.nova-labs.org` at the new server, then re-run
+   provisioning (with the same `APP_ALIASES`) to add it to the certificate.
+6. Update the `production` git remote.
 
 ## Databases
 

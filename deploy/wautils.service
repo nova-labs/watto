@@ -7,7 +7,8 @@ User=wautils
 Group=wautils
 WorkingDirectory=/home/wautils/srv/watto
 EnvironmentFile=/home/wautils/srv/watto/.env
-ExecStart=/home/wautils/srv/watto/bin/bundle exec rails server -p $PORT
+# Only Apache needs to reach Puma, so keep it off the public interface.
+ExecStart=/home/wautils/srv/watto/bin/bundle exec rails server -b 127.0.0.1 -p $PORT
 
 Restart=always
 RestartSec=14s
