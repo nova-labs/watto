@@ -1,0 +1,36 @@
+#!/bin/bash
+# Deploys main when it's pushed to the bare repo at ~/git/watto. Installed by
+# deploy/app-setup.sh.
+
+set -e
+
+GIT_DIR=/home/wautils/git/watto
+WORK_TREE=/home/wautils/srv/watto
+
+export RAILS_ENV=production
+
+while read oldrev newrev ref
+do
+    if [[ $ref =~ .*/main$ ]];
+    then
+        echo "Main ref received.  Deploying main branch to production..."
+        mkdir -p $WORK_TREE
+        git --work-tree=$WORK_TREE --git-dir=$GIT_DIR checkout -f
+
+        # start deploy tasks
+        cd $WORK_TREE
+
+        # Load environment variables up to the STOP comment. Values after it
+        # (like a JSON blob) don't survive xargs, and the deploy doesn't need them.
+        export $(awk '/^# STOP/ {exit} {print}' .env | sed -E '/^\s*$/d; s/#.*//g' | xargs)
+
+        ./bin/bundle install
+        ./bin/rails db:prepare
+        ./bin/rails assets:precompile
+        ./bin/rails restart
+        # end deploy tasks
+        echo "Git hooks deploy complete"
+    else
+        echo "Ref $ref successfully received.  Doing nothing: only the main branch may be deployed on this server."
+    fi
+done
